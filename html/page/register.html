@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Jumbotron Template for Bootstrap</title>
+
+    <!--Bootstrap core CSS todo 上线cdn-->
+    <!--<link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="../../dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../src/styles/module/login.css"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Car</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse  navbar-right" id="bs-example-navbar-collapse-1">
+
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+            </form>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+<!--为login模块-->
+<div class="ycm-form-login-background">
+    <div class="col-md-3 col-xs-12 col-md-offset-7 container">
+        <div class="form-group">
+            <input type="email" class="form-control" id="email" placeholder="注册邮箱"/>
+        </div>
+        <div class="form-group">
+            <input type="tel" class="form-control" id="tel" placeholder="您的电话号号码"/>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" id="password" placeholder="密码6-16位"/>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" id="repassword" placeholder="重复您的密码"/>
+        </div>
+        <div class="form-group">
+            <input type="tel" class="col-md-5 col-xs-5 ycm-form-checkCode" placeholder="输入验证码"/>
+            <img src="" alt="" class="ycm-form-image"/>
+            <a href="" class="ycm-form-link">换一张</a>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"/> 记住我
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">注册</button>
+    </div>
+</div>
+<footer class="footer ">
+    <div class="container">
+        <div class="row footer-top">
+            <div class="col-sm-5 col-lg-5">
+                <h4>
+                    <img src="http://static.bootcss.com/www/assets/img/logo.png">
+                </h4>
+
+                <p>本网站所列开源项目的中文版文档全部由<a href="http://www.bootcss.com/">Bootstrap中文网</a>成员翻译整理，并全部遵循 <a
+                        href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>协议发布。</p>
+            </div>
+            <div class="col-sm-5  col-lg-4 col-lg-offset-1">
+                <div class="row about">
+                    <div class="col-xs-4">
+                        <h4>关于</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="/about/">关于我们</a></li>
+                            <li><a href="/ad/">广告合作</a></li>
+                            <li><a href="/links/">友情链接</a></li>
+                            <li><a href="/hr/">招聘</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-xs-4">
+                        <h4>售后服务</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="http://www.golaravel.com/" target="_blank">保险</a></li>
+                            <li><a href="http://www.ghostchina.com/" target="_blank">上牌</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4">
+                        <h4>购车帮助</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="http://www.ucloud.cn/" target="_blank">如何下单</a></li>
+                            <li><a href="https://www.upyun.com" target="_blank">物流信息</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-2 col-lg-2">
+                <h4>
+                    微信
+                </h4>
+
+                <p><img src="http://img1.bitautoimg.com/ycmall//wx-code.jpg"></p>
+            </div>
+        </div>
+        <hr>
+        <div class="row footer-bottom">
+            <ul class="list-inline text-center">
+                <li><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备11008151号</a></li>
+                <li>京公网安备11010802014853</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</body>
+</html>

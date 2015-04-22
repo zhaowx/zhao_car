@@ -1,0 +1,21 @@
+/*
+carDetail
+*/
+body{margin-top:70px;}
+
+.ycm_img_cont{ text-align: center;}
+.ycm_img_cont img{width: 100%; max-width: 460px;}
+.ycm_head{border-bottom: 1px dotted #dddddd;}
+.ycm_cont{margin: 15px 0 0 20px;}
+.ycm_buy_btn{ width: 160px;}
+/*
+carDetailSlider
+*/
+.banner { position: relative; overflow: auto; }
+.banner li { list-style: none; }
+.banner ul li { float: left; }
+
+/*oneDetailPublic*/
+.ycm_img_cont100, .ycm_img_cont90{ text-align: center;}
+.ycm_img_cont100 img{width: 100%;}
+.ycm_img_cont90 img{width: 90%;}
