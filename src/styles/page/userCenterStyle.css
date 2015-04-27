@@ -1,8 +1,14 @@
 /***
-  *用户中心
+  *************************************用户中心**********
   */
 .userCenter{
+    margin-top: 50px;
+}
+.userCenterMobile{
     margin-top: 65px;
+}
+.userCenter .listMenu{
+    margin-top: 15px;
 }
 #ycm-user-ListHeaderActive{
     border: 0px;
@@ -30,6 +36,20 @@
 .mobile .arrowRight{
     float: right;
     margin-right:5px;
+}
+.userCenter .mdFont{
+    font-size:30px;
+    margin-right: 15px;
+}
+.userCenter .h2{
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+.userCenter .formService{
+    margin-top: 20px;
+}
+.formService textarea{
+    height: 240px;
 }
 /* 只在平板即以上的屏幕上显示*/
 @media screen and (min-width: 769px) {
