@@ -15,6 +15,7 @@
     <!--<link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">-->
     <link rel="stylesheet" href="../../dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../../src/styles/page/userCenterStyle.css"/>
+    <link rel="stylesheet" href="../../src/styles/selffont/iconfont.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -80,111 +81,39 @@
     <!-- /.container-fluid -->
 </nav>
 <div class="container userCenter">
-    <div class="row">
+    <div class="row ">
         <div class="col-sm-2 col-md-2 hidden-xs listMenu">
             <div class="list-group">
-                <span class="list-group-item active" id="ycm-user-ListHeaderActive">
+                <span class="list-group-item active">
                     我的交易
                 </span>
                 <a href="http://wwww.baidu.com/" class="list-group-item">我的订单</a>
-                <a href="#" class="list-group-item active">我的求购</a>
+                <a href="#" class="list-group-item">我的求购</a>
                 <a href="#" class="list-group-item">我的车源</a>
+
                 <span href="#" class="list-group-item active">
                     账号管理
                 </span>
-                <a href="#" class="list-group-item">账户信息</a>
-                <a href="#" class="list-group-item ycm-user-LinkFocus">修改密码</a>
-                <a href="#" class="list-group-item">服务
-                </a>
-                <a href="#" class="list-group-item">投诉建议</a>
+                <span class="list-group-item">账户信息</span>
+                <a href="#" class="list-group-item">修改密码</a>
+                <span class="list-group-item active" id="ycm-user-ListHeaderActive">服务
+                </span>
+                <a href="#" class="list-group-item ycm-user-LinkFocus">投诉建议</a>
             </div>
 
         </div>
         <div class="col-sm-10 col-md-10">
             <div class="page-header">
-                <h2 class="h2">修改密码</h2>
+                <h3 class="h2"><i class="icon iconfont mdFont">&#xe677;</i>服务</h3>
             </div>
-            <form class="form-horizontal col-md-5 col-sm-8 col-md-offset-4 col-sm-offset-2 formService">
+            <form class="formService">
                 <div class="form-group">
-                    <label for="primaryPassword" class="">初始密码</label>
-                    <input type="password" class="form-control" placeholder="请输入初始密码" id="primaryPassword"/>
+                    <textarea class="form-control" row="30" placeholder="请输入您的反馈意见"></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="newPassWord" class="">新密码</label>
-                    <input type="password" class="form-control" placeholder="请输入您的新密码" id="newPassWord"/>
-                </div>
-                <div class="form-group">
-                    <label for="checkNewPassword" class="">初始密码</label>
-                    <input type="password" class="form-control" placeholder="请输入您的新密码" id="checkNewPassword"/>
-                </div>
-                <div class="row">
-                    <button type="submit" class="btn btn-primary btn-block">提交</button>
-                </div>
+                <button type="submit" class="btn btn-primary form-control">提交</button>
             </form>
         </div>
     </div>
 </div>
-<footer class="footer ">
-    <div class="container">
-        <div class="row footer-top">
-            <div class="col-sm-5 col-lg-5">
-                <h4>
-                    <img src="http://static.bootcss.com/www/assets/img/logo.png">
-                </h4>
-
-                <p>本网站所列开源项目的中文版文档全部由<a href="http://www.bootcss.com/">Bootstrap中文网</a>成员翻译整理，并全部遵循 <a
-                        href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>协议发布。</p>
-            </div>
-            <div class="col-sm-5  col-lg-4 col-lg-offset-1">
-                <div class="row about">
-                    <div class="col-xs-4">
-                        <h4>关于</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="/about/">关于我们</a></li>
-                            <li><a href="/ad/">广告合作</a></li>
-                            <li><a href="/links/">友情链接</a></li>
-                            <li><a href="/hr/">招聘</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-xs-4">
-                        <h4>售后服务</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="http://www.golaravel.com/" target="_blank">保险</a></li>
-                            <li><a href="http://www.ghostchina.com/" target="_blank">上牌</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-4">
-                        <h4>购车帮助</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="http://www.ucloud.cn/" target="_blank">如何下单</a></li>
-                            <li><a href="https://www.upyun.com" target="_blank">物流信息</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-sm-2 col-lg-2">
-                <h4>
-                    微信
-                </h4>
-
-                <p><img src="http://img1.bitautoimg.com/ycmall//wx-code.jpg"></p>
-            </div>
-        </div>
-        <hr>
-        <div class="row footer-bottom">
-            <ul class="list-inline text-center">
-                <li><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备11008151号</a></li>
-                <li>京公网安备11010802014853</li>
-            </ul>
-        </div>
-    </div>
-</footer>
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
-<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </body>
 </html>
