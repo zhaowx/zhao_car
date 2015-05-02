@@ -1,24 +1,28 @@
 /***
   *************************************用户中心**********
   */
-.userCenter{
+.userCenter {
     margin-top: 50px;
 }
-.userCenterMobile{
+
+.userCenterMobile {
     margin-top: 65px;
 }
-.userCenter .listMenu{
+
+.userCenter .listMenu {
     margin-top: 15px;
 }
-#ycm-user-ListHeaderActive{
+
+#ycm-user-ListHeaderActive {
     border: 0px;
     border-left: 10px solid rgb(236, 38, 38);
     padding-left: 10px;
 }
-.userCenter .page-header{
-    margin:0px;
+
+.userCenter .page-header {
+    margin: 0px;
     font-weight: bold;
-    color:#337AB7;
+    color: #337AB7;
     border-bottom: 4px solid #337AB7;
 }
 
@@ -26,40 +30,46 @@
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
 }
+
 .mobile .list-group-item:last-child {
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
 }
+
 .mobile .iconLogo {
     margin-right: 8px;
 }
-.mobile .arrowRight{
+
+.mobile .arrowRight {
     float: right;
-    margin-right:5px;
+    margin-right: 5px;
 }
-<<<<<<< HEAD
-        .orderTab{
-            width: 50%;
-=======
-.userCenter .mdFont{
-    font-size:30px;
+
+.orderTab {
+    width: 50%;
+}
+.userCenter .mdFont {
+    font-size: 30px;
     margin-right: 15px;
 }
-.userCenter .h2{
+
+.userCenter .h2 {
     margin-top: 10px;
     margin-bottom: 0px;
 }
-.userCenter .formService{
+
+.userCenter .formService {
     margin-top: 20px;
 }
-.formService textarea{
+
+.formService textarea {
     height: 240px;
->>>>>>> 24e8302b611c42a666656f2075e0a45bbf0c3430
 }
+
 /* 只在平板即以上的屏幕上显示*/
 @media screen and (min-width: 769px) {
-    .userCenter .list-group a:hover,a.ycm-user-LinkFocus{
-        color:#cc0101;
+    .userCenter .list-group a:hover, a.ycm-user-LinkFocus {
+        color: #cc0101;
         text-decoration: underline;
     }
 }

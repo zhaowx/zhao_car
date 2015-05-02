@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../../dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../../src/styles/page/userCenterStyle.css"/>
     <link rel="stylesheet" href="../../src/styles/selffont/iconfont.css">
-    <link rel="stylesheet" href="../../src/styles/page/jquery.fileupload.css"/>
+    <link rel="stylesheet" href="../../src/styles/page/WebUPLoad.css"/>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -167,16 +167,38 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">上传图片</div>
                     <div class="panel-body">
-                        <span class="btn btn-success fileinput-button">
-                       <i class="glyphicon glyphicon-plus"></i>
-                         <span>添加图片</span>
-                         <input id="fileupload" type="file" name="files[]" multiple>
-                     </span>
+                        <div id="wrapper">
+                            <div id="container">
+                                <!--头部，相册选择和格式选择-->
+
+                                <div id="uploader">
+                                    <div class="queueList">
+                                        <div id="dndArea" class="placeholder">
+                                            <div id="filePicker"></div>
+                                            <p>或将照片拖到这里，单次最多可选300张</p>
+                                        </div>
+                                    </div>
+                                    <div class="statusBar" style="display:none;">
+                                        <div class="progress">
+                                            <span class="text">0%</span>
+                                            <span class="percentage"></span>
+                                        </div>
+                                        <div class="info"></div>
+                                        <div class="btns">
+                                            <div id="filePicker2"></div>
+                                            <div class="uploadBtn">开始上传</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div id="progress" class="progress">
                         <div class="progress-bar progress-bar-success"></div>
                     </div>
-                    <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
+                    <table role="presentation" class="table table-striped">
+                        <tbody class="files"></tbody>
+                    </table>
                 </div>
             </form>
         </div>
@@ -241,7 +263,7 @@
 </footer>
 <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="../../src/scripts/plugin/fileUpload/jquery.fileupload.js"></script>
-<script src="../../src/scripts/plugin/fileUpload/jquery.fileupload-image.js"></script>
+<script type="text/javascript" src="../../src/scripts/plugin/fileupload/webuploader.min.js"></script>
+<script charset="gb2312" type="text/javascript" src="../../src/scripts/plugin/fileupload/Updown.js"></script>
 </body>
 </html>
