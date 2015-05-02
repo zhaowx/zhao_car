@@ -31,6 +31,9 @@
     float: right;
     margin-right:5px;
 }
+.orderTab{
+    width: 50%;
+}
 /* 只在平板即以上的屏幕上显示*/
 @media screen and (min-width: 769px) {
     .userCenter .list-group a:hover,a.ycm-user-LinkFocus{
