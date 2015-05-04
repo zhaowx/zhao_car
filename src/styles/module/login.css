@@ -15,12 +15,21 @@
         background:rgba(215, 226, 215, 0.67);
     }
 }
+.ycm-form-login-background h3{
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
 .ycm-form-image {
     display: inline-block;
     margin-left: 5px;
     height: 34px;
     min-width: 70px;
     max-width: 70px
+}
+.ycm-form-error{
+    color:red;
+    height: 20px;
+    font-size:14px;
 }
 
 .ycm-form-link {
