@@ -13,8 +13,8 @@
     <!--Bootstrap core CSS todo 上线cdn-->
     <!--<link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">-->
     <link rel="stylesheet" href="../../dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../src/styles/module/loading.css"/>
     <link rel="stylesheet" href="../../src/styles/module/login.css"/>
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -83,30 +83,30 @@
 <div class="ycm-form-login-background">
     <div class="col-md-3 col-xs-12 col-md-offset-7 container">
         <h3 class="text-center">注册</h3>
-        <div class="form-group">
-            <input type="email" class="form-control" id="email" placeholder="注册邮箱"/>
-        </div>
-        <div class="form-group">
-            <input type="tel" class="form-control" id="tel" placeholder="您的电话号号码"/>
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" id="password" placeholder="密码6-16位"/>
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" id="repassword" placeholder="重复您的密码"/>
-        </div>
-        <div class="form-group">
-            <input type="tel" class="col-md-5 col-xs-5 ycm-form-checkCode" placeholder="输入验证码"/>
-            <img src="" alt="" class="ycm-form-image"/>
-            <a href="" class="ycm-form-link">换一张</a>
-        </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox"/> 记住我
-            </label>
-        </div>
-        <p class="ycm-form-error">xxxx</p>
-        <button type="submit" class="btn btn-primary btn-block">注册</button>
+
+        <form id="submit">
+            <div class="form-group">
+                <input type="email" class="form-control" id="email" placeholder="注册邮箱"/>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="password" placeholder="密码6-16位"/>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="repassword" placeholder="重复您的密码"/>
+            </div>
+            <div class="form-group">
+                <input type="tel" class="col-md-5 col-xs-5 ycm-form-checkCode" placeholder="输入验证码" id="checkCode"/>
+                <img src="" alt="" class="ycm-form-image"/>
+                <a href="" class="ycm-form-link">换一张</a>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="remember"/> 记住我
+                </label>
+            </div>
+            <p class="ycm-form-error">xxxx</p>
+            <button type="submit" class="btn btn-primary btn-block">注册</button>
+        </form>
     </div>
 </div>
 <footer class="footer ">
@@ -166,11 +166,14 @@
         </div>
     </div>
 </footer>
+<div id="loading"></div>
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="../../src/scripts/page/register.js"></script>
+<script src="../../src/scripts/template.js"></script>
+<script src="../../src/scripts/js_module/loading.js" charset="gb2312"></script>
+<script src="../../src/scripts/page/register.js" charset="gb2312"></script>
 </body>
 </html>

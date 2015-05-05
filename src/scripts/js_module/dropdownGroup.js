@@ -53,13 +53,13 @@
             that.brandId  = idx;
             var data = that.carSource[idx].models;
             renderUl('js_cx',data);
-        })
+        });
         $('#js_cx').delegate('li','click',function(e){
             var idx = $(e.target).data('value');
             that.modelId  = idx;
             var data = that.carSource[that.brandId].models[idx].statestype;
             renderUl('js_cg',data)
-        })
+        });
         $('#js_cg').delegate('li','click',function(e){
 
         })
@@ -85,4 +85,4 @@
         renderUl('js_pp',brand);
         bindEvents();
     })
-})()
+})();
