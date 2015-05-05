@@ -1,7 +1,7 @@
 /**
  * Created by creditease on 2015/5/5.
  */
-//Õâ¸öÊÇÔÚ½øĞĞajaxÌá½»µÄÊ±ºòµÄ¼ÓÔØÌõ
+//è¿™ä¸ªæ˜¯åœ¨è¿›è¡Œajaxæäº¤çš„æ—¶å€™çš„åŠ è½½æ¡
 window.loading = {};
 (function (loading) {
     var source = '<div class="animateLoad">\
@@ -27,7 +27,7 @@ window.loading = {};
                </div>';
 
     var render = template.compile(source);
-    var html = render({data:"ÇëÉÔºó..."});
+    var html = render({data:"è¯·ç¨å..."});
     document.getElementById("loading").innerHTML = html;
     var touchmove = function (e) {
         e.preventDefault();

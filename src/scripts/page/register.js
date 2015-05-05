@@ -1,6 +1,6 @@
 /**
  * Created by luomingzhong on 2015/5/4.
- * Õâ¸öÊÇµÇÂ¼´úÂë
+ * è¿™ä¸ªæ˜¯ç™»å½•ä»£ç 
  */
 (function () {
     'use strict';
@@ -10,30 +10,30 @@
     elementObject.password = $("#password");
     elementObject.rePassword = $("#repassword");
     elementObject.checkCode = $("#checkCode");
-    elementObject.errorText = $('.ycm-form-error');//´íÎóĞÅÏ¢ÌáÊ¾
-    elementObject.regEmail = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;//ÓÊÏäĞ£Ñé
-    elementObject.remember = 1; //ÊÇ·ñ¼Ç×¡;
+    elementObject.errorText = $('.ycm-form-error');//é”™è¯¯ä¿¡æ¯æç¤º
+    elementObject.regEmail = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;//é‚®ç®±æ ¡éªŒ
+    elementObject.remember = 1; //æ˜¯å¦è®°ä½;
     elementObject.checkBox = $("#remember");
     var errorTextConfig = {
         email: {
-            empty: "ÓÊÏä²»ÄÜÎª¿Õ£¡",
-            errorRule: "ÓÊÏä²»·ûºÏ¹æÔò£¡"
+            empty: "é‚®ç®±ä¸èƒ½ä¸ºç©ºï¼",
+            errorRule: "é‚®ç®±ä¸ç¬¦åˆè§„åˆ™ï¼"
         },
         checkCode: {
-            empty: "ÑéÖ¤Âë²»ÄÜÎª¿Õ£¡"
+            empty: "éªŒè¯ç ä¸èƒ½ä¸ºç©ºï¼"
         },
         password: {
-            empty: "ÃÜÂë²»ÄÜÎª¿Õ£¡",
-            errorRule: "ÃÜÂë³¤¶ÈÖÁÉÙÎª6Î»"
+            empty: "å¯†ç ä¸èƒ½ä¸ºç©ºï¼",
+            errorRule: "å¯†ç é•¿åº¦è‡³å°‘ä¸º6ä½"
         },
         rePassword: {
-            empty: "ÖØ¸´ÃÜÂë²»ÄÜÎª¿Õ",
-            errorRule: "ÃÜÂë²»Ò»ÖÂ"
+            empty: "é‡å¤å¯†ç ä¸èƒ½ä¸ºç©º",
+            errorRule: "å¯†ç ä¸ä¸€è‡´"
         }
     };
     var Register = (function () {
         var Register = {};
-        //ÑéÖ¤ÊÖ»úºÅ
+        //éªŒè¯æ‰‹æœºå·
         Register.checkEmail = function (email) {
             var emailValue = $.trim(email.val());
             if ((elementObject.regEmail.test(emailValue))) {
@@ -76,7 +76,7 @@
             }
             return true;
         };
-        //submit Ìá½»¶¯×÷
+        //submit æäº¤åŠ¨ä½œ
         Register.submit = function (e) {
             e.preventDefault();
             var errorArray = new Array();
@@ -87,16 +87,16 @@
                 returnValueRePassWord = this.checkRePassWord(elementObject.rePassword),
                 returnCheckCode = this.checkCoding(elementObject.checkCode);
 
-            //½á¹ûÕıÈ·
+            //ç»“æœæ­£ç¡®
             if (returnValueEmail === true &&
                 returnValuePassWord === true &&
                 returnValueRePassWord === true &&
                 returnCheckCode === true) {
-                //´«ÊäÊı¾İ ajax
+                //ä¼ è¾“æ•°æ® ajax
                 this.ajaxSend();
             }
 
-            //½á¹û´íÎó
+            //ç»“æœé”™è¯¯
             else {
 
                 if (returnValueEmail === false) {
@@ -146,29 +146,29 @@
             this.clearErrorText();
             loading.show();
             $.ajax({
-                url: "Register.php",//·¢ËÍµÄµØÖ·
-                data: this.informationIntegrated(elementObject),//´«Êä¹ıÈ¥µÄÊı¾İ
+                url: "Register.php",//å‘é€çš„åœ°å€
+                data: this.informationIntegrated(elementObject),//ä¼ è¾“è¿‡å»çš„æ•°æ®
                 dataType: 'json',
                 type: 'post',
                 success: function (data) {
                     loading.hide();
-                    //data ³É¹¦ ÏÔÊ¾°ó¶¨³É¹¦
+                    //data æˆåŠŸ æ˜¾ç¤ºç»‘å®šæˆåŠŸ
                     if (data.status === 200) {
-                        // ×ªÏÂ¸öÒ³Ãæ
+                        // è½¬ä¸‹ä¸ªé¡µé¢
                     }
-                    //ĞÅÏ¢´íÎóÊ§°Ü
+                    //ä¿¡æ¯é”™è¯¯å¤±è´¥
                     if (data.status === "xxx") {
                         elementObject.errorText.text(data.error);
                     }
                 },
                 error: function (data) {
                     loading.hide();
-                    elementObject.errorText.text("Ìá½»Ê§°Ü£¬ÍøÂç¹ÊÕÏ£¬ÇëÉÔºóÔÙÊÔ");
+                    elementObject.errorText.text("æäº¤å¤±è´¥ï¼Œç½‘ç»œæ•…éšœï¼Œè¯·ç¨åå†è¯•");
                 }
             });
         };
 
-        //ÏÔÊ¾´íÎóĞÅÏ¢
+        //æ˜¾ç¤ºé”™è¯¯ä¿¡æ¯
         Register.showErrorText = function (errorTextArray) {
             var i = 0,
                 length = errorTextArray[0].length,
@@ -179,12 +179,12 @@
             }
             elementObject.errorText.text(errorTexts);
         };
-        //Çå³ı´íÎóĞÅÏ¢
+        //æ¸…é™¤é”™è¯¯ä¿¡æ¯
         Register.clearErrorText = function () {
             elementObject.errorText.text("");
         }
 
-        //´íÎóµÄÊäÈë¿ò¾Û½¹
+        //é”™è¯¯çš„è¾“å…¥æ¡†èšç„¦
         Register.errorInputAnimate = function (errorTextArray) {
             var i = 0,
                 length = errorTextArray[0].length;
@@ -195,16 +195,16 @@
             }
         };
 
-        //ÏÔÊ¾ºìÏßÒÔ¼°¾¯¸æ±êÖ¾
+        //æ˜¾ç¤ºçº¢çº¿ä»¥åŠè­¦å‘Šæ ‡å¿—
         Register.warningShow = function (elmentObject) {
             elmentObject.addClass("errorInput");
         };
 
-        //È¡ÏûºìÏßÒÔ¼°¾¯¸æ±êÖ¾
+        //å–æ¶ˆçº¢çº¿ä»¥åŠè­¦å‘Šæ ‡å¿—
         Register.clearWaringShow = function (elementObject) {
             elementObject.removeClass("errorInput");
         };
-        //ÕûºÏĞÅÏ¢Îªjson¸ñÊ½µÄ×Ö·û´®
+        //æ•´åˆä¿¡æ¯ä¸ºjsonæ ¼å¼çš„å­—ç¬¦ä¸²
         Register.informationIntegrated = function (elementObject) {
             var message = {};
             message.email = $.trim(elementObject.email.val());
@@ -216,7 +216,7 @@
         return Register;
     }());
 
-//µã»÷Ìá½»°´Å¥
+//ç‚¹å‡»æäº¤æŒ‰é’®
     elementObject.submitButton.on("submit", function (e) {
         Register.submit(e);
     });
