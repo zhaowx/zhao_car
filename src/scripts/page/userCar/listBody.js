@@ -1,0 +1,117 @@
+/**
+ * Created by weixiong.zhao on 2015/5/6.
+ */
+
+(function(){
+    function renderCont(data,locationData,num) {
+        var js_html = '<table class="table table-hover" \
+        {{if num<3}}\
+        style="margin-bottom:120px;">\
+        {{else}}\
+        >\
+        {{/if}}\
+            <thead>\
+            <tr>\
+                <th>车辆信息</th>\
+                <th>车架号</th>\
+                <th>售卖价格</th>\
+                <th>车辆状态</th>\
+                <th>发布时间</th>\
+                <th>审核状态</th>\
+            </tr>\
+            </thead>\
+        <tbody>\
+            {{each data as value i}}\
+            <tr>\
+                <td>\
+                        <p>{{value.brandName}} {{value.modelName}} {{value.statesTypeName}}</p>\
+                        <p>{{value.note}}</p>\
+                </td>\
+                <td>{{value.vin}}</td>\
+                <td>{{value.price}}</td>\
+                <td>\
+                    {{if num-i<2 && i>2}}\
+                    <div class="dropup">\
+                    {{else}}\
+                    <div class="dropdown">\
+                    {{/if}}\
+                    <div class="btn-group">\
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">\
+                        {{value.locationName}} <span class="caret"></span>\
+                        </button>\
+                        <ul class="dropdown-menu" role="menu" data-carid="{{value.carId}}">\
+                            {{each locationData as vv ii}}\
+                            <li><a href="#" data-value="{{ii}}">{{vv}}</a></li>\
+                            {{/each}}\
+                        </ul>\
+                    </div>\
+                    </div>\
+                </td>\
+                <td>20115-05-02</td>\
+                {{if value.visible==1}}\
+                <td>已通过</td>\
+                {{else}}\
+                <td>未通过</td>\
+                {{/if}}\
+            </tr>\
+            {{/each}}\
+        </tbody>\
+        </table>';
+        var render = template.compile(js_html);
+        //var html = render({data:[1,2]});
+        var html = render({
+            data:data,
+            locationData:locationData,
+            num:data.length
+        });
+
+        document.getElementById('js_listTable').innerHTML = html;
+
+    }
+
+
+    function bindEvents(){
+        $('#js_listTable').delegate('li','click',function(e){
+            //todo 跳转到detail页
+            var carid = $(e.target).parent().data('carid');
+            if(confirm('确认要更改其车辆状态？')){
+                alert('0')
+            }
+
+        })
+    }
+
+    function getData(){
+        $.ajax({
+            type: "GET",
+            url: "http://182.254.179.11/buyShop/s1/gateway.php",
+            data: {
+                cmd:10016,
+                dataPacket:{
+                    data: {
+                        num: 1
+                    }
+                }
+            },
+            dataType: "jsonp"
+        }).done(function(req){
+            if(req.result && req.result.req) {
+
+                var data = req.result.data.data;
+                var location = req.result.data.locationconfig;
+                renderCont(data,location);
+            }
+        })
+    }
+
+    function init(){
+        if(!$('#js_listTable')){
+            return;
+        }
+        getData();
+        bindEvents();
+    }
+
+    init();
+
+})();

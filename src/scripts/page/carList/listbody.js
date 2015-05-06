@@ -4,10 +4,11 @@
 
 (function(){
     function renderCont(data) {
-        var js_html = '<table class="table table-hover" id="js_tableList">\
+        var js_html = '<table class="table table-hover">\
             <thead><tr>\
                 <th>车辆品牌</th>\
                 <th>车辆信息</th>\
+                <th>车辆颜色</th>\
                 <th>售卖价格</th>\
                 <th>车辆状态</th>\
                 <th>发布日期</th>\
@@ -15,19 +16,20 @@
             </thead>\
             <tbody>\
             {{each list as value i}}\
-            <tr   data-href="carOne.html?carid=12121212133342">\
-                <td>宝马 x5 中规</td>\
-                <td>2015款 2.4L 手动版</td>\
-                <td>￥366,000</td>\
-                <td>期货</td>\
-                <td>2015-05-01</td>\
+            <tr   data-href="carOne.html?carId={{value.carId}}">\
+                <td>{{value.brandName}} {{value.modelName}} {{value.statesTypeName}}</td>\
+                <td>{{value.note}}</td>\
+                <td>{{value.colorName}}</td>\
+                <td>￥{{value.price}}</td>\
+                <td>{{value.locationName}}</td>\
+                <td>{{value.registration.split(" ")[0]}}</td>\
             </tr>\
             {{/each}}\
             </tbody></table>';
         var render = template.compile(js_html);
         //var html = render({data:[1,2]});
         var html = render({
-            list:[1,2,3,3,2,1]
+            list:data
         });
 
         document.getElementById('js_listTable').innerHTML = html;
@@ -36,7 +38,7 @@
 
 
     function bindEvents(){
-        $('#js_tableList').delegate('tr','click',function(e){
+        $('#js_listTable').delegate('tr','click',function(e){
             //todo 跳转到detail页
             var url = $(e.target).parent().data('href');
             location.href = url;
@@ -49,16 +51,13 @@
             type: "GET",
             url: "http://182.254.179.11/buyShop/s1/gateway.php",
             data: {
-                cmd:10001,
-                data:{
-                    carid:'1000222'
-                }
+                cmd:10002
             },
             dataType: "jsonp"
         }).done(function(req){
             if(req.result && req.result.req) {
 
-                var data = req.result.data;
+                var data = req.result.data.data;
                 renderCont(data);
             }
         })
@@ -72,8 +71,7 @@
         bindEvents();
     }
 
-    renderCont();
-    bindEvents();
+   init();
 
 
 })();
