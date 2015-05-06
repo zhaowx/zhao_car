@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Jumbotron Template for Bootstrap</title>
+
+    <!--Bootstrap core CSS todo 上线cdn-->
+    <!--<link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../src/styles/module/login.css"/>
+    <link rel="stylesheet" href="../src/styles/module/loading.css"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" id="js_topnav">
+
+</nav>
+<!--为login模块-->
+<div class="ycm-form-login-background">
+    <div class="col-md-3 col-xs-12 col-md-offset-7 container">
+        <h3 class="text-center">登录</h3>
+
+        <form id="submit">
+            <div class="form-group ">
+                <input type="email" class="form-control" id="email" placeholder="Eneter email"/>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="password" placeholder="密码长度为6-16位"/>
+            </div>
+            <div class="form-group">
+                <input type="tel" class="col-md-4 col-xs-5 ycm-form-checkCode" placeholder="请输入验证码" id="checkCode"/>
+                <img src="" alt="" class="ycm-form-image"/>
+                <a href="" class="ycm-form-link">换一张</a>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="remember"/> 记住我
+                </label>
+            </div>
+            <p class="ycm-form-error">xxxx</p>
+            <button type="submit" class="btn btn-primary btn-block">提交</button>
+        </form>
+    </div>
+</div>
+
+<footer class="footer " id="js_bottomFooter">
+
+</footer>
+
+<div id="loading"></div>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="../src/scripts/template.js"></script>
+<script src="../src/scripts/js_module/topNav.js"></script>
+<script src="../src/scripts/js_module/bottomFooter.js"></script>
+<script src="../src/scripts/js_module/loading.js"></script>
+<script src="../src/scripts/page/login.js"></script>
+</body>
+</html>
