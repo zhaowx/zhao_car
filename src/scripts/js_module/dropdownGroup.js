@@ -49,19 +49,27 @@
 
     function bindEvents(){
         $('#js_pp').delegate('li','click',function(e){
-            var idx = $(e.target).data('value');
+            var $target = $(e.target);
+            var text = $target.text();
+            $target.parents('ul').prev().text(text);
+            var idx = $target.data('value');
             that.brandId  = idx;
             var data = that.carSource[idx].models;
             renderUl('js_cx',data);
         });
         $('#js_cx').delegate('li','click',function(e){
-            var idx = $(e.target).data('value');
+            var $target = $(e.target);
+            var text = $target.text();
+            $target.parents('ul').prev().text(text);
+            var idx = $target.data('value');
             that.modelId  = idx;
             var data = that.carSource[that.brandId].models[idx].statestype;
             renderUl('js_cg',data)
         });
         $('#js_cg').delegate('li','click',function(e){
-
+            var $target = $(e.target);
+            var text = $target.text();
+            $target.parents('ul').prev().text(text);
         })
     }
     renderCont();
@@ -74,7 +82,7 @@
         type: "GET",
         url: "http://182.254.179.11/buyShop/s1/gateway.php",
         data: {
-            cmd:10002//
+            cmd:10001//
 
         },
         dataType: "jsonp"

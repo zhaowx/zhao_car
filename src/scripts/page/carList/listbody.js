@@ -3,8 +3,8 @@
  */
 
 (function(){
-    function renderCont() {
-        var js_html = '<table class="table table-hover">\
+    function renderCont(data) {
+        var js_html = '<table class="table table-hover" id="js_tableList">\
             <thead><tr>\
                 <th>车辆品牌</th>\
                 <th>车辆信息</th>\
@@ -35,7 +35,45 @@
     }
 
 
+    function bindEvents(){
+        $('#js_tableList').delegate('tr','click',function(e){
+            //todo 跳转到detail页
+            var url = $(e.target).parent().data('href');
+            location.href = url;
+
+        })
+    }
+
+    function getData(){
+        $.ajax({
+            type: "GET",
+            url: "http://182.254.179.11/buyShop/s1/gateway.php",
+            data: {
+                cmd:10001,
+                data:{
+                    carid:'1000222'
+                }
+            },
+            dataType: "jsonp"
+        }).done(function(req){
+            if(req.result && req.result.req) {
+
+                var data = req.result.data;
+                renderCont(data);
+            }
+        })
+    }
+
+    function init(){
+        if(!$('#js_listTable')){
+            return;
+        }
+        getData();
+        bindEvents();
+    }
+
     renderCont();
+    bindEvents();
 
 
 })();
