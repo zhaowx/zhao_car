@@ -9,9 +9,10 @@
                 <th>车辆品牌</th>\
                 <th>车辆信息</th>\
                 <th>车辆颜色</th>\
-                <th>售卖价格</th>\
+                <th>求购价格</th>\
                 <th>车辆状态</th>\
                 <th>发布日期</th>\
+                <th>操作</th>\
             </tr>\
             </thead>\
             <tbody>\
@@ -23,6 +24,7 @@
                 <td>￥{{value.price}}</td>\
                 <td>{{value.locationName}}</td>\
                 <td>{{value.registration.split(" ")[0]}}</td>\
+                <td><a href="#">有车发布</a></td>\
             </tr>\
             {{/each}}\
             </tbody></table>\
@@ -33,7 +35,7 @@
             </ul>\
         </nav>';
 
-        var  fabu_html = '<div >nothing,去求购 ！</div>';
+        var  fabu_html = '<div >nothing,去发布 ！</div>';
         if(data.length==0){
             var render = template.compile(fabu_html);
         }else{

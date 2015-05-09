@@ -3,60 +3,57 @@
  */
 
 (function(){
-    function renderCont(data) {
-        var js_html = '<table class="table table-hover">\
-            <thead><tr>\
-                <th>车辆品牌</th>\
+    function renderCont(data,locationData,num) {
+        var js_html = '<table class="table table-hover" id="js_table" \
+        {{if num<3}}\
+        style="margin-bottom:120px;">\
+        {{else}}\
+        >\
+        {{/if}}\
+            <thead>\
+            <tr>\
                 <th>车辆信息</th>\
-                <th>车辆颜色</th>\
-                <th>售卖价格</th>\
+                <th>求购价格</th>\
                 <th>车辆状态</th>\
-                <th>发布日期</th>\
+                <th>发布时间</th>\
+                <th>审核状态</th>\
             </tr>\
             </thead>\
-            <tbody>\
-            {{each list as value i}}\
-            <tr   data-href="carOne.html?carId={{value.carId}}">\
-                <td>{{value.brandName}} {{value.modelName}} {{value.statesTypeName}}</td>\
-                <td>{{value.note}}</td>\
-                <td>{{value.colorName}}</td>\
-                <td>￥{{value.price}}</td>\
+        <tbody>\
+            {{each data as value i}}\
+            <tr>\
+                <td>\
+                        <p>{{value.brandName}} {{value.modelName}} {{value.statesTypeName}}</p>\
+                        <p>{{value.note}}</p>\
+                </td>\
+                <td>{{value.price}}</td>\
                 <td>{{value.locationName}}</td>\
-                <td>{{value.registration.split(" ")[0]}}</td>\
+                <td>20115-05-02</td>\
+                {{if value.visible==1}}\
+                <td>已通过</td>\
+                {{else}}\
+                <td>未通过</td>\
+                {{/if}}\
             </tr>\
             {{/each}}\
-            </tbody></table>\
-         <nav>\
+        </tbody>\
+        </table>\
+        <nav>\
             <ul class="pager">\
             <li><a href="#" class="js_prevPage">上一页</a></li>\
             <li><a href="#" class="js_nextPage">下一页</a></li>\
             </ul>\
         </nav>';
-
-        var  fabu_html = '<div >nothing,去求购 ！</div>';
-        if(data.length==0){
-            var render = template.compile(fabu_html);
-        }else{
-            var render = template.compile(js_html);
-        }
-
+        var render = template.compile(js_html);
         //var html = render({data:[1,2]});
         var html = render({
-            list:data
+            data:data,
+            locationData:locationData,
+            num:data.length
         });
 
         document.getElementById('js_listTable').innerHTML = html;
-
-    }
-
-
-    function bindEvents(){
-        $('#js_listTable').delegate('tr','click',function(e){
-            //todo 跳转到detail页
-            var url = $(e.target).parent().data('href');
-            location.href = url;
-
-        })
+        bindEvents();
     }
 
     var that = {
@@ -66,16 +63,16 @@
         }
     }
 
-    function communicationSet(){
-        $(document).bind('changeData',function(event,data){
-            console.log(data);
-            that.dataParams.pageIndex = 0;
-            var d = $.extend({},data,that.dataParams);
-            that.dataParams = d;
-            getData(d);
+    function bindEvents(){
+        $('#js_table').delegate('li','click',function(e){
+            //todo 跳转到detail页
+            var carid = $(e.target).parent().data('carid');
+            if(confirm('确认要更改其车辆状态？')){
+                alert('0')
+            }
+
         })
     }
-
     function jumpPage(){
         $('.js_prevPage').bind('click',function(){
             var idx = that.dataParams.pageIndex;
@@ -97,14 +94,16 @@
         })
     }
 
-    function getData(params){
+    function getData(){
         $.ajax({
             type: "GET",
             url: "http://182.254.179.11/buyShop/s1/gateway.php",
             data: {
-                cmd:10002,
-                dataPacket: {
-                    data: params
+                cmd:10016,
+                dataPacket:{
+                    data: {
+                        //num: 1
+                    }
                 }
             },
             dataType: "jsonp"
@@ -112,7 +111,8 @@
             if(req.result && req.result.req) {
 
                 var data = req.result.data.data;
-                renderCont(data);
+                var location = req.result.data.locationconfig;
+                renderCont(data,location);
             }
         })
     }
@@ -122,12 +122,9 @@
             return;
         }
         getData();
-        bindEvents();
         jumpPage();
-        communicationSet();
     }
 
-   init();
-
+    init();
 
 })();

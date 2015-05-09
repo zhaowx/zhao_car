@@ -46,23 +46,24 @@
                              <li><a href="#">关于我们</a></li>\
                          </ul>\
                      </li>\
+                     {{if isLogin}}\
+                     <li><a href="#">login</a></li>\
+                     {{else}}\
                      <li class="dropdown">\
                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">个人中心 <span class="caret"></span></a>\
                          <ul class="dropdown-menu" role="menu">\
-                         {{if isLogin}}\
                          <li><a href="userIndent.html">我的订单</a></li>\
                          <li><a href="userPostBuyCar.html">我的求购</a></li>\
                          <li><a href="user_Vehicle_Information.html">我的车源</a></li>\
+                         <li class="divider"></li>\
                          <li><a href="userInfomation.html">账户信息</a></li>\
-                         <li><a href="userService.html">投诉建议</a></li>\
                          <li><a href="userModifyPassword.html">修改密码</a></li>\
+                         <li class="divider"></li>\
+                         <li><a href="userService.html">投诉建议</a></li>\
                          <li><a href="void()">退出</a></li>\
-                         {{else}}\
-                            <li><a href="#">登陆</a></li>\
-                             <li><a href="#">注册</a></li>\
-                         {{/if}}\
                          </ul>\
                      </li>\
+                  {{/if}}\
                  </ul>\
              </div>\
          </div>';

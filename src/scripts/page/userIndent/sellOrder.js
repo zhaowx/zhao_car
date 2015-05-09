@@ -4,7 +4,7 @@
 
 (function(){
     function renderCont(data,locationData,num) {
-        var js_html = '<table class="table table-hover" id="js_table" \
+        var js_html = '<table class="table table-hover" id="js_tableSell" \
         {{if num<3}}\
         style="margin-bottom:120px;">\
         {{else}}\
@@ -59,8 +59,8 @@
         </table>\
         <nav>\
             <ul class="pager">\
-            <li><a href="#" class="js_prevPage">上一页</a></li>\
-            <li><a href="#" class="js_nextPage">下一页</a></li>\
+            <li><a href="#" class="js_prevPageSell">上一页</a></li>\
+            <li><a href="#" class="js_nextPageSell">下一页</a></li>\
             </ul>\
         </nav>';
         var render = template.compile(js_html);
@@ -71,7 +71,7 @@
             num:data.length
         });
 
-        document.getElementById('js_listTable').innerHTML = html;
+        document.getElementById('sellOrder').innerHTML = html;
         bindEvents();
     }
 
@@ -83,7 +83,7 @@
     }
 
     function bindEvents(){
-        $('#js_table').delegate('li','click',function(e){
+        $('#js_tableSell').delegate('li','click',function(e){
             //todo 跳转到detail页
             var carid = $(e.target).parent().data('carid');
             if(confirm('确认要更改其车辆状态？')){
@@ -93,7 +93,7 @@
         })
     }
     function jumpPage(){
-        $('.js_prevPage').bind('click',function(){
+        $('.js_prevPageSell').bind('click',function(){
             var idx = that.dataParams.pageIndex;
             if(idx==0){
                 return  false;
@@ -102,7 +102,7 @@
             that.dataParams.pageIndex = idx;
             getData(that.dataParams)
         })
-        $('.js_nextPage').bind('click',function(){
+        $('.js_nextPageSell').bind('click',function(){
             var idx = that.dataParams.pageIndex;
             if(idx==0){
                 return  false;
@@ -137,7 +137,7 @@
     }
 
     function init(){
-        if(!$('#js_listTable')){
+        if(!$('#sellOrder')){
             return;
         }
         getData();

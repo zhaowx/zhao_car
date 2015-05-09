@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Jumbotron Template for Bootstrap</title>
+
+    <!--Bootstrap core CSS todo 上线cdn-->
+    <!--<link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../src/styles/page/userCenterStyle.css"/>
+    <link rel="stylesheet" href="../src/styles/selffont/iconfont.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" id="js_topnav">
+</nav>
+
+<div class="container userCenter hidden-xs">
+    <div class="row">
+        <div class="col-sm-2 col-md-2 hidden-xs listMenu" id="jsUserMenu">
+        </div>
+        <div class="col-sm-10 col-md-10">
+            <div class="page-header">
+                <h2 class="h2">我的订单</h2>
+            </div>
+            <ul class="nav nav-tabs formService" id="myTab">
+                <li role="presentation" class="active orderTab"><a href="#buyOrder" class="text-center">购车订单</a></li>
+                <li role="presentation" class="orderTab"><a href="#sellOrder" class="text-center">卖车订单</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" >
+                    <div class="table-responsive" id="buyOrder">
+                    </div>
+                </div>
+                <div class="tab-pane">
+                    <div class="table-responsive"  id="sellOrder">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--这个是针对手机屏幕的 todo-->
+<div class="container visible-xs userCenter userCenterMobile">
+    <div class="list-group mobile">
+        <a href="userOrderMoible.html" class="list-group-item"> <i class="icon iconfont iconLogo">&#xe6ec;</i>我的订单 <i
+                class="icon iconfont arrowRight">&#xe647;</i></a>
+        <a href="#" class="list-group-item"> <i class="icon iconfont iconLogo">&#xe61d;</i>我的求购 <i
+                class="icon iconfont arrowRight">&#xe647;</i></a>
+        <a href="#" class="list-group-item"> <i class="icon iconfont iconLogo">&#xe61a;</i>我的车源 <i
+                class="icon iconfont arrowRight">&#xe647;</i></a>
+
+    </div>
+    <div class="list-group mobile">
+        <a href="#" class="list-group-item"> <i class="icon iconfont iconLogo">&#xe654;</i>用户信息 <i
+                class="icon iconfont arrowRight">&#xe647;</i></a>
+        <a href="#" class="list-group-item"> <i class="icon iconfont iconLogo">&#xe615;</i>修改密码 <i
+                class="icon iconfont arrowRight">&#xe647;</i></a>
+    </div>
+    <div class="list-group mobile">
+        <a href="#" class="list-group-item"> <i class="icon iconfont iconLogo">&#xe677;</i>投诉与建议 <i
+                class="icon iconfont arrowRight">&#xe647;</i></a>
+    </div>
+</div>
+
+<footer class="footer " id="js_bottomFooter">
+
+</footer>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="../src/scripts/template.js"></script>
+<script src="../src/scripts/js_module/topNav.js"></script>
+<script src="../src/scripts/js_module/bottomFooter.js"></script>
+<script src="../src/scripts/js_module/userCenterMenu.js"></script>
+<script src="../src/scripts/page/userIndent/buyOrder.js"></script>
+<script src="../src/scripts/page/userIndent/sellOrder.js"></script>
+<script type="text/javascript">
+    (function () {
+        'use strict';
+        $('#myTab a:first').tab('show');//初始化显示哪个tab
+
+        $('#myTab a').click(function (e) {
+            e.preventDefault();//阻止a链接的跳转行为
+            $(this).tab('show');//显示当前选中的链接及关联的content
+        })
+    }());
+</script>
+</body>
+</html>

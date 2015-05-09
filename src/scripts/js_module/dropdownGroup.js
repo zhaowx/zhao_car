@@ -49,9 +49,9 @@
 
     var that={
         carSource:{},
-        brandId:-1,
-        moduleId:-1,
-        seatType:-1,
+        brandId:0,
+        moduleId:0,
+        seatType:0,
         page:1
     }
 
