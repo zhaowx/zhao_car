@@ -6,7 +6,7 @@
     function renderCont() {
         var js_html = ' <div class="panel panel-default">\
         <div class="panel-body" >\
-        <span>筛选条件  </span>\
+        <span>选择车型  </span>\
         <div class="btn-group">\
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">\
         请选择品牌 <span class="caret"></span>\
