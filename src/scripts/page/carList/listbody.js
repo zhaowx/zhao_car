@@ -25,7 +25,13 @@
                 <td>{{value.registration.split(" ")[0]}}</td>\
             </tr>\
             {{/each}}\
-            </tbody></table>';
+            </tbody></table>\
+         <nav>\
+            <ul class="pager">\
+            <li><a href="#" class="js_prevPage">上一页</a></li>\
+            <li><a href="#" class="js_nextPage">下一页</a></li>\
+            </ul>\
+        </nav>';
         var render = template.compile(js_html);
         //var html = render({data:[1,2]});
         var html = render({
@@ -46,12 +52,53 @@
         })
     }
 
-    function getData(){
+    var that = {
+        dataParams: {
+            num: 10,
+            pageIndex: 0
+        }
+    }
+
+    function communicationSet(){
+        $(document).bind('changeData',function(event,data){
+            console.log(data);
+            that.dataParams.pageIndex = 0;
+            var d = $.extend({},data,that.dataParams);
+            that.dataParams = d;
+            getData(d);
+        })
+    }
+
+    function jumpPage(){
+        $('.js_prevPage').bind('click',function(){
+            var idx = that.dataParams.pageIndex;
+            if(idx==0){
+                return  false;
+            }
+            idx--;
+            that.dataParams.pageIndex = idx;
+            getData(that.dataParams)
+        })
+        $('.js_nextPage').bind('click',function(){
+            var idx = that.dataParams.pageIndex;
+            if(idx==0){
+                return  false;
+            }
+            idx++;
+            that.dataParams.pageIndex = idx;
+            getData(that.dataParams)
+        })
+    }
+
+    function getData(params){
         $.ajax({
             type: "GET",
             url: "http://182.254.179.11/buyShop/s1/gateway.php",
             data: {
-                cmd:10002
+                cmd:10002,
+                dataPacket: {
+                    data: params
+                }
             },
             dataType: "jsonp"
         }).done(function(req){
@@ -69,6 +116,7 @@
         }
         getData();
         bindEvents();
+        communicationSet();
     }
 
    init();

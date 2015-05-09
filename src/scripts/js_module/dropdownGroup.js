@@ -47,6 +47,14 @@
         document.getElementById(ulId).innerHTML = html;
     }
 
+    var that={
+        carSource:{},
+        brandId:-1,
+        moduleId:-1,
+        seatType:-1,
+        page:1
+    }
+
     function bindEvents(){
         $('#js_pp').delegate('li','click',function(e){
             var $target = $(e.target);
@@ -54,8 +62,14 @@
             $target.parents('ul').prev().text(text);
             var idx = $target.data('value');
             that.brandId  = idx;
+            communicationGet({
+                brandId:idx,
+                moduleId:-1,
+                statesType:-1
+            });
             var data = that.carSource[idx].models;
             renderUl('js_cx',data);
+            $('#js_cx').prev().html('请选择车系');
         });
         $('#js_cx').delegate('li','click',function(e){
             var $target = $(e.target);
@@ -63,21 +77,38 @@
             $target.parents('ul').prev().text(text);
             var idx = $target.data('value');
             that.modelId  = idx;
+            communicationGet({
+                brandId:that.brandId,
+                moduleId:idx,
+                statesType:-1
+            });
             var data = that.carSource[that.brandId].models[idx].statestype;
-            renderUl('js_cg',data)
+            renderUl('js_cg',data);
+            $('#js_cg').prev().html('请选择车规')
         });
         $('#js_cg').delegate('li','click',function(e){
             var $target = $(e.target);
             var text = $target.text();
             $target.parents('ul').prev().text(text);
+            var idx = $target.data('value');
+            that.moduleId  = idx;
+            communicationGet({
+                brandId:that.brandId,
+                moduleId:that.moduleId,
+                statesType:idx
+            });
         })
     }
     renderCont();
-    var that = {
-        carSource:{},
-        brandId:0,
-        modelId:0
-    };
+
+    function communicationGet(data){
+//        $(document).bind('dropdownGroupChange',function(event,data){
+//            console.log(data);
+//        })
+        $(document).trigger('changeData',data);
+    }
+
+    communicationGet()
     $.ajax({
         type: "GET",
         url: "http://182.254.179.11/buyShop/s1/gateway.php",
