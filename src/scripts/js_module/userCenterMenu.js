@@ -48,11 +48,15 @@
                 data.userInformation = classStyle;
                 data.spanUserAd = id;
                 break;
-            case "user_Vehicle_Information":
+            case "userPublishCar":
                 data.myCar = classStyle;
                 data.spanLiveTrade = id;
                 break;
-            case "userPostBuyCar":
+            case "userWant":
+                data.myBuy = classStyle;
+                data.spanLiveTrade = id;
+                break;
+            case "userPublishWantCar":
                 data.myBuy = classStyle;
                 data.spanLiveTrade = id;
                 break;
@@ -69,7 +73,7 @@
             </span>\
             <a href="userIndent.html" class="list-group-item {{myOrder}}">我的订单</a>\
             <a href="userPostBuyCar.html" class="list-group-item  {{myBuy}}">我的求购</a>\
-            <a href="user_Vehicle_Information.html" class="list-group-item {{myCar}}">我的车源</a>\
+            <a href="userPublishCar.html" class="list-group-item {{myCar}}">我的车源</a>\
             <span  class="list-group-item active" id="{{spanUserAd}}}">\
             账号管理\
             </span>\
