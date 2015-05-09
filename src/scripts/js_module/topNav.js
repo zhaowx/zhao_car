@@ -34,8 +34,8 @@
                      </div>\
                  </form>\
                  <ul class="nav navbar-nav">\
-                     <li class="active"><a href="list.html">车源</a></li>\
-                     <li><a href="#">发布车源</a></li>\
+                     <li class="active"><a href="list.html">在卖车源</a></li>\
+                     <li><a href="#">求购列表</a></li>\
                      <li class="dropdown">\
                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">服务承诺<span class="caret"></span></a>\
                          <ul class="dropdown-menu" role="menu">\
