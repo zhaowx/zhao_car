@@ -74,7 +74,7 @@
         $(document).bind('changeDPData',function(event,data){
             console.log(data);
             that.dataParams.pageIndex = 0;
-            var d = $.extend({},data,that.dataParams);
+            var d = $.extend({},that.dataParams,data);
             that.dataParams = d;
             getData(d);
         })
