@@ -44,7 +44,12 @@
             <li><a href="#" class="js_nextPage">下一页</a></li>\
             </ul>\
         </nav>';
-        var render = template.compile(js_html);
+        var  fabu_html = '<div class="alert alert-info" role="alert">您暂时没有求购信息，您可以进行发布！</div>';
+        if(data.length==0){
+            var render = template.compile(fabu_html);
+        }else{
+            var render = template.compile(js_html);
+        }
         //var html = render({data:[1,2]});
         var html = render({
             data:data,

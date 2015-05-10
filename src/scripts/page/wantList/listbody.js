@@ -35,7 +35,7 @@
             </ul>\
         </nav>';
 
-        var  fabu_html = '<div >nothing,去发布 ！</div>';
+        var  fabu_html = '<div class="alert alert-info" role="alert">暂时找不到对应车型的求购信息，您可以登陆之后进行发布！</div>';
         if(data.length==0){
             var render = template.compile(fabu_html);
         }else{
