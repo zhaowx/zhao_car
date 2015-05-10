@@ -108,7 +108,7 @@
                 }
                 //信息错误失败
                 else if(result.req === false) {
-                    elementObject.errorText.text(result.message);
+                    elementObject.errorText.text(result.msg);
                 }
             }).fail(function (data) {
                 loading.hide();
