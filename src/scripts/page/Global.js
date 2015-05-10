@@ -48,9 +48,8 @@ function deleteCookie(cookieName) {
  * @discription 根据用户的cookie和userId来判断用户是否登录，未登录就转到carlist.html页面
  */
 function isLogin() {
-    var userId = getCookie("userToken");
-    var islogin = getCookie("isLogin");
-    if (userId && islogin) {
+    var userId = getCookie("token");
+    if (userId) {
         return true;
     }
     else {
