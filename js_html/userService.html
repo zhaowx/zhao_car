@@ -15,7 +15,6 @@
     <!--<link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">-->
     <link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../src/styles/page/userCenterStyle.css"/>
-    <link href="../src/styles/page/carList.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -24,49 +23,34 @@
 </head>
 
 <body>
-
 <nav class="navbar navbar-default navbar-fixed-top" id="js_topnav">
 </nav>
-
 <div class="container userCenter">
-    <div class="row">
+    <div class="row ">
         <div class="col-sm-2 col-md-2 hidden-xs listMenu" id="jsUserMenu">
-
         </div>
         <div class="col-sm-10 col-md-10">
-            <div class="page-header hidden-xs">
-                <h2 class="h2">我的车源<a class="btn btn-primary pull-right" href="userPublishCar.html" role="button">发布车源</a></h2>
+            <div class="page-header">
+                <h3 class="h2"><i class="icon iconfont mdFont">&#xe677;</i>服务</h3>
             </div>
-            <div class="page-header visible-xs">
-                <h2 class="h2">
-                    <ol class="breadcrumb">
-                        <li><a href="#">用户中心</a></li>
-                        <li class="active">我的车源</li>
-                        <a class="btn btn-primary pull-right btn-sm" href="userPublishCar.html" role="button">发布车源</a>
-                    </ol>
-                </h2>
-            </div>
-            <div class="tab-content">
-                    <div class="table-responsive"  id="js_listTable">
-
-                    </div>
-            </div>
+            <form class="formService">
+                <div class="form-group">
+                    <textarea class="form-control" row="30" placeholder="请输入您的反馈意见"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary form-control">提交</button>
+            </form>
         </div>
     </div>
 </div>
 
+
 <footer class="footer " id="js_bottomFooter">
 </footer>
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
 <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
 <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="../src/scripts/template.js"></script>
 <script src="../src/scripts/js_module/topNav.js"></script>
 <script src="../src/scripts/js_module/bottomFooter.js"></script>
 <script src="../src/scripts/js_module/userCenterMenu.js"></script>
-<script src="../src/scripts/page/userCar/listBody.js"></script>
 </body>
 </html>
