@@ -74,7 +74,7 @@
             <a href="userIndent.html" class="list-group-item {{myOrder}}">我的订单</a>\
             <a href="userWant.html" class="list-group-item  {{myBuy}}">我的求购</a>\
             <a href="userCar.html" class="list-group-item {{myCar}}">我的车源</a>\
-            <span  class="list-group-item active" id="{{spanUserAd}}}">\
+            <span  class="list-group-item active" id="{{spanUserAd}}">\
             账号管理\
             </span>\
             <a href="userInfomation.html" class="list-group-item {{userInformation}}">账户信息</a>\
