@@ -5,13 +5,8 @@
 (function(){
     var  globalVar  =  window._globalV;
 
-    function renderCont(data,locationData,num) {
+    function renderCont(data) {
         var js_html = '<table class="table table-hover" id="js_table" \
-        {{if num<3}}\
-        style="margin-bottom:120px;">\
-        {{else}}\
-        >\
-        {{/if}}\
             <thead>\
             <tr>\
                 <th>车辆信息</th>\
@@ -26,11 +21,11 @@
             <tr>\
                 <td>\
                         <p>{{value.brandName}} {{value.modelName}} {{value.statesTypeName}}</p>\
-                        <p>{{value.note}}</p>\
+                        <p>{{value.title}}</p>\
                 </td>\
                 <td>{{value.price}}</td>\
                 <td>{{value.locationName}}</td>\
-                <td>20115-05-02</td>\
+                <td>{{value.publish_time.split(" ")[0]}}</td>\
                 {{if value.visible==1}}\
                 <td>已通过</td>\
                 {{else}}\
@@ -54,9 +49,7 @@
         }
         //var html = render({data:[1,2]});
         var html = render({
-            data:data,
-            locationData:locationData,
-            num:data.length
+            data:data
         });
 
         document.getElementById('js_listTable').innerHTML = html;
@@ -67,7 +60,8 @@
         dataParams: {
             num: 10,
             pageIndex: 0
-        }
+        },
+        uid:''
     }
 
     function bindEvents(){
@@ -106,7 +100,8 @@
             type: "GET",
             url: globalVar.reqUrl,
             data: {
-                cmd:10016,
+                cmd:10007,
+                token:that.uid,
                 dataPacket:{
                     data: {
                         //num: 1
@@ -125,6 +120,7 @@
     }
 
     function init(){
+        that.uid = getCookie('token');
         if(!$('#js_listTable')){
             return;
         }

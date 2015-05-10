@@ -50,9 +50,9 @@
 
     var that={
         carSource:{},
-        brandId:0,
-        moduleId:0,
-        seatType:0,
+        brand_id:0,
+        model_id:0,
+        standard_id:0,
         page:1,
         ids:{
             bid:0,
@@ -68,12 +68,12 @@
             $target.parents('ul').prev().text(text);
             var idx = $target.data('value');
             var id = $target.data('id');
-            that.brandId  = idx;
+            that.brand_id  = idx;
             that.ids.bid = id;
             communicationGet({
-                brandId:idx,
-                moduleId:0,
-                statesType:0
+                brand_id:idx,
+                model_id:0,
+                standard_id:0
             });
             var data = that.carSource[id].models;
             renderUl('js_cx',data);
@@ -85,12 +85,12 @@
             $target.parents('ul').prev().text(text);
             var idx = $target.data('value');
             var id = $target.data('id');
-            that.modelId  = idx;
+            that.model_id  = idx;
             that.ids.mid = id;
             communicationGet({
-                brandId:that.brandId,
-                moduleId:idx,
-                statesType:0
+                brand_id:that.brand_id,
+                model_id:idx,
+                standard_id:0
             });
             var data = that.carSource[that.ids.bid].models[id].statestype;
             renderUl('js_cg',data);
@@ -101,11 +101,11 @@
             var text = $target.text();
             $target.parents('ul').prev().text(text);
             var idx = $target.data('value');
-            that.moduleId  = idx;
+            that.model_id  = idx;
             communicationGet({
-                brandId:that.brandId,
-                moduleId:that.moduleId,
-                statesType:idx
+                brand_id:that.brand_id,
+                model_id:that.model_id,
+                standard_id:idx
             });
         })
     }

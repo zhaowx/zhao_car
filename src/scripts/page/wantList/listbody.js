@@ -25,7 +25,7 @@
                 <td>{{value.colorName}}</td>\
                 <td>￥{{value.price}}</td>\
                 <td>{{value.locationName}}</td>\
-                <td>{{value.registration.split(" ")[0]}}</td>\
+                <td>{{value.publish_time.split(" ")[0]}}</td>\
                 <td><a href="#">有车发布</a></td>\
             </tr>\
             {{/each}}\

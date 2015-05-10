@@ -19,11 +19,11 @@
             {{each list as value i}}\
             <tr   data-href="carOne.html?carId={{value.carId}}">\
                 <td>{{value.brandName}} {{value.modelName}} {{value.statesTypeName}}</td>\
-                <td>{{value.note}}</td>\
+                <td>{{value.title}}</td>\
                 <td>{{value.colorName}}</td>\
                 <td>￥{{value.price}}</td>\
                 <td>{{value.locationName}}</td>\
-                <td>{{value.registration.split(" ")[0]}}</td>\
+                <td>{{value.publish_time.split(" ")[0]}}</td>\
             </tr>\
             {{/each}}\
             </tbody></table>\
@@ -71,7 +71,7 @@
         $(document).bind('changeDPData',function(event,data){
             console.log(data);
             that.dataParams.pageIndex = 0;
-            var d = $.extend({},data,that.dataParams);
+            var d = $.extend({},that.dataParams,data);
             that.dataParams = d;
             getData(d);
         })
