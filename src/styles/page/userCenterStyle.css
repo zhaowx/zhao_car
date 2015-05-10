@@ -12,7 +12,14 @@
 .userCenter .listMenu {
     margin-top: 15px;
 }
-
+.ycm-form-error{
+    color: red;
+    height: 20px;
+    font-size: 14px;
+}
+.errorInput {
+    border: 1px solid #EA4747;
+}
 #ycm-user-ListHeaderActive {
     border: 0px;
     border-left: 10px solid rgb(236, 38, 38);

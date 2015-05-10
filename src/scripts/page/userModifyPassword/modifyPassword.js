@@ -5,44 +5,37 @@
 (function () {
     'use strict';
     var elementObject = {};
-    elementObject.email = $('#email');//email
     elementObject.submitButton = $("#submit");
-    elementObject.password = $("#password");
-    elementObject.rePassword = $("#repassword");
+    elementObject.primaryPassword = $("#primaryPassword");
+    elementObject.newPassWord = $("#newPassWord");
     elementObject.errorText = $('.ycm-form-error');//错误信息提示
-    elementObject.regEmail = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;//邮箱校验
-    elementObject.remember = 1; //是否记住;
-    elementObject.checkBox = $("#remember");
+    elementObject.checkNewPassword = $("#checkNewPassword");
     var errorTextConfig = {
-        email: {
-            empty: "邮箱不能为空！",
-            errorRule: "邮箱不符合规则！"
-        },
         password: {
-            empty: "密码不能为空！",
-            errorRule: "密码长度至少为6位"
+            empty: "密码不能为空！"
+        },
+        newPassWord: {
+            empty: "新密码不能为空！",
+            errorRule: "新密码长度至少为6位!"
         },
         rePassword: {
             empty: "重复密码不能为空",
             errorRule: "密码不一致"
         }
     };
-    var Register = (function () {
-        var Register = {};
+    var ModifyPwd = (function () {
+        var ModifyPwd = {};
         //验证手机号
-        Register.checkEmail = function (email) {
-            var emailValue = $.trim(email.val());
-            if ((elementObject.regEmail.test(emailValue))) {
+        ModifyPwd.oldPassWord = function (oldPassword) {
+            var oldPasswordValue = $.trim(oldPassword.val());
+            if (oldPasswordValue.length>0) {
                 return true;
             }
-            else if (emailValue.length === 0) {
+            else
                 return "empty";
-            }
-            else {
-                return false;
-            }
         };
-        Register.checkPassword = function (password) {
+
+        ModifyPwd.checkNewPassword = function (password) {
             var passwordValue = $.trim(password.val());
             if (passwordValue.length <= 0) {
                 return "empty"
@@ -52,9 +45,9 @@
             }
             return true;
         };
-        Register.checkRePassWord = function (repassWord) {
+        ModifyPwd.checkRePassWord = function (repassWord) {
             var repasswordValue = $.trim(repassWord.val());
-            var passValue = $.trim(elementObject.password.val());
+            var passValue = $.trim(elementObject.newPassWord.val());
             if (repasswordValue.length <= 0) {
                 return "empty";
             }
@@ -62,20 +55,19 @@
                 return false;
             }
             return true;
-
         };
         //submit 提交动作
-        Register.submit = function (e) {
+        ModifyPwd.submit = function (e) {
             e.preventDefault();
-            var errorArray = new Array();
-            errorArray[0] = new Array();
-            errorArray[1] = new Array();
-            var returnValueEmail = this.checkEmail(elementObject.email),
-                returnValuePassWord = this.checkPassword(elementObject.password),
-                returnValueRePassWord = this.checkRePassWord(elementObject.rePassword);
+            var errorArray = [];
+            errorArray[0] = [];
+            errorArray[1] = [];
+            var returnOldPassWord = this.oldPassWord(elementObject.primaryPassword),
+                returnValuePassWord = this.checkNewPassword(elementObject.newPassWord),
+                returnValueRePassWord = this.checkRePassWord(elementObject.checkNewPassword);
 
             //结果正确
-            if (returnValueEmail === true &&
+            if (returnOldPassWord === true &&
                 returnValuePassWord === true &&
                 returnValueRePassWord === true) {
                 //传输数据 ajax
@@ -85,33 +77,30 @@
             //结果错误
             else {
 
-                if (returnValueEmail === false) {
-                    errorArray[0].push(elementObject.email);
-                    errorArray[1].push(errorTextConfig.email.errorRule);
-                }
-                if (returnValueEmail === "empty") {
-                    errorArray[0].push(elementObject.email);
-                    errorArray[1].push(errorTextConfig.email.empty);
 
-                }
-                if (returnValuePassWord === "empty") {
-                    errorArray[0].push(elementObject.password);
+                if (returnOldPassWord === "empty") {
+                    errorArray[0].push(elementObject.primaryPassword);
                     errorArray[1].push(errorTextConfig.password.empty);
 
                 }
+                if (returnValuePassWord === "empty") {
+                    errorArray[0].push(elementObject.newPassWord);
+                    errorArray[1].push(errorTextConfig.newPassWord.empty);
+
+                }
                 if (returnValuePassWord === false) {
-                    errorArray[0].push(elementObject.password);
-                    errorArray[1].push(errorTextConfig.password.errorRule);
+                    errorArray[0].push(elementObject.newPassWord);
+                    errorArray[1].push(errorTextConfig.newPassWord.errorRule);
 
                 }
 
                 if (returnValueRePassWord === "empty") {
-                    errorArray[0].push(elementObject.rePassword);
+                    errorArray[0].push(elementObject.checkNewPassword);
                     errorArray[1].push(errorTextConfig.rePassword.empty);
 
                 }
                 if (returnValueRePassWord === false) {
-                    errorArray[0].push(elementObject.rePassword);
+                    errorArray[0].push(elementObject.checkNewPassword);
                     errorArray[1].push(errorTextConfig.rePassword.errorRule);
 
                 }
@@ -120,9 +109,10 @@
             }
         };
 
-        Register.ajaxSend = function () {
-            elementObject.email.blur();
-            elementObject.password.blur();
+        ModifyPwd.ajaxSend = function () {
+            elementObject.primaryPassword.blur();
+            elementObject.newPassWord.blur();
+            elementObject.checkNewPassword.blur();
             window.scrollTo(0, 0);
             this.clearErrorText();
             loading.show();
@@ -130,11 +120,11 @@
                 url: window._globalV.reqUrl,
                 data: {
                     cmd: 10003,
-                    dataPacket:{
-                        data:Register.informationIntegrated(elementObject)
+                    dataPacket: {
+                        data: ModifyPwd.informationIntegrated(elementObject)
                     }
                 },//传输过去的数据
-                timeout:window._globalV.ajaxTimeOut,
+                timeout: window._globalV.ajaxTimeOut,
                 dataType: 'jsonp',
                 type: 'GET'
             }).done(function (data) {
@@ -142,11 +132,9 @@
                 var result = data.result;
                 loading.hide();
                 //成功
-                if(result.req === true){
-                    setCookie('token',result.data.token,window.window._globalV.cookieKeepDay);
-                    location.href = "carlist.html";
+                if (result.req === true) {
+                    alert("密码修改成功");
                 }
-
                 //信息错误失败
                 if (data.status === "xxx") {
                     elementObject.errorText.text(data.error);
@@ -155,7 +143,7 @@
         };
 
         //显示错误信息
-        Register.showErrorText = function (errorTextArray) {
+        ModifyPwd.showErrorText = function (errorTextArray) {
             var i = 0,
                 length = errorTextArray[0].length,
                 errorTexts = "";
@@ -166,12 +154,12 @@
             elementObject.errorText.text(errorTexts);
         };
         //清除错误信息
-        Register.clearErrorText = function () {
+        ModifyPwd.clearErrorText = function () {
             elementObject.errorText.text("");
-        }
+        };
 
         //错误的输入框聚焦
-        Register.errorInputAnimate = function (errorTextArray) {
+        ModifyPwd.errorInputAnimate = function (errorTextArray) {
             var i = 0,
                 length = errorTextArray[0].length;
 
@@ -182,42 +170,39 @@
         };
 
         //显示红线以及警告标志
-        Register.warningShow = function (elmentObject) {
+        ModifyPwd.warningShow = function (elmentObject) {
             elmentObject.addClass("errorInput");
         };
 
         //取消红线以及警告标志
-        Register.clearWaringShow = function (elementObject) {
+        ModifyPwd.clearWaringShow = function (elementObject) {
             elementObject.removeClass("errorInput");
         };
         //整合信息为json格式的字符串
-        Register.informationIntegrated = function (elementObject) {
+        ModifyPwd.informationIntegrated = function (elementObject) {
             var message = {};
-            message.login_email = $.trim(elementObject.email.val());
-            message.login_pwd = $.trim(elementObject.password.val());
+            message.oldPwd = $.trim(elementObject.primaryPassword.val());
+            message.newPwd = $.trim(elementObject.newPassWord.val());
+            message.token  =getCookie('token');
             return message;
         };
-        return Register;
+        return ModifyPwd;
     }());
 
 //点击提交按钮
     elementObject.submitButton.on("submit", function (e) {
-        Register.submit(e);
+        ModifyPwd.submit(e);
     });
-    elementObject.password.on('focus', function (e) {
-        Register.clearErrorText();
-        Register.clearWaringShow(elementObject.password);
+    elementObject.primaryPassword.on('focus', function (e) {
+        ModifyPwd.clearErrorText();
+        ModifyPwd.clearWaringShow(elementObject.primaryPassword);
     });
-    elementObject.rePassword.on('focus', function (e) {
-        Register.clearErrorText();
-        Register.clearWaringShow(elementObject.rePassword);
+    elementObject.newPassWord.on('focus', function (e) {
+        ModifyPwd.clearErrorText();
+        ModifyPwd.clearWaringShow(elementObject.newPassWord);
     });
-    elementObject.email.on('focus', function (e) {
-        Register.clearErrorText();
-        Register.clearWaringShow(elementObject.email);
+    elementObject.checkNewPassword.on('focus', function (e) {
+        ModifyPwd.clearErrorText();
+        ModifyPwd.clearWaringShow(elementObject.checkNewPassword);
     });
 }());
-
-
-
-
