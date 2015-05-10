@@ -39,7 +39,7 @@
         });
 
         document.getElementById('js_carone').innerHTML = html;
-
+        bindEvents();
     }
 
 
@@ -54,7 +54,27 @@
         carid:''
     }
     function submitOrder(){
-
+        $.ajax({
+            type: "GET",
+            url: globalVar.reqUrl,
+            data: {
+                cmd:10001,
+                token:that.uid,
+                dataPacket: {
+                    data: that
+                }
+            },
+            timeout:'3000',
+            dataType: "jsonp"
+        }).done(function(req){
+            if(req.result && req.result.req) {
+                //跳转到 订单列表页
+                alert('下单成功')
+                location.href = 'userIndent.html'
+            }
+        }).fail(function(){
+            alert('网络异常')
+        })
     }
 
     function getData(){
@@ -93,7 +113,7 @@
             return;
         }
         getData();
-        bindEvents();
+
     }
 
 

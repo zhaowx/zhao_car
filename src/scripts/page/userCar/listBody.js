@@ -3,6 +3,7 @@
  */
 
 (function(){
+    var  globalVar  =  window._globalV;
     function renderCont(data,locationData,num) {
         var js_html = '<table class="table table-hover" id="js_table" \
         {{if num<3}}\
@@ -120,7 +121,7 @@
     function getData(){
         $.ajax({
             type: "GET",
-            url: "http://182.254.179.11/buyShop/s1/gateway.php",
+            url: globalVar.reqUrl,
             data: {
                 cmd:10016,
                 dataPacket:{
