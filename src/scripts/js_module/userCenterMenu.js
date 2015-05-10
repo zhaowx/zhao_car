@@ -38,7 +38,7 @@
                 break;
             case "userModifyPassword":
                 data.modifyPwd = classStyle;
-                data.userInformation = id;
+                data.spanUserAd = id;
                 break;
             case "userService":
                 data.spanService = id;
