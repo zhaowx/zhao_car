@@ -48,7 +48,7 @@
             if (passwordValue.length <= 0) {
                 return "empty"
             }
-            if(passwordValue.length<=6){
+            if (passwordValue.length <= 6) {
                 return false;
             }
             return true;
@@ -128,24 +128,27 @@
             this.clearErrorText();
             loading.show();
             $.ajax({
-                url: "Register.php",//发送的地址
-                data: this.informationIntegrated(elementObject),//传输过去的数据
-                dataType: 'json',
-                type: 'post',
-                success: function (data) {
-                    loading.hide();
-                    //data 成功 显示绑定成功
-                    if (data.status === 200) {
-                        // 转下个页面
+                url: "http://182.254.179.11/buyShop/s1/gateway.php",
+                data: {
+                    cmd: 10003,
+                    //login_email: $.trim(elementObject.email.val()),
+                    //login_pwd: $.trim(elementObject.password.val())
+                    dataPacket:{
+                        data:Register.informationIntegrated(elementObject)
                     }
-                    //信息错误失败
-                    if (data.status === "xxx") {
-                        elementObject.errorText.text(data.error);
-                    }
-                },
-                error: function (data) {
-                    loading.hide();
-                    elementObject.errorText.text("提交失败，网络故障，请稍后再试");
+                },//传输过去的数据
+                dataType: 'jsonp',
+                type: 'GET'
+            }).done(function (data) {
+                alert("xx");
+                loading.hide();
+                //data 成功 显示绑定成功
+                if (data.status === 200) {
+                    // 转下个页面
+                }
+                //信息错误失败
+                if (data.status === "xxx") {
+                    elementObject.errorText.text(data.error);
                 }
             });
         };
@@ -189,9 +192,8 @@
         //整合信息为json格式的字符串
         Register.informationIntegrated = function (elementObject) {
             var message = {};
-            message.email = $.trim(elementObject.email.val());
-            message.password = $.trim(elementObject.password.val());
-            message.remember = elementObject.checkBox.attr('checked') ? 1 : 0;
+            message.login_email = $.trim(elementObject.email.val());
+            message.login_pwd = $.trim(elementObject.password.val());
             return message;
         };
         return Register;
