@@ -59,12 +59,15 @@ function isLogin() {
 /**
  * @discription 当前页面是否处于用户中心页面
  */
-function isInUserCenter() {
+function getFileName() {
     var url = location.href,
         dir = url.split('/'),
-        fileName = dir[dir.length - 1].split("."),
-        result = false;
-    switch (fileName[0]) {
+        fileName = dir[dir.length - 1].split(".");
+    return fileName[0];
+}
+function isInUserCenter() {
+    var result = false;
+    switch (getFileName()) {
         case "userCar":
             result = true;
             break;

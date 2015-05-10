@@ -4,8 +4,15 @@
 
 (function () {
     //如果cookie存在;表示登录，其他表示未登录。
+    var style = "active";
     var data = {
-        isLogin: true//默认没有登录
+        isLogin: true,//默认没有登录
+        carlist:"",
+        wantList:"",
+        service:"",
+        userCenter:"",
+        login:"",
+        register:""
     };
 
     /**
@@ -18,8 +25,34 @@
     }
     function initData() {
         var result = getCookie('token');
+            _fileName =getFileName();
         if (result)
             data.isLogin = false;
+        if(/^user*/.test(_fileName)){
+            _fileName = "userCenter";
+        }
+        switch (_fileName)
+        {
+            case "wantList":
+                data.wantList =style;
+                break;
+            case "carlist":
+                data.carlist = style;
+                break;
+            case "xx":
+                data.service = style;
+            case "userCenter":
+                data.userCenter = style;
+                break;
+            case "login":
+                data.login = style;
+                break;
+            case "register":
+                data.register = style;
+                break;
+            default:
+                data.carlist = style;
+        }
     }
 
     function renderCont() {
@@ -41,9 +74,9 @@
                      </div>\
                  </form>\
                  <ul class="nav navbar-nav">\
-                     <li class="active"><a href="carlist.html">在卖车源</a></li>\
-                     <li><a href="wantList.html">求购列表</a></li>\
-                     <li class="dropdown">\
+                     <li class="{{carlist}}"><a href="carlist.html">在卖车源</a></li>\
+                     <li class="{{wantList}}"><a href="wantList.html">求购列表</a></li>\
+                     <li class="dropdown {{service}}">\
                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">服务承诺<span class="caret"></span></a>\
                          <ul class="dropdown-menu" role="menu">\
                              <li><a href="#" class="active">购车流程</a></li>\
@@ -54,10 +87,10 @@
                          </ul>\
                      </li>\
                      {{if isLogin}}\
-                     <li><a href="login.html">登录</a></li>\
-                     <li><a href="register.html">注册</li> \
+                     <li  class="{{login}}"><a href="login.html">登录</a></li>\
+                     <li  class="{{register}}"><a href="register.html">注册</li> \
                      {{else}}\
-                     <li class="dropdown">\
+                     <li class="dropdown {{userCenter}}">\
                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">个人中心 <span class="caret"></span></a>\
                          <ul class="dropdown-menu" role="menu">\
                          <li><a href="userIndent.html">我的订单</a></li>\
