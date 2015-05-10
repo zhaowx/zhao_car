@@ -44,8 +44,8 @@
                 data.spanService = id;
                 data.suggestion = classStyle;
                 break;
-            case "userInformation":
-                data.userInformation = classStyle;
+            case "userInfomation":
+                data.userInfomation = classStyle;
                 data.spanUserAd = id;
                 break;
             case "userPublishCar":
@@ -77,7 +77,7 @@
             <span  class="list-group-item active" id="{{spanUserAd}}">\
             账号管理\
             </span>\
-            <a href="userInfomation.html" class="list-group-item {{userInformation}}">账户信息</a>\
+            <a href="userInfomation.html" class="list-group-item {{userInfomation}}">账户信息</a>\
             <a href="userModifyPassword.html" class="list-group-item  {{modifyPwd}}">修改密码</a>\
             <span class="list-group-item active" id="{{spanService}}">服务\
             </span>\
