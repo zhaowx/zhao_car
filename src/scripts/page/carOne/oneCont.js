@@ -3,6 +3,8 @@
  */
 
 (function(){
+
+     var  globalVar  =  window._globalV;
     function renderCont(data) {
         var js_html = ' <div class="row">\
             <div class="col-md-5 ycm_img_cont"><img src="{{data.imgurl}}"></div>\
@@ -44,27 +46,49 @@
     function bindEvents(){
         $('#js_buy').bind('click',function(){
             //todo 下单
+            submitOrder();
         })
+    }
+
+    var that={
+        carid:''
+    }
+    function submitOrder(){
+
     }
 
     function getData(){
         $.ajax({
             type: "GET",
-            url: "http://182.254.179.11/buyShop/s1/gateway.php",
+            url: globalVar.reqUrl,
             data: {
-                cmd:10001
+                cmd:10001,
+                token:that.uid,
+                dataPacket: {
+                    data: that
+                }
             },
+            timeout:'3000',
             dataType: "jsonp"
         }).done(function(req){
             if(req.result && req.result.req) {
-
-                var data = req.result.data;
-                renderCont(data);
+                //跳转到 订单列表页
+                //location.href = 'userIndent.html'
+                renderCont(req.result.data)
             }
+        }).fail(function(){
+            alert('网络异常')
         })
     }
 
     function init(){
+        var match = location.search.match(/carId=([^&]*)/)
+        var carId = match?match[1]:null;
+        if(!carId){
+            location.href =  'carList.html'
+        }
+        that.carid = carId;
+        that.uid = getCookie('userToken');
         if(!$('#js_carone')){
             return;
         }
@@ -74,5 +98,5 @@
 
 
 
-    renderCont();
+    init();
 })();
