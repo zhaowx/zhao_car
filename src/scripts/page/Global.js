@@ -104,4 +104,4 @@ function GoToHome() {
         location.href = "carlist.html";
     }
 }
-//GoToHome();
+GoToHome();
