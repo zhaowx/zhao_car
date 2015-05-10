@@ -94,7 +94,7 @@
                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">个人中心 <span class="caret"></span></a>\
                          <ul class="dropdown-menu" role="menu">\
                          <li><a href="userIndent.html">我的订单</a></li>\
-                         <li><a href="userPostBuyCar.html">我的求购</a></li>\
+                         <li><a href="userWant.html">我的求购</a></li>\
                          <li><a href="userCar.html">我的车源</a></li>\
                          <li class="divider"></li>\
                          <li><a href="userInfomation.html">账户信息</a></li>\
