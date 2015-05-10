@@ -42,7 +42,7 @@
             </ul>\
         </nav>';
         var  fabu_html = '<div class="alert alert-info" role="alert">您暂时没有求购信息，您可以进行发布！</div>';
-        if(data.length==0){
+        if(!data || data.length==0){
             var render = template.compile(fabu_html);
         }else{
             var render = template.compile(js_html);
@@ -113,8 +113,7 @@
             if(req.result && req.result.req) {
 
                 var data = req.result.data.data;
-                var location = req.result.data.locationconfig;
-                renderCont(data,location);
+                renderCont(data);
             }
         })
     }

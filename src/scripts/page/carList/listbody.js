@@ -17,7 +17,7 @@
             </thead>\
             <tbody>\
             {{each list as value i}}\
-            <tr   data-href="carOne.html?carId={{value.carId}}">\
+            <tr   data-href="carOne.html?carId={{value.car_id}}">\
                 <td>{{value.brandName}} {{value.modelName}} {{value.statesTypeName}}</td>\
                 <td>{{value.title}}</td>\
                 <td>{{value.colorName}}</td>\
@@ -35,7 +35,7 @@
         </nav>';
 
         var  fabu_html = '<div class="alert alert-info" role="alert">暂时找不到对应车型，您可以登陆之后进行求购！</div>';
-        if(data.length==0){
+        if(!data || data.length==0){
             var render = template.compile(fabu_html);
         }else{
             var render = template.compile(js_html);
