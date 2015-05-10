@@ -131,8 +131,6 @@
                 url: "http://182.254.179.11/buyShop/s1/gateway.php",
                 data: {
                     cmd: 10003,
-                    //login_email: $.trim(elementObject.email.val()),
-                    //login_pwd: $.trim(elementObject.password.val())
                     dataPacket:{
                         data:Register.informationIntegrated(elementObject)
                     }
@@ -140,8 +138,11 @@
                 dataType: 'jsonp',
                 type: 'GET'
             }).done(function (data) {
-                alert("xx");
+                //隐藏加载条
                 loading.hide();
+                if(data.result.req === true){
+
+                }
                 //data 成功 显示绑定成功
                 if (data.status === 200) {
                     // 转下个页面
