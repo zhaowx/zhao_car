@@ -101,7 +101,7 @@
             var text = $target.text();
             $target.parents('ul').prev().text(text);
             var idx = $target.data('value');
-            that.model_id  = idx;
+            that.standard_id  = idx;
             communicationGet({
                 brand_id:that.brand_id,
                 model_id:that.model_id,
