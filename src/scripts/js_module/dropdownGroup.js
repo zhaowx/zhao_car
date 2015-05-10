@@ -36,7 +36,7 @@
 
     function renderUl(ulId,data){
         var js_html = '{{each list as value i}}\
-                <li><a data-value="{{i}}">{{value.name}}</a></li>\
+                <li><a data-id="{{i}}" data-value="{{value.brand_id || value.value_code}}">{{value.name}}</a></li>\
             {{/each}}';
         var render = template.compile(js_html);
         //var html = render({data:[1,2]});
@@ -52,7 +52,12 @@
         brandId:0,
         moduleId:0,
         seatType:0,
-        page:1
+        page:1,
+        ids:{
+            bid:0,
+            mid:0,
+            sid:0
+        }
     }
 
     function bindEvents(){
@@ -61,13 +66,15 @@
             var text = $target.text();
             $target.parents('ul').prev().text(text);
             var idx = $target.data('value');
+            var id = $target.data('id');
             that.brandId  = idx;
+            that.ids.bid = id;
             communicationGet({
                 brandId:idx,
-                moduleId:-1,
-                statesType:-1
+                moduleId:0,
+                statesType:0
             });
-            var data = that.carSource[idx].models;
+            var data = that.carSource[id].models;
             renderUl('js_cx',data);
             $('#js_cx').prev().html('请选择车系');
         });
@@ -76,13 +83,15 @@
             var text = $target.text();
             $target.parents('ul').prev().text(text);
             var idx = $target.data('value');
+            var id = $target.data('id');
             that.modelId  = idx;
+            that.ids.mid = id;
             communicationGet({
                 brandId:that.brandId,
                 moduleId:idx,
-                statesType:-1
+                statesType:0
             });
-            var data = that.carSource[that.brandId].models[idx].statestype;
+            var data = that.carSource[that.ids.bid].models[id].statestype;
             renderUl('js_cg',data);
             $('#js_cg').prev().html('请选择车规')
         });
@@ -105,7 +114,7 @@
 //        $(document).bind('dropdownGroupChange',function(event,data){
 //            console.log(data);
 //        })
-        $(document).trigger('changeData',data);
+        $(document).trigger('changeDPData',data);
     }
 
     communicationGet()

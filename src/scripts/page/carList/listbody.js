@@ -67,7 +67,7 @@
     }
 
     function communicationSet(){
-        $(document).bind('changeData',function(event,data){
+        $(document).bind('changeDPData',function(event,data){
             console.log(data);
             that.dataParams.pageIndex = 0;
             var d = $.extend({},data,that.dataParams);

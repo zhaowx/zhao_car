@@ -30,7 +30,7 @@
 
     function renderUl(ulId,data){
         var js_html = '{{each list as value i}}\
-                <li><a data-value="{{i}}">{{value.name}}</a></li>\
+                <li><a data-value="{{value.value_code}}">{{value.name}}</a></li>\
             {{/each}}';
         var render = template.compile(js_html);
         //var html = render({data:[1,2]});
@@ -43,10 +43,8 @@
 
     var that={
         carSource:{},
-        brandId:0,
-        moduleId:0,
-        seatType:0,
-        page:1
+        outColor:0,
+        innerColor:0
     }
 
     function bindEvents(){
@@ -55,11 +53,10 @@
             var text = $target.text();
             $target.parents('ul').prev().text(text);
             var idx = $target.data('value');
-            that.brandId  = idx;
+            that.outColor  = idx;
             communicationGet({
-                brandId:idx,
-                moduleId:-1,
-                statesType:-1
+                outColor:idx,
+                innerColor:that.innerColor
             });
         });
         $('#js_ns').delegate('li','click',function(e){
@@ -67,20 +64,16 @@
             var text = $target.text();
             $target.parents('ul').prev().text(text);
             var idx = $target.data('value');
-            that.modelId  = idx;
+            that.innerColor  = idx;
             communicationGet({
-                brandId:that.brandId,
-                moduleId:idx,
-                statesType:-1
+                outColor:that.outColor,
+                innerColor:idx
             });
         });
     }
     renderCont();
 
     function communicationGet(data){
-//        $(document).bind('dropdownGroupChange',function(event,data){
-//            console.log(data);
-//        })
         $(document).trigger('changeColorData',data);
     }
 
@@ -95,7 +88,7 @@
         dataType: "jsonp"
     }).done(function(req){
         if(req.result && req.result.req){
-            that.carSource = req.result.data.configInfo.brand;
+            that.carSource = req.result.data;
         }
         var brand = that.carSource;
         renderUl('js_wg',brand);
