@@ -74,7 +74,7 @@
     }
 
     function init(){
-        that.uid = getCookie('userToken');
+        that.uid = getCookie('Token');
         if(!$('#js_form')){
             return;
         }

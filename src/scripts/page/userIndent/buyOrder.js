@@ -92,6 +92,7 @@
             url: globalVar.reqUrl,
             data: {
                 cmd:10016,
+                token:that.uid,
                 dataPacket:{
                     data: {
                         //num: 1
@@ -110,6 +111,7 @@
     }
 
     function init(){
+        that.uid = getCookie('token');
         if(!$('#buyOrder')){
             return;
         }
