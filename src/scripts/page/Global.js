@@ -9,6 +9,13 @@
 //    };
 //
 //})(jQuery);
+(function(){
+    var GlobalVar = {
+        reqUrl:"http://182.254.179.11/buyShop/s1/gateway.php"
+    }
+    window._globalV = GlobalVar;
+})()
+
 
 /**
  * @discription 获取cookie的值，如果没有返回null
@@ -47,7 +54,7 @@ function deleteCookie(cookieName) {
  * @discription 根据用户的cookie和userId来判断用户是否登录，未登录就转到carlist.html页面
  */
 function isLogin() {
-    var userId = getCookie("userId");
+    var userId = getCookie("userToken");
     var islogin = getCookie("isLogin");
     if (userId && islogin) {
         return true;
@@ -104,4 +111,4 @@ function GoToHome() {
         location.href = "carlist.html";
     }
 }
-GoToHome();
+//GoToHome();
