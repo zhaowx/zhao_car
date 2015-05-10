@@ -107,8 +107,8 @@
                     location.href = "carlist.html";
                 }
                 //信息错误失败
-                else {
-                    elementObject.errorText.text(data.error);
+                else if(result.req === false) {
+                    elementObject.errorText.text(result.message);
                 }
             }).fail(function (data) {
                 loading.hide();
