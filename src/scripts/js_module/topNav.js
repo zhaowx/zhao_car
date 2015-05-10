@@ -25,7 +25,7 @@
                 <span class="icon-bar"></span>\
                 <span class="icon-bar"></span>\
             </button>\
-            <a class="navbar-brand" href="index.html">易车卖</a>\
+            <a class="navbar-brand" href="carList.html">易车卖</a>\
         </div>\
          <div class="collapse navbar-collapse  navbar-right" id="bs-example-navbar-collapse-1">\
              <form class="navbar-form navbar-left" role="search">\
@@ -34,8 +34,8 @@
                      </div>\
                  </form>\
                  <ul class="nav navbar-nav">\
-                     <li class="active"><a href="list.html">在卖车源</a></li>\
-                     <li><a href="#">求购列表</a></li>\
+                     <li class="active"><a href="carlist.html">在卖车源</a></li>\
+                     <li><a href="wantList.html">求购列表</a></li>\
                      <li class="dropdown">\
                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">服务承诺<span class="caret"></span></a>\
                          <ul class="dropdown-menu" role="menu">\
@@ -47,7 +47,7 @@
                          </ul>\
                      </li>\
                      {{if isLogin}}\
-                     <li><a href="#">login</a></li>\
+                     <li><a href="login.html">login</a></li>\
                      {{else}}\
                      <li class="dropdown">\
                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">个人中心 <span class="caret"></span></a>\
