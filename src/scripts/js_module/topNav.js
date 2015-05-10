@@ -54,7 +54,8 @@
                          </ul>\
                      </li>\
                      {{if isLogin}}\
-                     <li><a href="login.html">login</a></li>\
+                     <li><a href="login.html">登录</a></li>\
+                     <li><a href="register.html">注册</li> \
                      {{else}}\
                      <li class="dropdown">\
                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">个人中心 <span class="caret"></span></a>\
