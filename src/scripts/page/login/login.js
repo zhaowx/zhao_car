@@ -48,9 +48,9 @@
         //submit 提交动作
         Login.submit = function (e) {
             e.preventDefault();
-            var errorArray = new Array();
-            errorArray[0] = new Array();
-            errorArray[1] = new Array();
+            var errorArray = [];
+            errorArray[0] = [];
+            errorArray[1] = [];
             var returnValueEmail = this.checkEmail(elementObject.email),
                 returnValuePassWord = this.checkPassword(elementObject.password);
 
@@ -88,26 +88,33 @@
             this.clearErrorText();
             loading.show();
             $.ajax({
-                url: "login.php",//发送的地址
-                data: this.informationIntegrated(elementObject),//传输过去的数据
-                dataType: 'json',
-                type: 'post',
-                success: function (data) {
-                    loading.hide();
-                    //data 成功 显示绑定成功
-                    if (data.status === 200) {
-                        // 转下个页面
-                    }
-                    //信息错误失败
-                    if (data.status === "xxx") {
-                        elementObject.errorText.text(data.error);
+                url: window._globalV.reqUrl,//发送的地址
+                data: {
+                    cmd: 10005,
+                    dataPacket: {
+                        data: this.informationIntegrated(elementObject)
                     }
                 },
-                error: function (data) {
-                    loading.hide();
-                    elementObject.errorText.text("提交失败，网络故障，请稍后再试");
+                timeout: window._globalV.ajaxTimeOut,
+                dataType: 'jsonp',
+                type: 'GET'
+            }).done(function (data) {
+                var result = data.result;
+                loading.hide();
+                //data 成功 显示绑定成功
+                if (result.req === true) {
+                    setCookie('token', result.data.token, window.window._globalV.cookieKeepDay);
+                    location.href = "carlist.html";
                 }
+                //信息错误失败
+                else {
+                    elementObject.errorText.text(data.error);
+                }
+            }).fail(function (data) {
+                loading.hide();
+                elementObject.errorText.text("提交失败，网络故障，请稍后再试");
             });
+
         };
 
         //显示错误信息
@@ -124,7 +131,7 @@
         //清除错误信息
         Login.clearErrorText = function () {
             elementObject.errorText.text("");
-        }
+        };
 
         //错误的输入框聚焦
         Login.errorInputAnimate = function (errorTextArray) {
@@ -149,8 +156,7 @@
         Login.informationIntegrated = function (elementObject) {
             var message = {};
             message.email = $.trim(elementObject.email.val());
-            message.password = $.trim(elementObject.password.val());
-            message.remember = elementObject.checkBox.attr('checked') ? 1 : 0;
+            message.pwd = $.trim(elementObject.password.val());
             return message;
         };
         return Login;

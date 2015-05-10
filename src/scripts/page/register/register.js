@@ -128,25 +128,26 @@
             this.clearErrorText();
             loading.show();
             $.ajax({
-                url: "http://182.254.179.11/buyShop/s1/gateway.php",
+                url: window._globalV.reqUrl,
                 data: {
                     cmd: 10003,
                     dataPacket:{
                         data:Register.informationIntegrated(elementObject)
                     }
                 },//传输过去的数据
+                timeout:window._globalV.ajaxTimeOut,
                 dataType: 'jsonp',
                 type: 'GET'
             }).done(function (data) {
                 //隐藏加载条
+                var result = data.result;
                 loading.hide();
-                if(data.result.req === true){
+                //成功
+                if(result.req === true){
+                    setCookie('token',result.data.token,window.window._globalV.cookieKeepDay);
+                    location.href = "carlist.html";
+                }
 
-                }
-                //data 成功 显示绑定成功
-                if (data.status === 200) {
-                    // 转下个页面
-                }
                 //信息错误失败
                 if (data.status === "xxx") {
                     elementObject.errorText.text(data.error);

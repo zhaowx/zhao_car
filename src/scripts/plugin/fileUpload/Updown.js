@@ -4,8 +4,7 @@
         var $wrap = $('#uploader'),
 
         // 图片容器
-            $queue = $('<ul class="filelist"></ul>')
-                .appendTo($wrap.find('.queueList')),
+            $queue = $('<ul class="filelist"></ul>').appendTo($wrap.find('.queueList')),
 
         // 状态栏，包括进度和控制按钮
             $statusBar = $wrap.find('.statusBar'),
