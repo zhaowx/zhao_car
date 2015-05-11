@@ -49,6 +49,7 @@
 
         document.getElementById('js_listTable').innerHTML = html;
         bindEvents();
+        jumpPage();
     }
 
     var that = {
@@ -82,7 +83,7 @@
         $('.js_nextPage').bind('click',function(){
             var idx = that.dataParams.pageIndex;
             if(idx==0){
-                return  false;
+                //return  false;
             }
             idx++;
             that.dataParams.pageIndex = idx;
@@ -98,9 +99,7 @@
                 cmd:10007,
                 token:that.uid,
                 dataPacket:{
-                    data: {
-                        //num: 1
-                    }
+                    data: that.dataParams
                 }
             },
             dataType: "jsonp"
@@ -119,7 +118,7 @@
             return;
         }
         getData();
-        jumpPage();
+
     }
 
     init();
