@@ -8,11 +8,11 @@
     function renderCont(data) {
         var js_html = '<table class="table table-hover">\
             <thead><tr>\
-                <th>车辆品牌</th>\
+                <th>车辆型号</th>\
                 <th>车辆信息</th>\
                 <th>车辆颜色</th>\
                 <th>求购价格</th>\
-                <th>车辆状态</th>\
+                <th>详细说明</th>\
                 <th>发布日期</th>\
                 <th>操作</th>\
             </tr>\
@@ -21,10 +21,10 @@
             {{each list as value i}}\
             <tr   data-href="carOne.html?carId={{value.carId}}">\
                 <td>{{value.brandName}} {{value.modelName}} {{value.statesTypeName}}</td>\
-                <td>{{value.note}}</td>\
+                <td>{{value.title}}</td>\
                 <td>{{value.colorName}}</td>\
                 <td>￥{{value.price}}</td>\
-                <td>{{value.locationName}}</td>\
+                <td>{{value.remark}}</td>\
                 <td>{{value.publish_time.split(" ")[0]}}</td>\
                 <td><a href="userPublishCar.html">有车发布</a></td>\
             </tr>\
@@ -71,10 +71,10 @@
     }
 
     function communicationSet(){
-        $(document).bind('changeData',function(event,data){
+        $(document).bind('changeDPData',function(event,data){
             console.log(data);
             that.dataParams.pageIndex = 0;
-            var d = $.extend({},data,that.dataParams);
+            var d = $.extend({},that.dataParams,data);
             that.dataParams = d;
             getData(d);
         })
@@ -106,7 +106,7 @@
             type: "GET",
             url: globalVar.reqUrl,
             data: {
-                cmd:10002,
+                cmd:10017,
                 dataPacket: {
                     data: params
                 }

@@ -29,13 +29,21 @@
 <nav class="navbar navbar-default navbar-fixed-top" id="js_topnav">
 </nav>
 
-<div class="container userCenter hidden-xs">
+<div class="container userCenter ">
     <div class="row">
         <div class="col-sm-2 col-md-2 hidden-xs listMenu" id="jsUserMenu">
         </div>
         <div class="col-sm-10 col-md-10">
-            <div class="page-header">
+            <div class="page-header hidden-xs">
                 <h2 class="h2">我的订单</h2>
+            </div>
+            <div class="page-header visible-xs">
+                <h2 class="h2">
+                    <ol class="breadcrumb">
+                        <li><a href="userIndent.html">用户中心</a></li>
+                        <li class="active">我的订单</li>
+                    </ol>
+                </h2>
             </div>
             <ul class="nav nav-tabs formService" id="myTab">
                 <li role="presentation" class="active orderTab"><a href="#buyOrder" class="text-center">购车订单</a></li>
@@ -52,29 +60,6 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
-<!--这个是针对手机屏幕的 todo-->
-<div class="container visible-xs userCenter userCenterMobile">
-    <div class="list-group mobile">
-        <a href="userIndentM.html" class="list-group-item"> <i class="icon iconfont iconLogo">&#xe6ec;</i>我的订单 <i
-                class="icon iconfont arrowRight">&#xe647;</i></a>
-        <a href="userWant.html" class="list-group-item"> <i class="icon iconfont iconLogo">&#xe61d;</i>我的求购 <i
-                class="icon iconfont arrowRight">&#xe647;</i></a>
-        <a href="userCar.html" class="list-group-item"> <i class="icon iconfont iconLogo">&#xe61a;</i>我的车源 <i
-                class="icon iconfont arrowRight">&#xe647;</i></a>
-
-    </div>
-    <div class="list-group mobile">
-        <a href="userInfomation.html" class="list-group-item"> <i class="icon iconfont iconLogo">&#xe654;</i>用户信息 <i
-                class="icon iconfont arrowRight">&#xe647;</i></a>
-        <a href="userModifyPassword.html" class="list-group-item"> <i class="icon iconfont iconLogo">&#xe615;</i>修改密码 <i
-                class="icon iconfont arrowRight">&#xe647;</i></a>
-    </div>
-    <div class="list-group mobile">
-        <a href="userService.html" class="list-group-item"> <i class="icon iconfont iconLogo">&#xe677;</i>投诉与建议 <i
-                class="icon iconfont arrowRight">&#xe647;</i></a>
     </div>
 </div>
 

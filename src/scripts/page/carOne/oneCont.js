@@ -51,14 +51,14 @@
     }
 
     var that={
-        carid:''
+        car_id:''
     }
     function submitOrder(){
         $.ajax({
             type: "GET",
             url: globalVar.reqUrl,
             data: {
-                cmd:10001,
+                cmd:10024,
                 token:that.uid,
                 dataPacket: {
                     data: that
@@ -82,7 +82,7 @@
             type: "GET",
             url: globalVar.reqUrl,
             data: {
-                cmd:10001,
+                cmd:10002,
                 token:that.uid,
                 dataPacket: {
                     data: that
@@ -107,8 +107,8 @@
         if(!carId){
             location.href =  'carList.html'
         }
-        that.carid = carId;
-        that.uid = getCookie('userToken');
+        that.car_id = carId;
+        that.uid = getCookie('token');
         if(!$('#js_carone')){
             return;
         }

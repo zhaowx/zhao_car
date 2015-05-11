@@ -7,7 +7,7 @@
     function renderCont(data) {
         var js_html = '<table class="table table-hover">\
             <thead><tr>\
-                <th>车辆品牌</th>\
+                <th>车型</th>\
                 <th>车辆信息</th>\
                 <th>车辆颜色</th>\
                 <th>售卖价格</th>\

@@ -11,7 +11,7 @@
             <tr>\
                 <th>车辆信息</th>\
                 <th>求购价格</th>\
-                <th>车辆状态</th>\
+                <th>详细说明</th>\
                 <th>发布时间</th>\
                 <th>审核状态</th>\
             </tr>\
@@ -21,16 +21,11 @@
             <tr>\
                 <td>\
                         <p>{{value.brandName}} {{value.modelName}} {{value.statesTypeName}}</p>\
-                        <p>{{value.title}}</p>\
                 </td>\
                 <td>{{value.price}}</td>\
-                <td>{{value.locationName}}</td>\
+                <td>{{value.remark}}</td>\
                 <td>{{value.publish_time.split(" ")[0]}}</td>\
-                {{if value.visible==1}}\
-                <td>已通过</td>\
-                {{else}}\
-                <td>未通过</td>\
-                {{/if}}\
+                <td>{{value.shenheName}}</td>\
             </tr>\
             {{/each}}\
         </tbody>\
