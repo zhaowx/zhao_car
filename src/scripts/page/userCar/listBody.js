@@ -42,7 +42,7 @@
                         </button>\
                         <ul class="dropdown-menu" role="menu" data-carid="{{value.carId}}">\
                             {{each locationData as vv ii}}\
-                            <li><a href="#" data-value="{{ii}}">{{vv}}</a></li>\
+                            <li><a href="#" data-value="{{vv.value_code}}">{{vv.name}}</a></li>\
                             {{/each}}\
                         </ul>\
                     </div>\

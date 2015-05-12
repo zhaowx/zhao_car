@@ -20,6 +20,10 @@
             var d = $.extend({},that.dataParams,data);
             that.dataParams = d;
         })
+        $(document).bind('changeLocationData',function(event,data){
+            var d = $.extend({},that.dataParams,data);
+            that.dataParams = d;
+        })
     }
 
     function bindEvents(){
@@ -43,6 +47,11 @@
                 return false;
             }
         }
+        if(!$('#vin').val()){
+            alert('请输入车架号');
+            return false;
+        }
+        dp.vin = $('#vin').val();
         dp.title = $('#carName').val();
         dp.price = $('#carPrice').val();
         dp.remark = $('#carNote').val();
@@ -51,10 +60,10 @@
 
     function sendData(data){
         $.ajax({
-            type: "POSt",
+            type: "POST",
             url: globalVar.reqUrl,
             data: {
-                cmd:10008,
+                cmd:10012,
                 token:that.uid,
                 dataPacket: {
                     data: data
@@ -74,7 +83,7 @@
     }
 
     function init(){
-        that.uid = getCookie('Token');
+        that.uid = getCookie('token');
         if(!$('#js_form')){
             return;
         }

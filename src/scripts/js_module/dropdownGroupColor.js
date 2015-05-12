@@ -44,7 +44,8 @@
 
     var that={
         carSource:{},
-        outColor:0,
+        color_id:0,
+        //innerColor
         innerColor:0
     }
 
@@ -54,9 +55,9 @@
             var text = $target.text();
             $target.parents('ul').prev().text(text);
             var idx = $target.data('value');
-            that.outColor  = idx;
+            that.color_id  = idx;
             communicationGet({
-                outColor:idx,
+                color_id:idx,
                 innerColor:that.innerColor
             });
         });
@@ -67,7 +68,7 @@
             var idx = $target.data('value');
             that.innerColor  = idx;
             communicationGet({
-                outColor:that.outColor,
+                color_id:that.color_id,
                 innerColor:idx
             });
         });
