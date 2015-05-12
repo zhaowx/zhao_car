@@ -5,7 +5,7 @@
 (function(){
     var  globalVar  =  window._globalV;
 
-    function renderCont(data,locationData,num) {
+    function renderCont(data,num) {
         var js_html = '<table class="table table-hover" id="js_tableSell" \
             <thead>\
             <tr>\
@@ -21,38 +21,33 @@
             {{each data as value i}}\
             <tr>\
                 <td>\
-                        <p>{{value.brandName}} {{value.modelName}} {{value.statesTypeName}}</p>\
-                        <p>{{value.note}}</p>\
+                        <p>{{value.car[0].brandName}} {{value.car[0].modelName}} {{value.car[0].statesTypeName}}</p>\
                 </td>\
-                <td>{{value.vin}}</td>\
-                <td>{{value.price}}</td>\
-                <td></td>\
-                <td>20115-05-02</td>\
-                {{if value.visible==1}}\
-                <td>已通过</td>\
-                {{else}}\
-                <td>未通过</td>\
-                {{/if}}\
+                <td>{{value.order_no}}</td>\
+                <td>{{value.pro_total_price}}</td>\
+                <td>{{value.id}}</td>\
+                <td>{{value.car[0].locationName}}</td>\
+                <td>{{value.create_time}}</td>\
             </tr>\
             {{/each}}\
         </tbody>\
         </table>\
         <nav>\
             <ul class="pager">\
-            <li><a href="#" class="js_prevPageSell">上一页</a></li>\
-            <li><a href="#" class="js_nextPageSell">下一页</a></li>\
+            <li><a href="#" class="js_prevPageBuy">上一页</a></li>\
+            <li><a href="#" class="js_nextPageBuy">下一页</a></li>\
             </ul>\
         </nav>';
         var render = template.compile(js_html);
         //var html = render({data:[1,2]});
         var html = render({
             data:data,
-            locationData:locationData,
             num:data.length
         });
 
         document.getElementById('buyOrder').innerHTML = html;
         bindEvents();
+        jumpPage();
     }
 
     var that = {
@@ -77,8 +72,8 @@
         })
         $('.js_nextPageBuy').bind('click',function(){
             var idx = that.dataParams.pageIndex;
-            if(idx==0){
-                return  false;
+            if(idx==10){
+                //return  false;
             }
             idx++;
             that.dataParams.pageIndex = idx;
@@ -91,12 +86,10 @@
             type: "GET",
             url: globalVar.reqUrl,
             data: {
-                cmd:10016,
+                cmd:10025,
                 token:that.uid,
                 dataPacket:{
-                    data: {
-                        //num: 1
-                    }
+                    data: that.dataParams
                 }
             },
             dataType: "jsonp"
@@ -104,8 +97,7 @@
             if(req.result && req.result.req) {
 
                 var data = req.result.data.data;
-                var location = req.result.data.locationconfig;
-                renderCont(data,location);
+                renderCont(data);
             }
         })
     }
@@ -116,7 +108,7 @@
             return;
         }
         getData();
-        jumpPage();
+        //jumpPage();
     }
 
     init();

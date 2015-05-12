@@ -47,7 +47,8 @@
         });
 
         document.getElementById('js_listTable').innerHTML = html;
-
+        bindEvents();
+        jumpPage();
     }
 
 
@@ -81,7 +82,7 @@
         $('.js_prevPage').bind('click',function(){
             var idx = that.dataParams.pageIndex;
             if(idx==0){
-                return  false;
+                //return  false;
             }
             idx--;
             that.dataParams.pageIndex = idx;
@@ -90,7 +91,7 @@
         $('.js_nextPage').bind('click',function(){
             var idx = that.dataParams.pageIndex;
             if(idx==0){
-                return  false;
+                //return  false;
             }
             idx++;
             that.dataParams.pageIndex = idx;
@@ -105,7 +106,7 @@
             data: {
                 cmd:10002,
                 dataPacket: {
-                    data: params
+                    data: $.extend({},params,that.dataParams)
                 }
             },
             dataType: "jsonp"
@@ -123,8 +124,7 @@
             return;
         }
         getData();
-        bindEvents();
-        jumpPage();
+
         communicationSet();
     }
 
