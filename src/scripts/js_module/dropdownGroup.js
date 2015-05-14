@@ -10,19 +10,19 @@
         <span>选择车型  </span>\
         <div class="btn-group">\
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">\
-        请选择品牌 <span class="caret"></span>\
+        品牌 <span class="caret"></span>\
         </button>\
         <ul class="dropdown-menu" role="menu" id="js_pp"></ul>\
         </div>\
     <div class="btn-group">\
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">\
-        请选择车系 <span class="caret"></span>\
+        车系 <span class="caret"></span>\
         </button>\
         <ul class="dropdown-menu" role="menu" id="js_cx"></ul>\
     </div>\
     <div class="btn-group">\
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">\
-        请选择车规 <span class="caret"></span>\
+        车规 <span class="caret"></span>\
         </button>\
         <ul class="dropdown-menu" role="menu" id="js_cg"></ul>\
     </div>\
@@ -118,7 +118,43 @@
         $(document).trigger('changeDPData',data);
     }
 
-    communicationGet()
+    //communicationGet()
+    function autoFilter(){
+        var fliters = location.search.substring(1);
+        var match = fliters.match(/brand_id=(\d*)&model_id=(\d*)&standard_id=(\d*)/);
+        if(match){
+            that.brand_id = match[1];
+            that.model_id = match[2];
+            that.standard_id = match[3];
+
+            communicationGet({
+                brand_id:that.brand_id,
+                model_id:that.model_id,
+                standard_id:that.standard_id
+            });
+
+            //根据id进行文字填写
+            var brand = that.carSource;
+            $.each(brand,function(i,item){
+                if(item.brand_id == match[1]){
+                    $('#js_pp').prev().text(item.name);
+                    var m = item.models;
+                    $.each(m,function(ii,itemm){
+                        if(itemm.brand_id == match[2]){
+                            $('#js_cx').prev().text(itemm.name);
+                            var s = itemm.statestype;
+                            $.each(s,function(iii,itemmm){
+                                if(itemmm.value_code == match[3]){
+                                    $('#js_cg').prev().text(itemmm.name);
+                                }
+                            })
+                        }
+                    })
+                }
+            })
+        }
+    }
+
     $.ajax({
         type: "GET",
         url: globalVar.reqUrl,
@@ -134,5 +170,6 @@
         var brand = that.carSource;
         renderUl('js_pp',brand);
         bindEvents();
+        autoFilter();
     })
 })();

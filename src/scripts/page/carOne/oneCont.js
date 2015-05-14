@@ -46,6 +46,10 @@
     function bindEvents(){
         $('#js_buy').bind('click',function(){
             //todo 下单
+            if(!that.uid){
+                alert('请先登陆');
+                return;
+            }
             submitOrder();
         })
     }
