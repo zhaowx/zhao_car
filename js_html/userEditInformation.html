@@ -15,6 +15,8 @@
     <!--<link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">-->
     <link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../src/styles/page/userCenterStyle.css"/>
+    <link rel="stylesheet" href="../dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../src/styles/page/WebUPLoad.css"/>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -34,7 +36,8 @@
         </div>
         <div class="col-sm-10 col-md-10">
             <div class="page-header hidden-xs">
-                <h2 class="h2">编辑信息<a class="btn btn-primary pull-right" href="userInfomation.html" role="button">查看信息</a></h2>
+                <h2 class="h2">编辑信息<a class="btn btn-primary pull-right" href="userInfomation.html"
+                                      role="button">查看信息</a></h2>
             </div>
             <div class="page-header visible-xs">
                 <h2 class="h2">
@@ -46,21 +49,96 @@
                     </ol>
                 </h2>
             </div>
+            <div class="col-md-10 col-md-offset-1 formService ">
+
+                <form class="formservice">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">用户基本信息</div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label for="userName">用户名</label>
+                                <input type="text" name='userName' id="userName" class="form-control" value="罗明忠"
+                                       placeholder="你的真实姓名"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="phoneNumber">电话号码</label>
+                                <input type="tel" name="phoneNumber" class="form-control" id="phoneNumber"
+                                       placeholder="您的电话号码">
+                            </div>
+                            <div class="form-group">
+                                <label for="userId">身份证号码</label>
+                                <input type="text" name="userId" class="form-control" id="userId"
+                                       placeholder="您的身份证号码"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">收货地址</label>
+                                <input type="text" name="address" class="form-control" id="address"
+                                       placeholder="您的收货地址"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="code">邮编号码</label>
+                                <input type="text" name="code" class="form-control" id="code" placeholder="您的邮编号码"/>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="panel panel-default">
+                    <div class="panel-heading">上传资料(身份证正反面，营业资格证)</div>
+                    <div class="panel-body">
+                        <div id="wrapper">
+                            <div id="container">
+                                <!--头部，相册选择和格式选择-->
+
+                                <div id="uploader">
+                                    <div class="queueList">
+                                        <div id="dndArea" class="placeholder">
+                                            <div id="filePicker"></div>
+                                            <p>或将照片拖到这里，单次最多可选5张</p>
+                                        </div>
+                                    </div>
+                                    <div class="statusBar" style="display:none;">
+                                        <div class="progress">
+                                            <span class="text">0%</span>
+                                            <span class="percentage"></span>
+                                        </div>
+                                        <div class="info"></div>
+                                        <div class="btns">
+                                            <div id="filePicker2"></div>
+                                            <div class="uploadBtn">开始上传</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="progress" class="progress">
+                            <div class="progress-bar progress-bar-success"></div>
+                        </div>
+                        <table role="presentation" class="table table-striped">
+                            <tbody class="files"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary btn-lg btn-block" id="js_publish">发布</button>
+                </div>
+                </form>
+
+            </div>
         </div>
     </div>
-</div>
 
-<footer class="footer " id="js_bottomFooter">
-</footer>
+    <footer class="footer " id="js_bottomFooter">
+    </footer>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
-<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="../src/scripts/template.js"></script>
-<script src="../src/scripts/js_module/topNav.js"></script>
-<script src="../src/scripts/js_module/bottomFooter.js"></script>
-<script src="../src/scripts/js_module/userCenterMenu.js"></script>
+    <!-- Bootstrap core JavaScript================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../src/scripts/plugin/fileupload/webuploader.min.js"></script>
+    <script type="text/javascript" src="../src/scripts/plugin/fileupload/Updown.js"></script>
+    <script src="../src/scripts/template.js"></script>
+    <script src="../src/scripts/js_module/topNav.js"></script>
+    <script src="../src/scripts/js_module/bottomFooter.js"></script>
+    <script src="../src/scripts/js_module/userCenterMenu.js"></script>
 </body>
 </html>
