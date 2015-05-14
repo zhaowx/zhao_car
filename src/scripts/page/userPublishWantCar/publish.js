@@ -34,12 +34,12 @@
         //console.log(that.dataParams);
         var  dp =  that.dataParams;
         if(!dp.brand_id){
-            alert('请选择车型或者颜色')
+            alert('璇烽?夋嫨杞﹀瀷鎴栬?呴鑹?')
             return false;
         }
         for(var  i in  dp){
             if(!dp[i] || dp[i]==0){
-                alert('请选择车型或者颜色')
+                alert('璇烽?夋嫨杞﹀瀷鎴栬?呴鑹?')
                 return false;
             }
         }
@@ -64,12 +64,12 @@
             dataType: "jsonp"
         }).done(function(req){
             if(req.result && req.result.req) {
-                //跳转到 订单列表页
-                alert('发布求购成功')
+                //璺宠浆鍒? 璁㈠崟鍒楄〃椤?
+                alert('鍙戝竷姹傝喘鎴愬姛')
                 location.href = 'userWant.html'
             }
         }).fail(function(){
-            alert('网络异常')
+            alert('缃戠粶寮傚父')
         })
     }
 

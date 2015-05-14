@@ -48,6 +48,10 @@
                 data.userInfomation = classStyle;
                 data.spanUserAd = id;
                 break;
+            case "userEditInformation":
+                data.userInfomation = classStyle;
+                data.spanUserAd = id;
+                break;
             case "userPublishCar":
                 data.myCar = classStyle;
                 data.spanLiveTrade = id;
