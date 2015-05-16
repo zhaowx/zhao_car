@@ -6,7 +6,10 @@
     var  globalVar  =  window._globalV;
     var that = {
         dataParams: {
-
+            brand_id:0,
+            model_id:0,
+            standard_id:0,
+            color_id:0
         },
         carid:''
     }
@@ -37,10 +40,6 @@
     function dealData(){
         //console.log(that.dataParams);
         var  dp =  that.dataParams;
-        if(!dp.brand_id){
-            alert('请选择车型或者颜色')
-            return false;
-        }
         for(var  i in  dp){
             if(!dp[i] || dp[i]==0){
                 alert('请选择车型或者颜色')

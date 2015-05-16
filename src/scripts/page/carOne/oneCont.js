@@ -31,14 +31,25 @@
         var render = template.compile(js_html);
         //var html = render({data:[1,2]});
         var html = render({
+//            data:{
+//                title:'新款卡宴，柴油款',
+//                location:'现车',
+//                color:'白色',
+//                statestype:'中规',
+//                note:'',
+//                vin:'123444***********4455',
+//                price:'￥123,0000',
+//                imgurl:'',
+//                verify_sts:that.verify_sts
+//            }
             data:{
-                title:'新款卡宴，柴油款',
-                location:'现车',
-                color:'白色',
-                statestype:'中规',
-                note:'',
+                title:data.title,
+                location:data.locationName,
+                color:data.colorName,
+                statestype:data.brandName+data.modelName+data.statesTypeName,
+                note:data.remark,
                 vin:'123444***********4455',
-                price:'￥123,0000',
+                price:'￥'+data.price,
                 imgurl:'',
                 verify_sts:that.verify_sts
             }
@@ -114,7 +125,7 @@
             if(req.result && req.result.req) {
                 //跳转到 订单列表页
                 //location.href = 'userIndent.html'
-                renderCont(req.result.data)
+                renderCont(req.result.data.data[0])
             }
         }).fail(function(){
             alert('网络异常')
