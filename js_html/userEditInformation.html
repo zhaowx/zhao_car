@@ -15,7 +15,7 @@
     <!--<link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">-->
     <link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../src/styles/page/userCenterStyle.css"/>
-    <link rel="stylesheet" href="../dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../src/styles/module/loading.css"/>
     <link rel="stylesheet" href="../src/styles/page/WebUPLoad.css"/>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -51,33 +51,42 @@
             </div>
             <div class="col-md-10 col-md-offset-1 formService ">
 
-                <form class="formservice">
+                <form class="formservice" id="submit">
                     <div class="panel panel-default">
                         <div class="panel-heading">用户基本信息</div>
                         <div class="panel-body">
                             <div class="form-group">
                                 <label for="userName">用户名</label>
-                                <input type="text" name='userName' id="userName" class="form-control" value="罗明忠"
-                                       placeholder="你的真实姓名"/>
+                                <input type="text" name='userName' id="userName" class="form-control" value=""
+                                       placeholder="你的真实姓名" maxlength="30"/>
+                            </div>
+                            <div class="form-group">
+                                <p style="font-weight: 700">性别：</p>
+                            <label class="radio-inline">
+                                <input type="radio" name="gender" id="man" value="0" >男
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="gender" id="woman" value="1" checked>女
+                            </label>
                             </div>
                             <div class="form-group">
                                 <label for="phoneNumber">电话号码</label>
                                 <input type="tel" name="phoneNumber" class="form-control" id="phoneNumber"
-                                       placeholder="您的电话号码">
+                                       placeholder="您的电话号码" maxlength="18">
                             </div>
                             <div class="form-group">
                                 <label for="userId">身份证号码</label>
                                 <input type="text" name="userId" class="form-control" id="userId"
-                                       placeholder="您的身份证号码"/>
+                                       placeholder="您的身份证号码" maxlength="18"/>
                             </div>
                             <div class="form-group">
                                 <label for="address">收货地址</label>
                                 <input type="text" name="address" class="form-control" id="address"
-                                       placeholder="您的收货地址"/>
+                                       placeholder="您的收货地址" maxlength="50"/>
                             </div>
                             <div class="form-group">
                                 <label for="code">邮编号码</label>
-                                <input type="text" name="code" class="form-control" id="code" placeholder="您的邮编号码"/>
+                                <input type="text" name="code" class="form-control" id="code" placeholder="您的邮编号码" maxlength="6"/>
                             </div>
                         </div>
                     </div>
@@ -118,15 +127,16 @@
                         </table>
                     </div>
                 </div>
+                <p class="ycm-form-error"></p>
                 <div class="form-group">
-                    <button type="button" class="btn btn-primary btn-lg btn-block" id="js_publish">发布</button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" id="js_publish">发布</button>
                 </div>
                 </form>
 
             </div>
         </div>
     </div>
-
+    <div id="loading"></div>
     <footer class="footer " id="js_bottomFooter">
     </footer>
 
@@ -140,5 +150,7 @@
     <script src="../src/scripts/js_module/topNav.js"></script>
     <script src="../src/scripts/js_module/bottomFooter.js"></script>
     <script src="../src/scripts/js_module/userCenterMenu.js"></script>
+    <script src="../src/scripts/js_module/loading.js"></script>
+    <script src="../src/scripts/page/userEditInformation/uesrEditInformation.js"></script>
 </body>
 </html>
