@@ -79,6 +79,18 @@
     font-size: 20px;
     background:#fff;
 }
+/*审核的颜色*/
+small.verifying{
+    color:black;
+    font-weight: 900;
+}
+small.verifyPassed{
+    color:green;
+}
+small.verifyNoPassed{
+    font-weight: bold;
+    color:red;
+}
 
 /* 只在平板即以上的屏幕上显示*/
 @media screen and (min-width: 769px) {
