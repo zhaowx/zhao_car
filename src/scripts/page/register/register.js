@@ -144,7 +144,7 @@
                 //成功
                 if(result.req === true){
                     setCookie('token',result.data.token,window.window._globalV.cookieKeepDay);
-                    location.href = "carlist.html";
+                    location.href = "userInfomatin.html";
                 }
 
                 //信息错误失败
