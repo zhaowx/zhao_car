@@ -17,7 +17,12 @@
                 <p><span>车辆颜色：</span>{{data.color}}</p>\
                 <p><span>车辆配置：</span>{{data.note}}</p>\
                 <p><span>车架尾号：</span>{{data.vin}}</p>\
-                <button type="button" class="btn btn-success ycm_buy_btn" id="js_buy">buy</button>\
+                {{if data.verify_sts}}\
+                <button type="button" class="btn btn-success ycm_buy_btn" id="js_buy">购买</button>\
+                {{else}}\
+                <button type="button" class="btn disabled ycm_buy_btn" id="js_buy">购买</button>\
+                <div class="alert alert-warning" role="alert">您需要进行身份审核通过之后才可以进行下单！</div>\
+                {{/if}}\
             </div>\
             <div class="col-xs-4"><p class="lead">{{data.price}}</p></div>\
         </div>\
@@ -34,7 +39,8 @@
                 note:'',
                 vin:'123444***********4455',
                 price:'￥123,0000',
-                imgurl:'http://7te99a.com2.z0.glb.qiniucdn.com/8D3A5560-EB08-4CB9-ADA1-35DB9D7C35DC.jpeg'
+                imgurl:'',
+                verify_sts:that.verify_sts
             }
         });
 
@@ -50,12 +56,17 @@
                 alert('请先登陆');
                 return;
             }
+            if(!that.verify_sts){
+                alert('请先通过个人身份审核');
+                return;
+            }
             submitOrder();
         })
     }
 
     var that={
-        car_id:''
+        car_id:'',
+        verify_sts:false
     }
     function submitOrder(){
         $.ajax({
@@ -75,6 +86,11 @@
                 //跳转到 订单列表页
                 alert('下单成功')
                 location.href = 'userIndent.html'
+            }
+            if(req.result && !req.result.req){
+                alert(req.result.msg);
+//                deleteCookie('token')
+                location.href = 'index.html'
             }
         }).fail(function(){
             alert('网络异常')
@@ -113,6 +129,7 @@
         }
         that.car_id = carId;
         that.uid = getCookie('token');
+        that.verify_sts = parseInt(getCookie('verify_sts'));
         if(!$('#js_carone')){
             return;
         }

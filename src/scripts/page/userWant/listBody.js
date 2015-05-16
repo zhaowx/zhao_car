@@ -5,7 +5,7 @@
 (function(){
     var  globalVar  =  window._globalV;
 
-    function renderCont(data) {
+    function renderCont(data,tag) {
         var js_html = '<table class="table table-hover" id="js_table" \
             <thead>\
             <tr>\
@@ -37,7 +37,11 @@
             </ul>\
         </nav>';
         var  fabu_html = '<div class="alert alert-info" role="alert">您暂时没有求购信息，您可以进行发布！</div>';
-        if(!data || data.length==0){
+        var  no_html ='<div class="alert alert-warning" role="alert">您需要进行身份审核通过之后才可以发布求购信息！</div>';
+        if(tag){
+            var  render = template.compile(no_html);
+        }
+        else if(!data || data.length==0){
             var render = template.compile(fabu_html);
         }else{
             var render = template.compile(js_html);
@@ -114,7 +118,13 @@
 
     function init(){
         that.uid = getCookie('token');
+        that.verify_sts = parseInt(getCookie('verify_sts'));
         if(!$('#js_listTable')){
+            return;
+        }
+        if(!that.verify_sts){
+            $('.js_publish').remove();
+            renderCont({},true);
             return;
         }
         getData();

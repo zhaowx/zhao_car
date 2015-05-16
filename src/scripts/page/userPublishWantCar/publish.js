@@ -25,6 +25,10 @@
     function bindEvents(){
         $('#js_publish').bind('click',function(){
             //alert('publish');
+            if(!that.verify_sts){
+                alert('请先进行身份审核')
+                location.href = 'userWant.html'
+            }
            var d = dealData();
             d?sendData(d):null;
         })
@@ -75,6 +79,10 @@
 
     function init(){
         that.uid = getCookie('token');
+        that.verify_sts = parseInt(getCookie('verify_sts'));
+        if(!that.verify_sts){
+            location.href = 'userWant.html'
+        }
         if(!$('#js_form')){
             return;
         }

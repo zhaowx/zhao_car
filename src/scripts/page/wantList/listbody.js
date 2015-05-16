@@ -26,7 +26,7 @@
                 <td>￥{{value.price}}</td>\
                 <td>{{value.remark}}</td>\
                 <td>{{value.publish_time.split(" ")[0]}}</td>\
-                <td><a href="userPublishCar.html">有车发布</a></td>\
+                <td><a href="userPublishCar.html?brand_id={{value.brand_id}}&model_id={{value.model_id}}&standard_id={{value.standard_id}}">有车发布</a></td>\
             </tr>\
             {{/each}}\
             </tbody></table>\

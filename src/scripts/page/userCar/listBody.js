@@ -4,7 +4,7 @@
 
 (function(){
     var  globalVar  =  window._globalV;
-    function renderCont(data,locationData,num) {
+    function renderCont(data,locationData,num,tag) {
         var js_html = '<table class="table table-hover" id="js_table" \
         {{if num<3}}\
         style="margin-bottom:120px;">\
@@ -48,12 +48,8 @@
                     </div>\
                     </div>\
                 </td>\
-                <td>20115-05-02</td>\
-                {{if value.visible==1}}\
-                <td>已通过</td>\
-                {{else}}\
-                <td>未通过</td>\
-                {{/if}}\
+                <td>{{value.create_time.split(" ")[0]}}</td>\
+                <td>{{value.shenheName}}</td>\
             </tr>\
             {{/each}}\
         </tbody>\
@@ -65,7 +61,11 @@
             </ul>\
         </nav>';
         var  fabu_html = '<div class="alert alert-info" role="alert">您暂时没有发布的车源信息，您可以进行发布！</div>';
-        if(!data || data.length==0){
+        var  no_html ='<div class="alert alert-warning" role="alert">您需要进行身份审核通过之后才可以发布车源信息！</div>';
+        if(tag){
+            var  render = template.compile(no_html);
+        }
+        else if(!data || data.length==0){
             var render = template.compile(fabu_html);
         }else{
             var render = template.compile(js_html);
@@ -143,8 +143,14 @@
     }
 
     function init(){
-        that.uid = getCookie('token')
+        that.uid = getCookie('token');
+        that.verify_sts = parseInt(getCookie('verify_sts'));
         if(!$('#js_listTable')){
+            return;
+        }
+        if(!that.verify_sts){
+            $('.js_publish').remove();
+            renderCont({},{},0,true);
             return;
         }
         getData();
