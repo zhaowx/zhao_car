@@ -5,9 +5,40 @@
 (function(){
 
      var  globalVar  =  window._globalV;
-    function renderCont(data) {
+    function renderCont(data,imgData) {
         var js_html = ' <div class="row">\
-            <div class="col-md-5 ycm_img_cont"><img src="{{data.imgurl}}"></div>\
+            <div class="col-md-5 ycm_img_cont">\
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">\
+                <ol class="carousel-indicators">\
+                {{each imgData as value i}}\
+                    {{if  i==0}}\
+                    <li data-target="#carousel-example-generic" data-slide-to="i" class="active"></li>\
+                    {{else}}\
+                    <li data-target="#carousel-example-generic" data-slide-to="i" class=""></li>\
+                    {{/if}}\
+                {{/each}}\
+                </ol>\
+                <div class="carousel-inner" role="listbox">\
+                {{each imgData as value i}}\
+                    {{if i==0}}\
+                    <div class="item active">\
+                    {{else}}\
+                    <div class="item">\
+                    {{/if}}\
+                        <img src="{{value.url}}"  data-holder-rendered="true">\
+                    </div>\
+                {{/each}}\
+                </div>\
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">\
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>\
+                    <span class="sr-only">Previous</span>\
+                </a>\
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">\
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>\
+                    <span class="sr-only">Next</span>\
+                </a>\
+                </div>\
+            </div>\
             <div class="col-md-6">\
             <div class="ycm_head"><h3>{{data.title}}</h3></div>\
             <div class=" row ycm_cont">\
@@ -52,7 +83,18 @@
                 price:'￥'+data.price,
                 imgurl:'',
                 verify_sts:that.verify_sts
-            }
+            },
+            imgData:[{
+                url:'../imgs/cars/car1_1_1.jpg'
+            },{
+                url:'../imgs/cars/car1_1_2.jpg'
+            },{
+                url:'../imgs/cars/car1_1_3.jpg'
+            },{
+                url:'../imgs/cars/car1_1_4.jpg'
+            },{
+                url:'../imgs/cars/car1_1_5.jpg'
+            }]
         });
 
         document.getElementById('js_carone').innerHTML = html;

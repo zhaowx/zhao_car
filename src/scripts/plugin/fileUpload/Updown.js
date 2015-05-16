@@ -150,7 +150,7 @@
             swf: '../js/Uploader.swf',
             chunked: false,
             chunkSize: 512 * 1024,
-            server: 'fileUp.php',
+            server: 'http://182.254.179.11/buyShop/s1/uploadpicfile.php',
             // runtimeOrder: 'flash',
 
             // accept: {
