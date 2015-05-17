@@ -70,7 +70,7 @@
          <div class="collapse navbar-collapse  navbar-right" id="bs-example-navbar-collapse-1">\
                  <ul class="nav navbar-nav">\
                      <li class="{{carlist}}"><a href="carlist.html">在卖车源</a></li>\
-                     <li class="{{wantList}}"><a href="wantList.html">求购列表</a></li>\
+                     <li class="{{wantList}}"><a href="wantlist.html">求购列表</a></li>\
                      <li class="dropdown {{service}}">\
                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">服务承诺<span class="caret"></span></a>\
                          <ul class="dropdown-menu" role="menu">\
