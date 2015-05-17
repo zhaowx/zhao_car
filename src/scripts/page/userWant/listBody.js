@@ -65,14 +65,14 @@
     }
 
     function bindEvents(){
-        $('#js_table').delegate('li','click',function(e){
-            //todo 跳转到detail页
-            var carid = $(e.target).parent().data('carid');
-            if(confirm('确认要更改其车辆状态？')){
-                alert('0')
-            }
-
-        })
+//        $('#js_table').delegate('li','click',function(e){
+//            //todo 跳转到detail页
+//            var carid = $(e.target).parent().data('carid');
+//            if(confirm('确认要更改其车辆状态？')){
+//                alert('0')
+//            }
+//
+//        })
     }
     function jumpPage(){
         $('.js_prevPage').bind('click',function(){

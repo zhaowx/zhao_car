@@ -10,7 +10,7 @@
             <div class="col-md-5 ycm_img_cont">\
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">\
                 <ol class="carousel-indicators">\
-                {{each imgData as value i}}\
+                {{each data.imgurl as value i}}\
                     {{if  i==0}}\
                     <li data-target="#carousel-example-generic" data-slide-to="i" class="active"></li>\
                     {{else}}\
@@ -19,13 +19,13 @@
                 {{/each}}\
                 </ol>\
                 <div class="carousel-inner" role="listbox">\
-                {{each imgData as value i}}\
+                {{each data.imgurl as value i}}\
                     {{if i==0}}\
                     <div class="item active">\
                     {{else}}\
                     <div class="item">\
                     {{/if}}\
-                        <img src="{{value.url}}"  data-holder-rendered="true">\
+                        <img src="{{value}}"  data-holder-rendered="true">\
                     </div>\
                 {{/each}}\
                 </div>\
@@ -81,20 +81,9 @@
                 note:data.remark,
                 vin:data.vin,
                 price:'￥'+parseInt(data.price),
-                imgurl:'',
+                imgurl:data.image_url,
                 verify_sts:that.verify_sts
-            },
-            imgData:[{
-                url:'../imgs/cars/car1_1_1.jpg'
-            },{
-                url:'../imgs/cars/car1_1_2.jpg'
-            },{
-                url:'../imgs/cars/car1_1_3.jpg'
-            },{
-                url:'../imgs/cars/car1_1_4.jpg'
-            },{
-                url:'../imgs/cars/car1_1_5.jpg'
-            }]
+            }
         });
 
         document.getElementById('js_carone').innerHTML = html;

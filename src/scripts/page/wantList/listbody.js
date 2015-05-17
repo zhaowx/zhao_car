@@ -50,7 +50,7 @@
         });
 
         document.getElementById('js_listTable').innerHTML = html;
-
+        jumpPage();
     }
 
 
@@ -93,7 +93,7 @@
         $('.js_nextPage').bind('click',function(){
             var idx = that.dataParams.pageIndex;
             if(idx==0){
-                return  false;
+                //return  false;
             }
             idx++;
             that.dataParams.pageIndex = idx;
@@ -126,8 +126,8 @@
             return;
         }
         getData();
-        bindEvents();
-        jumpPage();
+        //bindEvents();
+
         communicationSet();
     }
 
