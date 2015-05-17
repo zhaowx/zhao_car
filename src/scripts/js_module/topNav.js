@@ -33,7 +33,7 @@
         }
         switch (_fileName)
         {
-            case "wantList":
+            case "wantlist":
                 data.wantList =style;
                 break;
             case "carlist":
