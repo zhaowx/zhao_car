@@ -68,11 +68,6 @@
             <a class="navbar-brand" href="carList.html"><img src="../src/styles/imgs/ycm_logo.png" style="max-width: 120px;margin-top: -10px;"></a>\
         </div>\
          <div class="collapse navbar-collapse  navbar-right" id="bs-example-navbar-collapse-1">\
-             <form class="navbar-form navbar-left" role="search">\
-                 <div class="form-group">\
-                     <input type="text" class="form-control" placeholder="搜索车源">\
-                     </div>\
-                 </form>\
                  <ul class="nav navbar-nav">\
                      <li class="{{carlist}}"><a href="carlist.html">在卖车源</a></li>\
                      <li class="{{wantList}}"><a href="wantList.html">求购列表</a></li>\
