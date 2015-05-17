@@ -65,7 +65,7 @@
                 <span class="icon-bar"></span>\
                 <span class="icon-bar"></span>\
             </button>\
-            <a class="navbar-brand" href="carList.html"><img src="../src/styles/imgs/ycm_logo.png" style="max-width: 120px;margin-top: -10px;"></a>\
+            <a class="navbar-brand" href="index.html"><img src="../src/styles/imgs/ycm_logo.png" style="max-width: 120px;margin-top: -10px;"></a>\
         </div>\
          <div class="collapse navbar-collapse  navbar-right" id="bs-example-navbar-collapse-1">\
                  <ul class="nav navbar-nav">\

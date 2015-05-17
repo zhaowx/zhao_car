@@ -40,7 +40,7 @@
                 </div>\
                 <div class="col-sm-2 col-lg-2">\
                     <h4>微信</h4>\
-                    <p><img src="http://img1.bitautoimg.com/ycmall//wx-code.jpg"></p>\
+                    <p><img src="../src/styles/imgs/ycm_ecode.jpg"></p>\
                     </div>\
                 </div>\
                 <br/>\
