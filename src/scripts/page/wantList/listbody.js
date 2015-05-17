@@ -19,7 +19,7 @@
             </thead>\
             <tbody>\
             {{each list as value i}}\
-            <tr   data-href="carOne.html?carId={{value.carId}}">\
+            <tr>\
                 <td>{{value.brandName}} {{value.modelName}} {{value.statesTypeName}}</td>\
                 <td>{{value.title}}</td>\
                 <td>{{value.colorName}}</td>\
@@ -55,12 +55,12 @@
 
 
     function bindEvents(){
-        $('#js_listTable').delegate('tr','click',function(e){
-            //todo 跳转到detail页
-            var url = $(e.target).parent().data('href');
-            location.href = url;
-
-        })
+//        $('#js_listTable').delegate('tr','click',function(e){
+//            //todo 跳转到detail页
+//            var url = $(e.target).parent().data('href');
+//            location.href = url;
+//
+//        })
     }
 
     var that = {
