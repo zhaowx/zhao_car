@@ -51,7 +51,7 @@
                     errorArray[1].push(errorTextConfig.text.empty);
 
                 }
-                if (checkTextValue === "empty") {
+                if (checkTextValue === false) {
                     errorArray[0].push(elementObject.adviceText);
                     errorArray[1].push(errorTextConfig.text.errorRule);
 
@@ -134,7 +134,7 @@
         //整合信息为json格式的字符串
         Advice.informationIntegrated = function (elementObject) {
             var message = {};
-            message.txt = $.trim(elementObject.adviceText.val());
+            message.text = $.trim(elementObject.adviceText.val());
             return message;
         };
         return Advice;
