@@ -80,7 +80,8 @@
         dataParams: {
             num: 10,
             pageIndex: 0
-        }
+        },
+        countNum:0
     }
 
     function bindEvents(){
@@ -129,10 +130,10 @@
         })
         $('.js_nextPageSell').bind('click',function(){
             var idx = that.dataParams.pageIndex;
-            if(idx==10){
-                //return  false;
-            }
             idx++;
+            if(that.countNum <= idx*that.dataParams.num){
+                return  false;
+            }
             that.dataParams.pageIndex = idx;
             getData()
         })
@@ -156,6 +157,7 @@
                 var data = req.result.data.data;
                 var location = req.result.data.locationconfig;
                 var dd = req.result.data.stsconfig;
+                that.countNum = req.result.data.ct;
                 renderCont(data,location,dd);
             }
         })

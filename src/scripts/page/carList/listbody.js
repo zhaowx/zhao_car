@@ -65,7 +65,8 @@
         dataParams: {
             num: 10,
             pageIndex: 0
-        }
+        },
+        countNum:0
     }
 
     function communicationSet(){
@@ -90,10 +91,10 @@
         })
         $('.js_nextPage').bind('click',function(){
             var idx = that.dataParams.pageIndex;
-            if(idx==0){
-                //return  false;
-            }
             idx++;
+            if(that.countNum <= idx*that.dataParams.num){
+                return  false;
+            }
             that.dataParams.pageIndex = idx;
             getData(that.dataParams)
         })
@@ -114,6 +115,7 @@
             if(req.result && req.result.req) {
 
                 var data = req.result.data.data;
+                that.countNum = req.result.data.ct;
                 renderCont(data);
             }
         })

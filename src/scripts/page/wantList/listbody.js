@@ -25,7 +25,7 @@
                 <td>{{value.colorName}}</td>\
                 <td>￥{{value.price}}</td>\
                 <td>{{value.remark}}</td>\
-                <td>{{value.publish_time.split(" ")[0]}}</td>\
+                <td>{{value.update_time.split(" ")[0]}}</td>\
                 <td><a href="userPublishCar.html?brand_id={{value.brand_id}}&model_id={{value.model_id}}&standard_id={{value.standard_id}}">有车发布</a></td>\
             </tr>\
             {{/each}}\
@@ -67,7 +67,8 @@
         dataParams: {
             num: 10,
             pageIndex: 0
-        }
+        },
+        countNum:0
     }
 
     function communicationSet(){
@@ -92,10 +93,10 @@
         })
         $('.js_nextPage').bind('click',function(){
             var idx = that.dataParams.pageIndex;
-            if(idx==0){
-                //return  false;
-            }
             idx++;
+            if(that.countNum <= idx*that.dataParams.num){
+                return  false;
+            }
             that.dataParams.pageIndex = idx;
             getData(that.dataParams)
         })
@@ -114,7 +115,7 @@
             dataType: "jsonp"
         }).done(function(req){
             if(req.result && req.result.req) {
-
+                that.countNum = req.result.data.ct;
                 var data = req.result.data.data;
                 renderCont(data);
             }

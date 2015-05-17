@@ -86,7 +86,8 @@
             num: 10,
             pageIndex: 0
         },
-        uid:''
+        uid:'',
+        countNum:0
     }
 
     function bindEvents(){
@@ -133,10 +134,10 @@
         })
         $('.js_nextPage').bind('click',function(){
             var idx = that.dataParams.pageIndex;
-            if(idx==0){
-                //return  false;
-            }
             idx++;
+            if(that.countNum <= idx*that.dataParams.num){
+                return  false;
+            }
             that.dataParams.pageIndex = idx;
             getData(that.dataParams)
         })
@@ -158,6 +159,7 @@
             if(req.result && req.result.req) {
 
                 var data = req.result.data.data;
+                that.countNum = req.result.data.ct;
                 var location = req.result.data.locationconfig;
                 renderCont(data,location);
             }

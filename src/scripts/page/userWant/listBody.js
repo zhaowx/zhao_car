@@ -61,7 +61,8 @@
             num: 10,
             pageIndex: 0
         },
-        uid:''
+        uid:'',
+        countNum:0
     }
 
     function bindEvents(){
@@ -86,10 +87,10 @@
         })
         $('.js_nextPage').bind('click',function(){
             var idx = that.dataParams.pageIndex;
-            if(idx==0){
-                //return  false;
-            }
             idx++;
+            if(that.countNum <= idx*that.dataParams.num){
+                return  false;
+            }
             that.dataParams.pageIndex = idx;
             getData(that.dataParams)
         })
@@ -109,7 +110,7 @@
             dataType: "jsonp"
         }).done(function(req){
             if(req.result && req.result.req) {
-
+                that.countNum = req.result.data.ct;
                 var data = req.result.data.data;
                 renderCont(data);
             }

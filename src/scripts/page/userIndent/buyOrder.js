@@ -54,7 +54,8 @@
         dataParams: {
             num: 10,
             pageIndex: 0
-        }
+        },
+        countNum:0
     }
 
     function bindEvents(){
@@ -72,10 +73,10 @@
         })
         $('.js_nextPageBuy').bind('click',function(){
             var idx = that.dataParams.pageIndex;
-            if(idx==10){
-                //return  false;
-            }
             idx++;
+            if(that.countNum <= idx*that.dataParams.num){
+                return  false;
+            }
             that.dataParams.pageIndex = idx;
             getData(that.dataParams)
         })
@@ -95,7 +96,7 @@
             dataType: "jsonp"
         }).done(function(req){
             if(req.result && req.result.req) {
-
+                that.countNum =  req.result.data.ct;
                 var data = req.result.data.data;
                 renderCont(data);
             }
