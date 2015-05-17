@@ -12,8 +12,7 @@
         text: {
            empty:"回复信息不能为空！",
             errorRule:"回复信息字数至少为15个字符！"
-        },
-       
+        }
     };
     var Advice = (function () {
         var Advice = {};
