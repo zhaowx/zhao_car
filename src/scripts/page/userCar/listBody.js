@@ -61,7 +61,7 @@
             </ul>\
         </nav>';
         var  fabu_html = '<div class="alert alert-info" role="alert">您暂时没有发布的车源信息，您可以进行发布！</div>';
-        var  no_html ='<div class="alert alert-warning" role="alert">您需要进行身份审核通过之后才可以发布车源信息！</div>';
+        var  no_html ='<div class="alert alert-warning" role="alert">您需要进行身份审核通过之后才可以发布车源信息!<a href="userInfomation.html#checkStatus">查看审核状态</a></div>';
         if(tag){
             var  render = template.compile(no_html);
         }

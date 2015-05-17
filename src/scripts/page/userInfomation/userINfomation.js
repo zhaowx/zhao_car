@@ -60,7 +60,7 @@
         <h4>收货地址：<small>湖南省洞口县高沙镇深塘村白沙组</small></h4>\
         </div>\
         </div>\
-        <div class="panel panel-default">\
+        <div class="panel panel-default" name="checkStatus">\
             <div class="panel-heading">用户状态</div>\
             <div class="panel-body">\
             {{if verify_sts == "0"}}\

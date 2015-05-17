@@ -241,7 +241,6 @@
             message.mobile = $.trim(elementObject.phoneNumber.val());
             message.address = $.trim(elementObject.address.val());
             message.code = $.trim(elementObject.postCode.val());
-            alert(message.gender);
             return message;
         };
         return EditUserInformation;
