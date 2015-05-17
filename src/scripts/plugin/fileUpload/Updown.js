@@ -418,7 +418,7 @@
                 }
             }
 
-            $info.html(text);
+            //$info.html(text);
         }
 
         function setState(val) {
