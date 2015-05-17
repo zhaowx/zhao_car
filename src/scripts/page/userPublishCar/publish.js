@@ -45,6 +45,12 @@
     function dealData(){
         //console.log(that.dataParams);
         var  dp =  that.dataParams;
+        var image_url = globalVar.imgSource;
+        if(!image_url.length){
+            alert('请上传车辆图片');
+            return false;
+        }
+        dp.image_url = image_url;
         for(var  i in  dp){
             if(!dp[i] || dp[i]==0){
                 alert('请选择车型,颜色,状态')

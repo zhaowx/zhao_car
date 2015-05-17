@@ -51,7 +51,7 @@
                 data.register = style;
                 break;
             default:
-                data.carlist = style;
+                //data.carlist = style;
         }
     }
 

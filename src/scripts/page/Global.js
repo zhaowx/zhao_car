@@ -4,7 +4,9 @@
  */
 (function () {
     var GlobalVar = {
-        reqUrl: "http://182.254.179.11/buyShop/s1/gateway.php"
+        reqUrl: "http://182.254.179.11/buyShop/s1/gateway.php",
+        imgUpUrl:'http://182.254.179.11/buyShop/s1/uploadpicfile.php',
+        imgSource:[]
     }
     window._globalV = GlobalVar;
 })()
