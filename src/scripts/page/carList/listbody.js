@@ -21,7 +21,7 @@
                 <td>{{value.brandName}} {{value.modelName}} {{value.statesTypeName}}</td>\
                 <td>{{value.title}}</td>\
                 <td>{{value.colorName}}</td>\
-                <td>￥{{value.price}}</td>\
+                <td>￥{{value.price.split(".")[0]}}</td>\
                 <td>{{value.confirmLocationName}}</td>\
                 <td>{{value.update_time.split(" ")[0]}}</td>\
             </tr>\

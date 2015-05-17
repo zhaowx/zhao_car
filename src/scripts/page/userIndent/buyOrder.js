@@ -24,7 +24,7 @@
                         <p>{{value.car[0].brandName}} {{value.car[0].modelName}} {{value.car[0].statesTypeName}}</p>\
                 </td>\
                 <td>{{value.order_no}}</td>\
-                <td>{{value.pro_total_price}}</td>\
+                <td>￥{{value.pro_total_price.split(".")[0]}}</td>\
                 <td>{{value.confirmName}}</td>\
                 <td>{{value.car[0].confirmLocationName}}</td>\
                 <td>{{value.create_time}}</td>\

@@ -79,8 +79,8 @@
                 color:data.colorName,
                 statestype:data.brandName+data.modelName+data.statesTypeName,
                 note:data.remark,
-                vin:'123444***********4455',
-                price:'￥'+data.price,
+                vin:data.vin,
+                price:'￥'+parseInt(data.price),
                 imgurl:'',
                 verify_sts:that.verify_sts
             },

@@ -29,7 +29,7 @@
                         <p>{{value.note}}</p>\
                 </td>\
                 <td>{{value.vin}}</td>\
-                <td>{{value.price}}</td>\
+                <td>￥{{value.price.split(".")[0]}}</td>\
                 <td>\
                     {{if num-i<2 && i>2}}\
                     <div class="dropup">\

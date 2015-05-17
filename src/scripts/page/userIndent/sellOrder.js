@@ -30,7 +30,7 @@
                         <p>{{value.car[0].brandName}} {{value.car[0].modelName}} {{value.car[0].statesTypeName}}</p>\
                 </td>\
                 <td>{{value.car[0].vin}}</td>\
-                <td>{{value.car[0].price}}</td>\
+                <td>￥{{value.car[0].price.split(".")[0]}}</td>\
                 <td>\
                     {{if num-i<2 && i>2}}\
                     <div class="dropup">\

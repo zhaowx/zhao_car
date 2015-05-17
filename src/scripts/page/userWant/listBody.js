@@ -22,7 +22,7 @@
                 <td>\
                         <p>{{value.brandName}} {{value.modelName}} {{value.statesTypeName}}</p>\
                 </td>\
-                <td>{{value.price}}</td>\
+                <td>￥{{value.price.split(".")[0]}}</td>\
                 <td>{{value.remark}}</td>\
                 <td>{{value.publish_time.split(" ")[0]}}</td>\
                 <td>{{value.shenheName}}</td>\
