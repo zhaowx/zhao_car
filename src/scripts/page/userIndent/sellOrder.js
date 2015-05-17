@@ -41,7 +41,7 @@
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">\
                         {{value.stsName}} <span class="caret"></span>\
                         </button>\
-                        <ul class="dropdown-menu" role="menu" data-carid="{{value.carId}}">\
+                        <ul class="dropdown-menu" role="menu" data-orderid="{{value.order_no}}"  id="js_tableSellOrder">\
                             {{each dd as vv ii}}\
                             <li><a href="#" data-value="{{vv.value_code}}">{{vv.name}}</a></li>\
                             {{/each}}\
@@ -49,30 +49,9 @@
                     </div>\
                     </div>\
                 </td>\
-                <td>\
-                    {{if num-i<2 && i>2}}\
-                    <div class="dropup">\
-                    {{else}}\
-                    <div class="dropdown">\
-                    {{/if}}\
-                    <div class="btn-group">\
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">\
-                        {{value.car[0].locationName}} <span class="caret"></span>\
-                        </button>\
-                        <ul class="dropdown-menu" role="menu" data-carid="{{value.carId}}">\
-                            {{each locationData as vv ii}}\
-                            <li><a href="#" data-value="{{vv.value_code}}">{{vv.name}}</a></li>\
-                            {{/each}}\
-                        </ul>\
-                    </div>\
-                    </div>\
-                </td>\
-                <td>20115-05-02</td>\
-                {{if value.visible==1}}\
-                <td>已通过</td>\
-                {{else}}\
-                <td>未通过</td>\
-                {{/if}}\
+                <td>{{value.car[0].locationName}}</td>\
+                <td>{{value.create_time}}</td>\
+                <td>{{value.shenheName}}</td>\
             </tr>\
             {{/each}}\
         </tbody>\
@@ -105,15 +84,39 @@
     }
 
     function bindEvents(){
-        $('#js_tableSell').delegate('li','click',function(e){
+        $('#js_tableSellOrder').delegate('li','click',function(e){
             //todo 跳转到detail页
-            var carid = $(e.target).parent().data('carid');
-            if(confirm('确认要更改其车辆状态？')){
-                alert('0')
+            var order_no = $(e.target).parents('ul').data('orderid');
+            var sts = $(e.target).data('value');
+            if(confirm('确认要更改其订单状态？')){
+                changeOrderStatus(order_no,sts);
             }
 
         })
     }
+
+    function changeOrderStatus(order_no,sts){
+        $.ajax({
+            type: "GET",
+            url: globalVar.reqUrl,
+            data: {
+                cmd:10029,
+                token:that.uid,
+                dataPacket:{
+                    data: {
+                        order_no:order_no,
+                        sts:sts
+                    }
+                }
+            },
+            dataType: "jsonp"
+        }).done(function(req){
+            if(req.result && req.result.req) {
+                location.reload()
+            }
+        })
+    }
+
     function jumpPage(){
         $('.js_prevPageSell').bind('click',function(){
             var idx = that.dataParams.pageIndex;

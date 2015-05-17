@@ -40,7 +40,7 @@
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">\
                         {{value.locationName}} <span class="caret"></span>\
                         </button>\
-                        <ul class="dropdown-menu" role="menu" data-carid="{{value.carId}}">\
+                        <ul class="dropdown-menu" role="menu" data-carid="{{value.car_id}}">\
                             {{each locationData as vv ii}}\
                             <li><a href="#" data-value="{{vv.value_code}}">{{vv.name}}</a></li>\
                             {{/each}}\
@@ -92,11 +92,33 @@
     function bindEvents(){
         $('#js_table').delegate('li','click',function(e){
             //todo 跳转到detail页
-            var carid = $(e.target).parent().data('carid');
+            var carid = $(e.target).parents('ul').data('carid');
+            var location_id = $(e.target).data('value');
             if(confirm('确认要更改其车辆状态？')){
-                alert('0')
+                changeStatus(carid,location_id);
             }
 
+        })
+    }
+    function changeStatus(carid,location_id){
+        $.ajax({
+            type: "GET",
+            url: globalVar.reqUrl,
+            data: {
+                cmd:10028,
+                token:that.uid,
+                dataPacket:{
+                    data: {
+                        car_id:carid,
+                        location_id:location_id
+                    }
+                }
+            },
+            dataType: "jsonp"
+        }).done(function(req){
+            if(req.result && req.result.req) {
+               location.reload()
+            }
         })
     }
     function jumpPage(){
@@ -145,6 +167,7 @@
     function init(){
         that.uid = getCookie('token');
         that.verify_sts = parseInt(getCookie('verify_sts'));
+
         if(!$('#js_listTable')){
             return;
         }

@@ -119,6 +119,7 @@
     function init(){
         that.uid = getCookie('token');
         that.verify_sts = parseInt(getCookie('verify_sts'));
+
         if(!$('#js_listTable')){
             return;
         }

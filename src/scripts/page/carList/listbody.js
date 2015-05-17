@@ -22,7 +22,7 @@
                 <td>{{value.title}}</td>\
                 <td>{{value.colorName}}</td>\
                 <td>￥{{value.price}}</td>\
-                <td>{{value.locationName}}</td>\
+                <td>{{value.confirmLocationName}}</td>\
                 <td>{{value.update_time.split(" ")[0]}}</td>\
             </tr>\
             {{/each}}\

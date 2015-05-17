@@ -25,8 +25,8 @@
                 </td>\
                 <td>{{value.order_no}}</td>\
                 <td>{{value.pro_total_price}}</td>\
-                <td>{{value.id}}</td>\
-                <td>{{value.car[0].locationName}}</td>\
+                <td>{{value.confirmName}}</td>\
+                <td>{{value.car[0].confirmLocationName}}</td>\
                 <td>{{value.create_time}}</td>\
             </tr>\
             {{/each}}\

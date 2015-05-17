@@ -9,19 +9,19 @@
         <div class="panel-body" >\
         <span>选择车型  </span>\
         <div class="btn-group">\
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">\
+        <button id="js_ppf" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">\
         品牌 <span class="caret"></span>\
         </button>\
         <ul class="dropdown-menu" role="menu" id="js_pp"></ul>\
         </div>\
     <div class="btn-group">\
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">\
+        <button id="js_cxf" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">\
         车系 <span class="caret"></span>\
         </button>\
         <ul class="dropdown-menu" role="menu" id="js_cx"></ul>\
     </div>\
     <div class="btn-group">\
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">\
+        <button  id="js_cgf" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">\
         车规 <span class="caret"></span>\
         </button>\
         <ul class="dropdown-menu" role="menu" id="js_cg"></ul>\
@@ -65,7 +65,7 @@
         $('#js_pp').delegate('li','click',function(e){
             var $target = $(e.target);
             var text = $target.text();
-            $target.parents('ul').prev().text(text);
+            $('#js_ppf').text(text);
             var idx = $target.data('value');
             var id = $target.data('id');
             that.brand_id  = idx;
@@ -82,7 +82,7 @@
         $('#js_cx').delegate('li','click',function(e){
             var $target = $(e.target);
             var text = $target.text();
-            $target.parents('ul').prev().text(text);
+            $('#js_cxf').text(text);
             var idx = $target.data('value');
             var id = $target.data('id');
             that.model_id  = idx;
@@ -99,7 +99,7 @@
         $('#js_cg').delegate('li','click',function(e){
             var $target = $(e.target);
             var text = $target.text();
-            $target.parents('ul').prev().text(text);
+            $('#js_cgf').text(text);
             var idx = $target.data('value');
             that.standard_id  = idx;
             communicationGet({

@@ -75,7 +75,7 @@
 //            }
             data:{
                 title:data.title,
-                location:data.locationName,
+                location:data.confirmLocationName,
                 color:data.colorName,
                 statestype:data.brandName+data.modelName+data.statesTypeName,
                 note:data.remark,
