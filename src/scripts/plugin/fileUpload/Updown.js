@@ -150,7 +150,7 @@
             swf: '../js/Uploader.swf',
             chunked: false,
             chunkSize: 512 * 1024,
-            server: 'http://182.254.179.11/buyShop/s1/uploadpicfile.php',
+            server: window._globalV.imgUpUrl,
             // runtimeOrder: 'flash',
 
             // accept: {
@@ -473,7 +473,7 @@
                 case 'finish':
                     stats = uploader.getStats();
                     if (stats.successNum) {
-                        alert('上传成功');
+                        //alert('上传成功');
                     } else {
                         // 没有成功的图片，重设
                         state = 'done';
@@ -539,8 +539,16 @@
             }
         });
 
+        uploader.onUploadSuccess = function (file,response ) {
+            //alert('Eroor: ' + code);
+            var imgId = response._raw;
+            console.log(imgId);
+            window._globalV.imgSource.push(imgId);
+
+        };
         uploader.onError = function (code) {
-            alert('Eroor: ' + code);
+            //alert('Eroor: ' + code);
+            //alert('上传失败')
         };
 
         $upload.on('click', function () {
@@ -562,7 +570,7 @@
         });
 
         $info.on('click', '.ignore', function () {
-            alert('todo');
+            //alert('todo');
         });
 
         $upload.addClass('state-' + state);
