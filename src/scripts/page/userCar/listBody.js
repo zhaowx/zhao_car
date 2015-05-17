@@ -126,7 +126,7 @@
         $('.js_prevPage').bind('click',function(){
             var idx = that.dataParams.pageIndex;
             if(idx==0){
-                //return  false;
+                return  false;
             }
             idx--;
             that.dataParams.pageIndex = idx;

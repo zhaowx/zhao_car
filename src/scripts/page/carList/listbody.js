@@ -83,7 +83,7 @@
         $('.js_prevPage').bind('click',function(){
             var idx = that.dataParams.pageIndex;
             if(idx==0){
-                //return  false;
+                return  false;
             }
             idx--;
             that.dataParams.pageIndex = idx;
@@ -101,13 +101,21 @@
     }
 
     function getData(params){
+        var  data=$.extend({},params,that.dataParams);
+        var newData = {};
+        for(v in data){
+            if(data[v]!=0){
+                newData[v]  =  data[v];
+            }
+        }
+        console.log(newData)
         $.ajax({
             type: "GET",
             url: globalVar.reqUrl,
             data: {
                 cmd:10002,
                 dataPacket: {
-                    data: $.extend({},params,that.dataParams)
+                    data: newData
                 }
             },
             dataType: "jsonp"
