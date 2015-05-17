@@ -235,12 +235,13 @@
         EditUserInformation.informationIntegrated = function (elementObject) {
             var message = {};
             message.nickname = $.trim(elementObject.userName.val());
-            message.gender = elementObject.genderVlaue;
+            message.gender = $('input:radio[name="gender"]:checked').val();
             message.cert_type ="1";
             message.cert_no = $.trim(elementObject.userId.val());
             message.mobile = $.trim(elementObject.phoneNumber.val());
             message.address = $.trim(elementObject.address.val());
             message.code = $.trim(elementObject.postCode.val());
+            alert(message.gender);
             return message;
         };
         return EditUserInformation;

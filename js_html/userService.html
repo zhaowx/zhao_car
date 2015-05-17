@@ -15,6 +15,7 @@
     <!--<link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">-->
     <link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../src/styles/page/userCenterStyle.css"/>
+    <link rel="stylesheet" href="../src/styles/module/loading.css"/>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -42,17 +43,17 @@
                     </ol>
                 </h2>
             </div>
-            <form class="formService">
+            <form class="formService" id="submit">
                 <div class="form-group">
-                    <textarea class="form-control" row="30" placeholder="请输入您的反馈意见"></textarea>
+                    <textarea class="form-control" row="30" placeholder="请输入您的反馈意见" id="advice" maxlength="250"></textarea>
                 </div>
+                <p class="ycm-form-error"></p>
                 <button type="submit" class="btn btn-primary form-control">提交</button>
             </form>
         </div>
     </div>
 </div>
-
-
+<div id="loading"></div>
 <footer class="footer " id="js_bottomFooter">
 </footer>
 <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
@@ -61,5 +62,7 @@
 <script src="../src/scripts/js_module/topNav.js"></script>
 <script src="../src/scripts/js_module/bottomFooter.js"></script>
 <script src="../src/scripts/js_module/userCenterMenu.js"></script>
+<script src="../src/scripts/js_module/loading.js"></script>
+<script src="../src/scripts/page/userService/userService.js"></script>
 </body>
 </html>
