@@ -119,7 +119,8 @@
             $.ajax({
                 url: window._globalV.reqUrl,
                 data: {
-                    cmd: 10003,
+                    cmd: 10004,
+                    token:getCookie("token"),
                     dataPacket: {
                         data: ModifyPwd.informationIntegrated(elementObject)
                     }
@@ -134,10 +135,11 @@
                 //成功
                 if (result.req === true) {
                     alert("密码修改成功");
+                    location.href = "userIndent.html";
                 }
                 //信息错误失败
-                if (data.status === "xxx") {
-                    elementObject.errorText.text(data.error);
+                if (result.req === false) {
+                    elementObject.errorText.text(result.msg);
                 }
             });
         };
@@ -183,7 +185,6 @@
             var message = {};
             message.oldPwd = $.trim(elementObject.primaryPassword.val());
             message.newPwd = $.trim(elementObject.newPassWord.val());
-            message.token  =getCookie('token');
             return message;
         };
         return ModifyPwd;

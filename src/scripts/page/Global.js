@@ -29,13 +29,16 @@ function getCookie(c_name) {
 }
 
 function setCookie(name, value, iDay) {
+    var date = new Date();
     if (iDay) {
-        var oDate = new Date();
-        oDate.setDate(oDate.getDate() + iDay);
-        document.cookie = name + '=' + value + ';expires=' + oDate;
+        var date = new Date();
+        date.setTime(date.getTime()+iDay*24*3600*1000);
+        document.cookie = name + '=' + value + ';expires=' + date.toGMTString();
     }
-    else
-        document.cookie = name + '=' + value;
+    else{
+        date.setTime(date.getTime()+2*3600*1000);
+        document.cookie = name + '=' + value + ';expires=' + date.toGMTString();
+    }
 }
 
 /**
