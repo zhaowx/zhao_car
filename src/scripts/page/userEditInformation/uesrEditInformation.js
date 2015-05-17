@@ -20,6 +20,7 @@
     elementObject.genderVlaue= $('input:radio[name="gender"]:checked').val();
     elementObject.woman =$("#woman");
     elementObject.man = $("#man");
+    var  globalVar  =  window._globalV;
 
     var errorTextConfig = {
         name: {
@@ -73,6 +74,13 @@
             var userId = $.trim(userId.val());
             return IdentityCodeValid(userId);
         };
+        EditUserInformation.checkUpImage = function(){
+            var image_url = globalVar.imgSource;
+            if(!image_url.length){
+                return "empty";
+            }
+            return  true;
+        };
 
         EditUserInformation.checkAddress = function (adrress) {
             var adrress = $.trim(adrress.val());
@@ -104,14 +112,16 @@
                 returnUserId = this.checkUserId(elementObject.userId),
                 returnValueAddress = this.checkAddress(elementObject.address),
                 returnValuePhone = this.checkPhone(elementObject.phoneNumber),
-                returnValueCode = this.checkCode(elementObject.postCode);
+                returnValueCode = this.checkCode(elementObject.postCode),
+                returnImgeValue = this.checkUpImage();
 
             //结果正确
             if (returnValueName === true &&
                 returnUserId === true &&
                 returnValueAddress === true &&
                 returnValuePhone === true &&
-                returnValueCode === true) {
+                returnValueCode === true &&
+                returnImgeValue === true) {
                 //传输数据 ajax
                 this.ajaxSend();
             }
@@ -157,6 +167,9 @@
                 }
                 this.showErrorText(errorArray);
                 this.errorInputAnimate(errorArray);
+                if(returnImgeValue==="empty"){
+                    elementObject.errorText.text("请上传图片");
+                }
             }
         };
 

@@ -7,5 +7,6 @@
     <file url="file://$PROJECT_DIR$/src/scripts/page/userModifyPassword/modifyPassword.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/scripts/page/userPublishWantCar/publish.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/scripts/page/userService/userService.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/scripts/plugin/fileUpload/UpdownUser.js" charset="UTF-8" />
   </component>
 </project>
