@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>易车卖</title>
+    <meta name="keywords" content="易车卖,特价车,底价车,直销,汽车电商,汽车报价,进口车，平行进口车" />
+    <meta name="description" content="易车卖，核心展示进口、合资及国产汽车价格 信息通道，提供 相关技术支持资料、维修保养服务。" />
+
+    <!--Bootstrap core CSS todo 上线cdn-->
+    <!--<link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../src/styles/page/userCenterStyle.css"/>
+    <link rel="stylesheet" href="../src/styles/selffont/iconfont.css">
+    <link rel="stylesheet" href="../src/styles/page/WebUPLoad.css"/>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../src/scripts/page/Global.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" id="js_topnav">
+</nav>
+
+<div class="container userCenter">
+    <div class="row">
+        <div class="col-sm-2 col-md-2 hidden-xs listMenu" id="jsUserMenu">
+        </div>
+        <div class="col-sm-10 col-md-10">
+            <div class="page-header hidden-xs">
+                <h2 class="h2">发布车源</h2>
+            </div>
+            <div class="page-header visible-xs">
+                <h2 class="h2">
+                    <ol class="breadcrumb">
+                        <li><a href="userIndent.html">用户中心</a></li>
+                        <li class="active">发布车源</li>
+                    </ol>
+                </h2>
+            </div>
+            <form class="form-group formService" id="js_form">
+                <div  id="js_dropdownGroup">
+
+                </div>
+                <div  id="js_dropdownGroupColor">
+
+                </div>
+                <div  id="js_dropdownGroupLocation">
+
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">标题</div>
+                        <input type="text" class="form-control" id="carName" name="carName"  maxlength="20" placeholder="请输入汽车名称"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">￥</div>
+                        <input type="number" class="form-control" id="carPrice" placeholder="请输入汽车价格"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">车架号</div>
+                        <input type="number" class="form-control" id="vin" placeholder="请输入汽车车架号"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">详细需求</div>
+                        <textarea style="height: 50px;" class="form-control" id="carNote" placeholder="请输入详细的寻车需求，包括配置 ，价格需求，提车时间，现车期货..."></textarea>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">上传图片</div>
+                    <div class="panel-body">
+                        <div id="wrapper">
+                            <div id="container">
+                                <!--头部，相册选择和格式选择-->
+
+                                <div id="uploader">
+                                    <div class="queueList">
+                                        <div id="dndArea" class="placeholder">
+                                            <div id="filePicker"></div>
+                                            <p>或将照片拖到这里，单次最多可选5张</p>
+                                        </div>
+                                    </div>
+                                    <div class="statusBar" style="display:none;">
+                                        <div class="progress">
+                                            <span class="text">0%</span>
+                                            <span class="percentage"></span>
+                                        </div>
+                                        <div class="info"></div>
+                                        <div class="btns">
+                                            <div id="filePicker2"></div>
+                                            <div class="uploadBtn">开始上传</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="progress" class="progress">
+                        <div class="progress-bar progress-bar-success"></div>
+                    </div>
+                    <table role="presentation" class="table table-striped">
+                        <tbody class="files"></tbody>
+                    </table>
+                </div>
+
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary btn-lg btn-block" id="js_publish">发布</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer class="footer " id="js_bottomFooter">
+</footer>
+
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../src/scripts/plugin/fileupload/webuploader.min.js"></script>
+<script type="text/javascript" src="../src/scripts/plugin/fileupload/Updown.js"></script>
+<script src="../src/scripts/template.js"></script>
+<script src="../src/scripts/js_module/dropdownGroup.js"></script>
+<script src="../src/scripts/js_module/dropdownGroupColor.js"></script>
+<script src="../src/scripts/js_module/dropdownGroupLocation.js"></script>
+<script src="../src/scripts/js_module/topNav.js"></script>
+<script src="../src/scripts/js_module/bottomFooter.js"></script>
+<script src="../src/scripts/js_module/userCenterMenu.js"></script>
+<script src="../src/scripts/page/userPublishCar/publish.js"></script>
+</body>
+</html>

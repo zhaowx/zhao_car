@@ -1,45 +1,44 @@
 (function ($) {
-    // µ±domReadyµÄÊ±ºò¿ªÊ¼³õÊ¼»¯
+    // å½“domReadyçš„æ—¶å€™å¼€å§‹åˆå§‹åŒ–
     $(function () {
         var $wrap = $('#uploader'),
 
-        // Í¼Æ¬ÈİÆ÷
-            $queue = $('<ul class="filelist"></ul>')
-                .appendTo($wrap.find('.queueList')),
+        // å›¾ç‰‡å®¹å™¨
+            $queue = $('<ul class="filelist"></ul>').appendTo($wrap.find('.queueList')),
 
-        // ×´Ì¬À¸£¬°üÀ¨½ø¶ÈºÍ¿ØÖÆ°´Å¥
+        // çŠ¶æ€æ ï¼ŒåŒ…æ‹¬è¿›åº¦å’Œæ§åˆ¶æŒ‰é’®
             $statusBar = $wrap.find('.statusBar'),
 
-        // ÎÄ¼ş×ÜÌåÑ¡ÔñĞÅÏ¢¡£
+        // æ–‡ä»¶æ€»ä½“é€‰æ‹©ä¿¡æ¯ã€‚
             $info = $statusBar.find('.info'),
 
-        // ÉÏ´«°´Å¥
+        // ä¸Šä¼ æŒ‰é’®
             $upload = $wrap.find('.uploadBtn'),
 
-        // Ã»Ñ¡ÔñÎÄ¼şÖ®Ç°µÄÄÚÈİ¡£
+        // æ²¡é€‰æ‹©æ–‡ä»¶ä¹‹å‰çš„å†…å®¹ã€‚
             $placeHolder = $wrap.find('.placeholder'),
 
             $progress = $statusBar.find('.progress').hide(),
 
-        // Ìí¼ÓµÄÎÄ¼şÊıÁ¿
+        // æ·»åŠ çš„æ–‡ä»¶æ•°é‡
             fileCount = 0,
 
-        // Ìí¼ÓµÄÎÄ¼ş×Ü´óĞ¡
+        // æ·»åŠ çš„æ–‡ä»¶æ€»å¤§å°
             fileSize = 0,
 
-        // ÓÅ»¯retina, ÔÚretinaÏÂÕâ¸öÖµÊÇ2
+        // ä¼˜åŒ–retina, åœ¨retinaä¸‹è¿™ä¸ªå€¼æ˜¯2
             ratio = window.devicePixelRatio || 1,
 
-        // ËõÂÔÍ¼´óĞ¡
+        // ç¼©ç•¥å›¾å¤§å°
             thumbnailWidth = 110 * ratio,
             thumbnailHeight = 110 * ratio,
 
-        // ¿ÉÄÜÓĞpedding, ready, uploading, confirm, done.
+        // å¯èƒ½æœ‰pedding, ready, uploading, confirm, done.
             state = 'pedding',
 
-        // ËùÓĞÎÄ¼şµÄ½ø¶ÈĞÅÏ¢£¬keyÎªfile id
+        // æ‰€æœ‰æ–‡ä»¶çš„è¿›åº¦ä¿¡æ¯ï¼Œkeyä¸ºfile id
             percentages = {},
-        // ÅĞ¶Ïä¯ÀÀÆ÷ÊÇ·ñÖ§³ÖÍ¼Æ¬µÄbase64
+        // åˆ¤æ–­æµè§ˆå™¨æ˜¯å¦æ”¯æŒå›¾ç‰‡çš„base64
             isSupportBase64 = (function () {
                 var data = new Image();
                 var support = true;
@@ -52,7 +51,7 @@
                 return support;
             })(),
 
-        // ¼ì²âÊÇ·ñÒÑ¾­°²×°flash£¬¼ì²âflashµÄ°æ±¾
+        // æ£€æµ‹æ˜¯å¦å·²ç»å®‰è£…flashï¼Œæ£€æµ‹flashçš„ç‰ˆæœ¬
             flashVersion = (function () {
                 var version;
 
@@ -82,26 +81,26 @@
                 return r;
             })(),
 
-        // WebUploaderÊµÀı
+        // WebUploaderå®ä¾‹
             uploader;
 
         if (!WebUploader.Uploader.support('flash') && WebUploader.browser.ie) {
 
-            // flash °²×°ÁËµ«ÊÇ°æ±¾¹ıµÍ¡£
+            // flash å®‰è£…äº†ä½†æ˜¯ç‰ˆæœ¬è¿‡ä½ã€‚
             if (flashVersion) {
                 (function (container) {
                     window['expressinstallcallback'] = function (state) {
                         switch (state) {
                             case 'Download.Cancelled':
-                                alert('ÄúÈ¡ÏûÁË¸üĞÂ£¡')
+                                alert('æ‚¨å–æ¶ˆäº†æ›´æ–°ï¼')
                                 break;
 
                             case 'Download.Failed':
-                                alert('°²×°Ê§°Ü')
+                                alert('å®‰è£…å¤±è´¥')
                                 break;
 
                             default:
-                                alert('°²×°ÒÑ³É¹¦£¬ÇëË¢ĞÂ£¡');
+                                alert('å®‰è£…å·²æˆåŠŸï¼Œè¯·åˆ·æ–°ï¼');
                                 break;
                         }
                         delete window['expressinstallcallback'];
@@ -126,22 +125,22 @@
 
                 })($wrap);
 
-                // Ñ¹¸ù¾ÍÃ»ÓĞ°²×°¡£
+                // å‹æ ¹å°±æ²¡æœ‰å®‰è£…ã€‚
             } else {
                 $wrap.html('<a href="http://www.adobe.com/go/getflashplayer" target="_blank" border="0"><img alt="get flash player" src="http://www.adobe.com/macromedia/style_guide/images/160x41_Get_Flash_Player.jpg" /></a>');
             }
 
             return;
         } else if (!WebUploader.Uploader.support()) {
-            alert('Web Uploader ²»Ö§³ÖÄúµÄä¯ÀÀÆ÷£¡');
+            alert('Web Uploader ä¸æ”¯æŒæ‚¨çš„æµè§ˆå™¨ï¼');
             return;
         }
 
-        // ÊµÀı»¯
+        // å®ä¾‹åŒ–
         uploader = WebUploader.create({
             pick: {
                 id: '#filePicker',
-                label: 'µã»÷Ñ¡ÔñÍ¼Æ¬'
+                label: 'ç‚¹å‡»é€‰æ‹©å›¾ç‰‡'
             },
             formData: {
                 uid: 123
@@ -151,7 +150,7 @@
             swf: '../js/Uploader.swf',
             chunked: false,
             chunkSize: 512 * 1024,
-            server: 'fileUp.php',
+            server: window._globalV.imgUpUrl,
             // runtimeOrder: 'flash',
 
             // accept: {
@@ -160,23 +159,23 @@
             //     mimeTypes: 'image/*'
             // },
 
-            // ½ûµôÈ«¾ÖµÄÍÏ×§¹¦ÄÜ¡£ÕâÑù²»»á³öÏÖÍ¼Æ¬ÍÏ½øÒ³ÃæµÄÊ±ºò£¬°ÑÍ¼Æ¬´ò¿ª¡£
+            // ç¦æ‰å…¨å±€çš„æ‹–æ‹½åŠŸèƒ½ã€‚è¿™æ ·ä¸ä¼šå‡ºç°å›¾ç‰‡æ‹–è¿›é¡µé¢çš„æ—¶å€™ï¼ŒæŠŠå›¾ç‰‡æ‰“å¼€ã€‚
             disableGlobalDnd: true,
-            fileNumLimit: 300,
-            fileSizeLimit: 200 * 1024 * 1024,    // 200 M
-            fileSingleSizeLimit: 50 * 1024 * 1024    // 50 M
+            fileNumLimit: 5,
+            fileSizeLimit: 25 * 1024 * 1024,    // 200 M
+            fileSingleSizeLimit: 5 * 1024 * 1024    // 5 M
         });
 
-        // ÍÏ×§Ê±²»½ÓÊÜ js, txt ÎÄ¼ş¡£
+        // æ‹–æ‹½æ—¶ä¸æ¥å— js, txt æ–‡ä»¶ã€‚
         uploader.on('dndAccept', function (items) {
             var denied = false,
                 len = items.length,
                 i = 0,
-            // ĞŞ¸ÄjsÀàĞÍ
+            // ä¿®æ”¹jsç±»å‹
                 unAllowed = 'text/plain;application/javascript ';
 
             for (; i < len; i++) {
-                // Èç¹ûÔÚÁĞ±íÀïÃæ
+                // å¦‚æœåœ¨åˆ—è¡¨é‡Œé¢
                 if (~unAllowed.indexOf(items[i].type)) {
                     denied = true;
                     break;
@@ -200,17 +199,17 @@
         //     });
         // });
 
-        // Ìí¼Ó¡°Ìí¼ÓÎÄ¼ş¡±µÄ°´Å¥£¬
+        // æ·»åŠ â€œæ·»åŠ æ–‡ä»¶â€çš„æŒ‰é’®ï¼Œ
         uploader.addButton({
             id: '#filePicker2',
-            label: '¼ÌĞøÌí¼Ó'
+            label: 'ç»§ç»­æ·»åŠ '
         });
 
         uploader.on('ready', function () {
             window.uploader = uploader;
         });
 
-        // µ±ÓĞÎÄ¼şÌí¼Ó½øÀ´Ê±Ö´ĞĞ£¬¸ºÔğviewµÄ´´½¨
+        // å½“æœ‰æ–‡ä»¶æ·»åŠ è¿›æ¥æ—¶æ‰§è¡Œï¼Œè´Ÿè´£viewçš„åˆ›å»º
         function addFile(file) {
             var $li = $('<li id="' + file.id + '">' +
                     '<p class="title">' + file.name + '</p>' +
@@ -219,9 +218,9 @@
                     '</li>'),
 
                 $btns = $('<div class="file-panel">' +
-                    '<span class="cancel">É¾³ı</span>' +
-                    '<span class="rotateRight">ÏòÓÒĞı×ª</span>' +
-                    '<span class="rotateLeft">Ïò×óĞı×ª</span></div>').appendTo($li),
+                    '<span class="cancel">åˆ é™¤</span>' +
+                    '<span class="rotateRight">å‘å³æ—‹è½¬</span>' +
+                    '<span class="rotateLeft">å‘å·¦æ—‹è½¬</span></div>').appendTo($li),
                 $prgress = $li.find('p.progress span'),
                 $wrap = $li.find('p.imgWrap'),
                 $info = $('<p class="error"></p>'),
@@ -229,15 +228,15 @@
                 showError = function (code) {
                     switch (code) {
                         case 'exceed_size':
-                            text = 'ÎÄ¼ş´óĞ¡³¬³ö';
+                            text = 'æ–‡ä»¶å¤§å°è¶…å‡º';
                             break;
 
                         case 'interrupt':
-                            text = 'ÉÏ´«ÔİÍ£';
+                            text = 'ä¸Šä¼ æš‚åœ';
                             break;
 
                         default:
-                            text = 'ÉÏ´«Ê§°Ü£¬ÇëÖØÊÔ';
+                            text = 'ä¸Šä¼ å¤±è´¥ï¼Œè¯·é‡è¯•';
                             break;
                     }
 
@@ -248,12 +247,12 @@
                 showError(file.statusText);
             } else {
                 // @todo lazyload
-                $wrap.text('Ô¤ÀÀÖĞ');
+                $wrap.text('é¢„è§ˆä¸­');
                 uploader.makeThumb(file, function (error, src) {
                     var img;
 
                     if (error) {
-                        $wrap.text('²»ÄÜÔ¤ÀÀ');
+                        $wrap.text('ä¸èƒ½é¢„è§ˆ');
                         return;
                     }
 
@@ -270,7 +269,7 @@
                                 img = $('<img src="' + response.result + '">');
                                 $wrap.empty().append(img);
                             } else {
-                                $wrap.text("Ô¤ÀÀ³ö´í");
+                                $wrap.text("é¢„è§ˆå‡ºé”™");
                             }
                         });
                     }
@@ -288,7 +287,7 @@
                     $btns.remove();
                 }
 
-                // ³É¹¦
+                // æˆåŠŸ
                 if (cur === 'error' || cur === 'invalid') {
                     console.log(file.statusText);
                     showError(file.statusText);
@@ -367,7 +366,7 @@
             $li.appendTo($queue);
         }
 
-        // ¸ºÔğviewµÄÏú»Ù
+        // è´Ÿè´£viewçš„é”€æ¯
         function removeFile(file) {
             var $li = $('#' + file.id);
 
@@ -399,27 +398,27 @@
             var text = '', stats;
 
             if (state === 'ready') {
-                text = 'Ñ¡ÖĞ' + fileCount + 'ÕÅÍ¼Æ¬£¬¹²' +
-                    WebUploader.formatSize(fileSize) + '¡£';
+                text = 'é€‰ä¸­' + fileCount + 'å¼ å›¾ç‰‡ï¼Œå…±' +
+                    WebUploader.formatSize(fileSize) + 'ã€‚';
             } else if (state === 'confirm') {
                 stats = uploader.getStats();
                 if (stats.uploadFailNum) {
-                    text = 'ÒÑ³É¹¦ÉÏ´«' + stats.successNum + 'ÕÅÕÕÆ¬ÖÁXXÏà²á£¬' +
-                        stats.uploadFailNum + 'ÕÅÕÕÆ¬ÉÏ´«Ê§°Ü£¬<a class="retry" href="#">ÖØĞÂÉÏ´«</a>Ê§°ÜÍ¼Æ¬»ò<a class="ignore" href="#">ºöÂÔ</a>'
+                    text = 'å·²æˆåŠŸä¸Šä¼ ' + stats.successNum + 'å¼ ç…§ç‰‡è‡³æœåŠ¡å™¨ï¼Œ' +
+                        stats.uploadFailNum + 'å¼ ç…§ç‰‡ä¸Šä¼ å¤±è´¥ï¼Œ<a class="retry" href="#">é‡æ–°ä¸Šä¼ </a>å¤±è´¥å›¾ç‰‡æˆ–<a class="ignore" href="#">å¿½ç•¥</a>'
                 }
 
             } else {
                 stats = uploader.getStats();
-                text = '¹²' + fileCount + 'ÕÅ£¨' +
+                text = 'å…±' + fileCount + 'å¼ ï¼ˆ' +
                     WebUploader.formatSize(fileSize) +
-                    '£©£¬ÒÑÉÏ´«' + stats.successNum + 'ÕÅ';
+                    'ï¼‰ï¼Œå·²ä¸Šä¼ ' + stats.successNum + 'å¼ ';
 
                 if (stats.uploadFailNum) {
-                    text += '£¬Ê§°Ü' + stats.uploadFailNum + 'ÕÅ';
+                    text += 'ï¼Œå¤±è´¥' + stats.uploadFailNum + 'å¼ ';
                 }
             }
 
-            $info.html(text);
+            //$info.html(text);
         }
 
         function setState(val) {
@@ -452,18 +451,18 @@
                 case 'uploading':
                     $('#filePicker2').addClass('element-invisible');
                     $progress.show();
-                    $upload.text('ÔİÍ£ÉÏ´«');
+                    $upload.text('æš‚åœä¸Šä¼ ');
                     break;
 
                 case 'paused':
                     $progress.show();
-                    $upload.text('¼ÌĞøÉÏ´«');
+                    $upload.text('ç»§ç»­ä¸Šä¼ ');
                     break;
 
                 case 'confirm':
                     $progress.hide();
                     $('#filePicker2').removeClass('element-invisible');
-                    $upload.text('¿ªÊ¼ÉÏ´«');
+                    $upload.text('å¼€å§‹ä¸Šä¼ ');
 
                     stats = uploader.getStats();
                     if (stats.successNum && !stats.uploadFailNum) {
@@ -474,9 +473,9 @@
                 case 'finish':
                     stats = uploader.getStats();
                     if (stats.successNum) {
-                        alert('ÉÏ´«³É¹¦');
+                        //alert('ä¸Šä¼ æˆåŠŸ');
                     } else {
-                        // Ã»ÓĞ³É¹¦µÄÍ¼Æ¬£¬ÖØÉè
+                        // æ²¡æœ‰æˆåŠŸçš„å›¾ç‰‡ï¼Œé‡è®¾
                         state = 'done';
                         location.reload();
                     }
@@ -540,8 +539,16 @@
             }
         });
 
+        uploader.onUploadSuccess = function (file,response ) {
+            //alert('Eroor: ' + code);
+            var imgId = response._raw;
+            console.log(imgId);
+            window._globalV.imgSource.push(imgId);
+
+        };
         uploader.onError = function (code) {
-            alert('Eroor: ' + code);
+            //alert('Eroor: ' + code);
+            //alert('ä¸Šä¼ å¤±è´¥')
         };
 
         $upload.on('click', function () {
@@ -563,7 +570,7 @@
         });
 
         $info.on('click', '.ignore', function () {
-            alert('todo');
+            //alert('todo');
         });
 
         $upload.addClass('state-' + state);

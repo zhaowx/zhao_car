@@ -1,3 +1,4 @@
+body{margin-top:70px;}
 @media screen and (min-width: 768px) {
     .ycm-form-login-background {
         margin-top: -20px;
@@ -58,7 +59,7 @@
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
-/*ÊäÈë¿ò´íÎó red¾Û¼¯*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ redï¿½Û¼ï¿½*/
 .errorInput {
     border: 1px solid #EA4747;
 }
