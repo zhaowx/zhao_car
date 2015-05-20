@@ -16,24 +16,24 @@
                         <div class="col-xs-4">\
                             <h4>关于</h4>\
                             <ul class="list-unstyled">\
-                                <li><a href="/about/">关于我们</a></li>\
-                                <li><a href="/ad/">广告合作</a></li>\
-                                <li><a href="/links/">友情链接</a></li>\
-                                <li><a href="/hr/">招聘</a></li>\
+                                <li><a href="#">关于我们</a></li>\
+                                <li><a href="#">广告合作</a></li>\
+                                <li><a href="#">友情链接</a></li>\
+                                <li><a href="#">招聘</a></li>\
                             </ul>\
                         </div>\
                         <div class="col-xs-4">\
                             <h4>售后服务</h4>\
                             <ul class="list-unstyled">\
-                                <li><a href="/bx" target="_blank">保险</a></li>\
-                                <li><a href="/sp" target="_blank">上牌</a></li>\
+                                <li><a href="#" target="_blank">保险</a></li>\
+                                <li><a href="#" target="_blank">上牌</a></li>\
                             </ul>\
                         </div>\
                         <div class="col-xs-4">\
                             <h4>购车帮助</h4>\
                             <ul class="list-unstyled">\
-                                <li><a href="/xd" target="_blank">如何下单</a></li>\
-                                <li><a href="/wl" target="_blank">物流信息</a></li>\
+                                <li><a href="#" target="_blank">如何下单</a></li>\
+                                <li><a href="#" target="_blank">物流信息</a></li>\
                             </ul>\
                         </div>\
                     </div>\

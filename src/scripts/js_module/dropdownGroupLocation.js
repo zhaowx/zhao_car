@@ -9,7 +9,7 @@
         <div class="panel-body" >\
         <span>选择车辆状态  </span>\
         <div class="btn-group">\
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">\
+        <button id="js_locationf" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">\
         状态 <span class="caret"></span>\
         </button>\
         <ul class="dropdown-menu" role="menu" id="js_location"></ul>\
@@ -45,7 +45,7 @@
         $('#js_location').delegate('li','click',function(e){
             var $target = $(e.target);
             var text = $target.text();
-            $target.parents('ul').prev().text(text);
+            $('#js_locationf').text(text);
             var idx = $target.data('value');
             that.location_id  = idx;
             communicationGet({

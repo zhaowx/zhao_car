@@ -53,7 +53,7 @@
 
 
     function bindEvents(){
-        $('#js_listTable').delegate('tr','click',function(e){
+        $('#js_listTable').delegate('tbody tr','click',function(e){
             //todo 跳转到detail页
             var url = $(e.target).parent().data('href');
             location.href = url;

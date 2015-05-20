@@ -9,13 +9,13 @@
         <div class="panel-body" >\
         <span>选择外观/内饰颜色  </span>\
         <div class="btn-group">\
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">\
+        <button id="js_wgf" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">\
         外观 <span class="caret"></span>\
         </button>\
         <ul class="dropdown-menu" role="menu" id="js_wg"></ul>\
         </div>\
     <div class="btn-group">\
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">\
+        <button  id="js_nsf" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">\
         内饰 <span class="caret"></span>\
         </button>\
         <ul class="dropdown-menu" role="menu" id="js_ns"></ul>\
@@ -53,7 +53,7 @@
         $('#js_wg').delegate('li','click',function(e){
             var $target = $(e.target);
             var text = $target.text();
-            $target.parents('ul').prev().text(text);
+            $('#js_wgf').text(text);
             var idx = $target.data('value');
             that.color_id  = idx;
             communicationGet({
@@ -64,7 +64,7 @@
         $('#js_ns').delegate('li','click',function(e){
             var $target = $(e.target);
             var text = $target.text();
-            $target.parents('ul').prev().text(text);
+            $('#js_nsf').text(text);
             var idx = $target.data('value');
             that.innerColor  = idx;
             communicationGet({
