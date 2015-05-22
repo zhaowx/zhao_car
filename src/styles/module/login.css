@@ -63,3 +63,80 @@ body{margin-top:70px;}
 .errorInput {
     border: 1px solid #EA4747;
 }
+.index-questionContent {
+    margin-top: 3px;
+    border-top: 1px solid #e3e3e3;
+}
+
+.index-questionItem {
+    display: block;
+    position: relative;
+    float: left;
+    background: #fff;
+    width: 33.33333%;
+    height: 0%;
+    padding-bottom: 33.333333333%;
+}
+.index-empty {
+    background: transparent;
+}
+
+.index-questionLogo {
+    position: absolute;
+    top: 25.3125%;
+    left: 37.34375%;
+    width: 25.3125%;
+    height: 25.3125%;
+}
+
+.index-speed-mode {
+    background-image: url(../imgs/speed@3x.png);
+    background-image: -webkit-image-set(url(../imgs/speed@2x.png) 2x, url(../imgs/speed@3x.png) 3x);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.index-normal-mode {
+    background-image: url(../imgs/normal@3x.png);
+    background-image: -webkit-image-set(url(../imgs/normal@2x.png) 2x, url(../imgs/normal@3x.png) 3x);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.index-check-and-loan {
+    background-image: url(../imgs/credit@3x.png);
+    background-image: -webkit-image-set(url(../imgs/credit@2x.png) 2x, url(../imgs/credit@3x.png) 3x);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.index-repayment {
+    background: url(../imgs/repayment@3x.png);
+    background: -webkit-image-set(url(../imgs/repayment@2x.png) 2x, url(../imgs/repayment@3x.png) 3x);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.index-account {
+    background-image: url(../imgs/account@3x.png);
+    background-image: -webkit-image-set(url(../imgs/account@2x.png) 2x, url(../imgs/account@3x.png) 3x);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.index-safe-guarantee {
+    background: url(../imgs/safe@2x.png);
+    background: -webkit-image-set(url(../imgs/safe@2x.png) 2x, url(../imgs/safe@3x.png) 3x);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.index-question-word {
+    position: absolute;
+    bottom: 28.125%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.3rem;
+    font-style: normal;
+    color: #666666;
+}
