@@ -56,8 +56,6 @@
         <h4>联系方式:\
     <small>{{mobile}}</small>\
         </h4>\
-        <h4>收货邮编：<small>430525</small></h4>\
-        <h4>收货地址：<small>湖南省洞口县高沙镇深塘村白沙组</small></h4>\
         </div>\
         </div>\
         <div class="panel panel-default" name="checkStatus">\

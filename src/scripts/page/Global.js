@@ -92,7 +92,7 @@ function isInUserCenter() {
 function GoToHome() {
     var result = isLogin();
     if (!result && isInUserCenter()) {
-        location.href = "carlist.html";
+        location.href = "login.html";
     }
 }
 GoToHome();

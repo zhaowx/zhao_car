@@ -81,7 +81,8 @@
                 note:data.remark,
                 vin:data.vin,
                 price:'￥'+parseInt(data.price),
-                imgurl:data.image_url
+                imgurl:data.image_url,
+                verify_sts:that.verify_sts
             }
         });
 
