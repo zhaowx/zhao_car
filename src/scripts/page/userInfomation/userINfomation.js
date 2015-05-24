@@ -61,6 +61,7 @@
         <div class="panel panel-default" name="checkStatus">\
             <div class="panel-heading">用户状态</div>\
             <div class="panel-body">\
+            <div class="alert alert-success" role="alert">审核通过之后才可以进行车源信息和求购信息的发布</div>\
             {{if verify_sts == "0"}}\
             <h4>审核状态：<small class="verifying">审核中</small></h4>\
             {{else if verify_sts == "1"}}\

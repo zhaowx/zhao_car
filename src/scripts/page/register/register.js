@@ -143,6 +143,7 @@
                 loading.hide();
                 //成功
                 if(result.req === true){
+                    alert('恭喜您，已经注册成功！')
                     setCookie('token',result.data.token,window.window._globalV.cookieKeepDay);
                     setCookie('verify_sts',result.data.userInfo.verify_sts,window.window._globalV.cookieKeepDay);
                     location.href = "carlist.html";

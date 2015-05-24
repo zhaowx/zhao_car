@@ -6,12 +6,7 @@
     function renderCont() {
         var js_html = '     <div class="container">\
             <div class="row footer-top">\
-            <div class="col-sm-5 col-lg-5 hidden-xs">\
-                <h4><img src="../src/styles/imgs/ycm_logo.png" style="max-width: 300px; padding-bottom: 20px;">\
-                <div><a  href="tel:010-82437080">客服电话 ：010-82437080</a></div>\
-                </h4>\
-                </div>\
-                <div class="col-sm-5  col-lg-4 col-lg-offset-1 hidden-xs">\
+                <div class="col-sm-9  col-lg-9 hidden-xs">\
                     <div class="row about">\
                         <div class="col-xs-4">\
                             <h4>关于</h4>\
@@ -38,7 +33,7 @@
                         </div>\
                     </div>\
                 </div>\
-                <div class="col-sm-2 col-lg-2 col-xs-6 visible-xs" style="text-align: center;">\
+                <div class="col-sm-3 col-lg-3 col-xs-6 visible-xs" style="text-align: center;">\
                     <h4>客服</h4>\
                     <p>\
                    <a style="display: block"  href="tel:010-82437080"><img src="../src/styles/imgs/telephone.png" width="50px" ></a>\
@@ -46,7 +41,8 @@
                     </div>\
                 <div class="col-sm-2 col-lg-2 col-xs-6" style="text-align: center;">\
                     <h4>微信</h4>\
-                    <p><img src="../src/styles/imgs/ycm_ecode.jpg" width="50px;"></p>\
+                    <p><img  class="hidden-xs" src="../src/styles/imgs/ycm_ecode.jpg">\
+                    <img class="visible-xs" src="../src/styles/imgs/ycm_ecode.jpg" width="50px;" style="margin: 0 auto;"></p>\
                     </div>\
                 </div>\
                 <br/>\
