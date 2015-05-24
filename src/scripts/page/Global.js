@@ -5,9 +5,9 @@
 (function () {
     var GlobalVar = {
         reqUrl: "http://182.254.179.11/buyShop/s1/gateway.php",
-        imgUpUrl:'http://182.254.179.11/buyShop/s1/uploadimagefile.php',
-        personImgUpUrl:'http://182.254.179.11/buyShop/s1/uploadcertfile.php',
-        imgSource:[]
+        imgUpUrl: 'http://182.254.179.11/buyShop/s1/uploadimagefile.php',
+        personImgUpUrl: 'http://182.254.179.11/buyShop/s1/uploadcertfile.php',
+        imgSource: []
     }
     window._globalV = GlobalVar;
 })()
@@ -35,11 +35,11 @@ function setCookie(name, value, iDay) {
     var date = new Date();
     if (iDay) {
         var date = new Date();
-        date.setTime(date.getTime()+iDay*24*3600*1000);
+        date.setTime(date.getTime() + iDay * 24 * 3600 * 1000);
         document.cookie = name + '=' + value + ';expires=' + date.toGMTString();
     }
-    else{
-        date.setTime(date.getTime()+2*3600*1000);
+    else {
+        date.setTime(date.getTime() + 2 * 3600 * 1000);
         document.cookie = name + '=' + value + ';expires=' + date.toGMTString();
     }
 }
@@ -95,4 +95,53 @@ function GoToHome() {
         location.href = "login.html";
     }
 }
+/**
+ * 如果不为pc返回ture;
+ *否则为false;
+ * */
+var isPC = (function () {
+    var navigator = window.navigator,
+        userAgent = navigator.userAgent,
+        android = userAgent.match(/(Android)[\s\/]+([\d\.]+)/),
+        ios = userAgent.match(/(iPad|iPhone|iPod)\s+OS\s([\d_\.]+)/),
+        wp = userAgent.match(/(Windows\s+Phone)\s([\d\.]+)/),
+        isWebkit = /WebKit\/[\d.]+/i.test(userAgent),
+        isSafari = ios ? (navigator.standalone ? isWebkit : (/Safari/i.test(userAgent) && !/CriOS/i.test(userAgent) && !/MQQBrowser/i.test(userAgent))) : false,
+        os = {};
+
+    if (android) {
+        os.android = true;
+        os.version = android[2];
+    }
+    if (ios) {
+        os.ios = true;
+        os.version = ios[2].replace(/_/g, '.');
+        os.ios7 = /^7/.test(os.version);
+        if (ios[1] === 'iPad') {
+            os.ipad = true;
+        } else if (ios[1] === 'iPhone') {
+            os.iphone = true;
+            os.iphone5 = window.screen.height == 568;
+        } else if (ios[1] === 'iPod') {
+            os.ipod = true;
+        }
+    }
+    if (wp) {
+        os.wp = true;
+        os.version = wp[2];
+        os.wp8 = /^8/.test(os.version);
+    }
+    if (isWebkit) {
+        os.webkit = true;
+    }
+    if (isSafari) {
+        os.safari = true;
+    }
+    if (os.wp || os.wp8 || os.iphone || os.iphone5 || os.ipod || os.ios7 || os.android) {
+        return true;
+    }
+    else {
+        return false;
+    }
+})();
 GoToHome();
