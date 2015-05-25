@@ -8,9 +8,8 @@
         var js_html = '<table class="table table-hover">\
             <thead><tr>\
                 <th>车型</th>\
-                <th>车辆信息</th>\
                 <th>车辆颜色</th>\
-                <th>售卖价格</th>\
+                <th>价格</th>\
                 <th>车辆状态</th>\
                 <th>发布日期</th>\
             </tr>\
@@ -19,7 +18,6 @@
             {{each list as value i}}\
             <tr   data-href="carOne.html?carId={{value.car_id}}">\
                 <td>{{value.brandName}} {{value.modelName}} {{value.statesTypeName}}</td>\
-                <td>{{value.title}}</td>\
                 <td>{{value.colorName}}</td>\
                 <td>￥{{value.price.split(".")[0]}}</td>\
                 <td>{{value.confirmLocationName}}</td>\
