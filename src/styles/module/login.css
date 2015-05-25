@@ -140,3 +140,24 @@ body{margin-top:70px;}
     font-style: normal;
     color: #666666;
 }
+/*微信*/
+#weixin {
+    display: none;
+    position: fixed;
+    z-index: 300;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: rgba(0, 0, 0, 0.6);
+}
+#weixin img{
+    margin-top:100px;
+    padding-top: 30px;
+    background: #fff;
+}
+#weixin p{
+    background: #fff;
+    line-height: 1.9;
+    padding-bottom: 15px;
+}

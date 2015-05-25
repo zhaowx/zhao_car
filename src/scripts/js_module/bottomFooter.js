@@ -2,7 +2,7 @@
  * Created by weixiong.zhao on 2015/5/4.
  */
 
-(function(){
+(function () {
     function renderCont() {
         var js_html = '     <div class="container">\
             <div class="row footer-top">\
@@ -36,13 +36,13 @@
                 <div class="col-sm-3 col-lg-3 col-xs-6 visible-xs" style="text-align: center;">\
                     <h4>客服</h4>\
                     <p>\
-                   <a style="display: block"  href="tel:010-82437080"><img src="../src/styles/imgs/telephone.png" width="50px" ></a>\
+                   <a style="display: block"  href="tel:010-82738665"><img src="../src/styles/imgs/telephone.png" width="50px" ></a>\
                    </p>\
                     </div>\
                 <div class="col-sm-2 col-lg-2 col-xs-6" style="text-align: center;">\
                     <h4>微信</h4>\
                     <p><img  class="hidden-xs" src="../src/styles/imgs/ycm_ecode.jpg">\
-                    <img class="visible-xs" src="../src/styles/imgs/ycm_ecode.jpg" width="50px;" style="margin: 0 auto;"></p>\
+                    <img  id="phoneTwoCode"class="visible-xs" src="../src/styles/imgs/ycm_ecode.jpg" width="50px;" style="margin: 0 auto;"></p>\
                     </div>\
                 </div>\
                 <br/>\
@@ -52,14 +52,44 @@
                             <li>京公网安备 </li>\
                         </ul>\
                     </div>\
-                </div>';
+                </div>\
+                <div id="weixin">\
+            <div class="row">\
+            <img src="../src/styles/imgs/ycm_ecode.jpg" alt="" class="img-responsive col-xs-8 col-xs-offset-2"/>\
+            <p class="text-center col-xs-8 col-xs-offset-2">长按图片识别二唯码</p>\
+            </div>\
+            </div>\
+            </div>';
 
         var render = template.compile(js_html);
         var html = render();
         document.getElementById('js_bottomFooter').innerHTML = html;
+        clickSmallTwoCode();
 
     }
 
+    function showTwoCode() {
+        var weixin = $("#weixin");
+        weixin.show();
+        document.addEventListener('touchmove', stopMove);
+        weixin.on('click', function (e) {
+            weixin.hide();
+            document.removeEventListener('touchmove', stopMove);
+        });
+    }
+
+    function stopMove(e) {
+        e.preventDefault();
+    }
+
+    function clickSmallTwoCode() {
+        var userAgent = navigator.userAgent;
+        if (userAgent.indexOf('MicroMessenger') > 0) {
+            $("#phoneTwoCode").click(function () {
+                showTwoCode();
+            });
+        }
+    }
 
     renderCont();
 

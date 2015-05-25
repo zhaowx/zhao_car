@@ -8,20 +8,38 @@
     <meta name="Description" content=""/>
     <meta name="viewport"
           content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+    <link rel="stylesheet" href="../../dist/css/bootstrap.min.css"/>
     <title></title>
     <style>
-        *{
-            padding:0px;
-            margin: 0px;
+        #weixin {
+            display: none;
+            position: absolute;
+            z-index: 300;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            background: rgba(0, 0, 0, 0.6);
         }
-        #weixin{
-            pos
+        #weixin img{
+            margin-top:100px;
+            padding-top: 30px;
+            background: #fff;
+        }
+        #weixin p{
+            background: #fff;
+            line-height: 1.9;
+            padding-bottom: 15px;
         }
     </style>
 </head>
 <body>
 <div id="weixin">
-
+    <div class="row">
+    <img src="../../src/styles/imgs/ycm_ecode.jpg" alt="" class="img-responsive col-xs-8 col-xs-offset-2"/>
+        <p class="text-center col-xs-8 col-xs-offset-2">长按图片识别二唯码</p>
+    </div>
+    </div>
 </div>
 </body>
 </html>
