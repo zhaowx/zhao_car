@@ -46,14 +46,9 @@
                 <p><span>车辆状态：</span>{{data.location}}</p>\
                 <p><span>车辆规制：</span>{{data.statestype}}</p>\
                 <p><span>车辆颜色：</span>{{data.color}}</p>\
-                <p><span>车辆配置：</span>{{data.note}}</p>\
                 <p><span>车架尾号：</span>{{data.vin}}</p>\
-                {{if data.verify_sts}}\
+                <p><span>车辆配置：</span>{{data.note}}</p>\
                 <button type="button" class="btn btn-success ycm_buy_btn" id="js_buy">购买</button>\
-                {{else}}\
-                <button type="button" class="btn disabled ycm_buy_btn" id="js_buy">购买</button>\
-                <div class="alert alert-warning" role="alert">您需要进行身份审核通过之后才可以进行下单！</div>\
-                {{/if}}\
             </div>\
             <div class="col-xs-4"><p class="lead">{{data.price}}</p></div>\
         </div>\
@@ -81,8 +76,7 @@
                 note:data.remark,
                 vin:data.vin,
                 price:'￥'+parseInt(data.price),
-                imgurl:data.image_url,
-                verify_sts:that.verify_sts
+                imgurl:data.image_url
             }
         });
 
@@ -94,14 +88,11 @@
     function bindEvents(){
         $('#js_buy').bind('click',function(){
             //todo 下单
-            if(!that.uid){
-                alert('请先登陆');
+            if(!that.uid || !that.verify_sts){
+                alert('请你登录或注册后购买');
                 return;
             }
-            if(!that.verify_sts){
-                alert('请先通过个人身份审核');
-                return;
-            }
+
             submitOrder();
         })
     }
@@ -126,7 +117,7 @@
         }).done(function(req){
             if(req.result && req.result.req) {
                 //跳转到 订单列表页
-                alert('下单成功')
+                alert('后台已接收订单，客服会尽快和你取得联系')
                 location.href = 'userIndent.html'
             }
             if(req.result && !req.result.req){
