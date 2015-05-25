@@ -3,21 +3,8 @@
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
     <file url="file://$PROJECT_DIR$/src/styles/imgs/account@2x.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/styles/imgs/account@3x.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/styles/imgs/advice@2x.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/styles/imgs/advice@3x.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/styles/imgs/arrow.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/styles/imgs/calculator@2x.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/styles/imgs/calculator@3x.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/styles/imgs/credit@2x.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/styles/imgs/credit@3x.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/styles/imgs/goodQuestion@2x.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/styles/imgs/goodQuestion@3x.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/styles/imgs/goodQuestionClick@2x.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/styles/imgs/goodQuestionClick@3x.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/styles/imgs/noGoodQuestion@2x.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/styles/imgs/noGoodQuestion@3x.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/styles/imgs/noGoodQuestionClick@2x.png" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/styles/imgs/noGoodQuestionClick@3x.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/styles/imgs/normal@2x.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/styles/imgs/normal@3x.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/styles/imgs/repayment@2x.png" charset="GBK" />
