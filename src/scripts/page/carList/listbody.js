@@ -8,7 +8,7 @@
         var js_html = '<table class="table table-hover">\
             <thead><tr>\
                 <th>车型</th>\
-                <th>车辆颜色</th>\
+                <th>颜色</th>\
                 <th>价格</th>\
                 <th>车辆状态</th>\
                 <th>发布日期</th>\
