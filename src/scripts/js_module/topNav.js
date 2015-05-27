@@ -60,10 +60,7 @@
         <div class="navbar-header">\
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"\
             data-target="#bs-example-navbar-collapse-1">\
-                <span class="sr-only">Toggle navigation</span>\
-                <span class="icon-bar"></span>\
-                <span class="icon-bar"></span>\
-                <span class="icon-bar"></span>\
+               菜单\
             </button>\
             <a class="navbar-brand" href="index.html"><img src="../src/styles/imgs/ycm_logo.png" style="max-width: 120px;margin-top: -10px;"></a>\
         </div>\
@@ -83,7 +80,7 @@
                      </li>\
                      {{if isLogin}}\
                      <li  class="{{login}}"><a href="login.html">登录</a></li>\
-                     <li  class="{{register}}"><a href="register.html">注册</li> \
+                     <li  class="{{register}}"><a href="register.html">注册</a></li>\
                      {{else}}\
                      <li class="dropdown {{userCenter}}">\
                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">个人中心 <span class="caret"></span></a>\
