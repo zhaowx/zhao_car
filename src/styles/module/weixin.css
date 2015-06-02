@@ -19,3 +19,9 @@
     line-height: 1.9;
     padding-bottom: 15px;
 }
+
+/*顶部车型筛选区域*/
+#js_dropdownGroup ul{font-size: 18px;}
+
+/*底部menu*/
+#js_topnav ul{font-size: 18px;}

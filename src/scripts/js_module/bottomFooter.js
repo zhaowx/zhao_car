@@ -33,10 +33,10 @@
                         </div>\
                     </div>\
                 </div>\
-                <div class="col-sm-3 col-lg-3 col-xs-6 visible-xs" style="text-align: center;">\
+                <div class="col-sm-1 col-lg-1 col-xs-6 " style="text-align: center;">\
                     <h4>客服</h4>\
                     <p>\
-                   <a style="display: block"  href="tel:010-82738665"><img src="../src/styles/imgs/telephone.png" width="50px" ></a>\
+                   <a style="display: block"  href="tel:4009690190"><img src="../src/styles/imgs/telephone.png" width="50px" >4009690190</a>\
                    </p>\
                     </div>\
                 <div class="col-sm-2 col-lg-2 col-xs-6" style="text-align: center;">\

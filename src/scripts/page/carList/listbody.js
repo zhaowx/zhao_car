@@ -10,8 +10,7 @@
                 <th>车型</th>\
                 <th>颜色</th>\
                 <th>价格</th>\
-                <th>车辆状态</th>\
-                <th>发布日期</th>\
+                <th>状态</th>\
             </tr>\
             </thead>\
             <tbody>\
@@ -21,7 +20,6 @@
                 <td>{{value.colorName}}</td>\
                 <td>￥{{value.price.split(".")[0]}}</td>\
                 <td>{{value.confirmLocationName}}</td>\
-                <td>{{value.update_time.split(" ")[0]}}</td>\
             </tr>\
             {{/each}}\
             </tbody></table>\

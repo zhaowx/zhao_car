@@ -105,7 +105,7 @@
                 if (result.req === true) {
                     setCookie('token', result.data.token, window.window._globalV.cookieKeepDay);
                     setCookie('verify_sts',result.data.userInfo.verify_sts,window.window._globalV.cookieKeepDay);
-                    location.href = "carlist.html";
+                    location.href = "userIndent.html";
                 }
                 //信息错误失败
                 else if(result.req === false) {
