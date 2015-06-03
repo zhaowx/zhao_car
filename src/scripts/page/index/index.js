@@ -3,7 +3,7 @@
  */
 (function () {
     'use strict';
-    function renderCont() {
+    function renderContIsPC() {
         var js_html = '<div id="iphoneList" class="visible-xs">\
             <div class="index-questionContent">\
             <a class="index-questionItem" href="carlist.html">\
@@ -26,11 +26,84 @@
             <i class="index-question-word">质量保证</i></a>\
         </div>\
         </div>'
-        if(isPC){
+        if (isPC) {
             var render = template.compile(js_html);
             var html = render();
             document.getElementById('phoneOrPC').innerHTML = html;
         }
     };
-    renderCont();
+
+    function ShowHomeCarlist() {
+        var datas = {};
+        datas.updateCarlist = null;
+        datas.picDefault = null,
+            datas.lowPriceCarlist = null;
+
+        var js_html = '<h3>新车首发</h3>\
+            <div class="row">\
+            {{each updateCarlist as carlist}}\
+            <div class="col-md-3  col-sm-6 col-xs-6">\
+            <div class="indexCarList">\
+            <a href="carOne.html?carId={{carlist.car_id}}"> <img src="{{picDefault}}{{carlist.model_id}}" alt="" class="img-responsive"/>\
+            <div><p>{{carlist.title}}</p>\
+            <button class="btn btn-default">{{carlist.statesTypeName}}</button>\
+            <button class="btn btn-success">{{carlist.confirmLocationName}}</button>\
+            <p>价格:<strong>￥{{carlist.price}}</strong></p>\
+        </div>\
+        </a>\
+        </div>\
+        </div>\
+        {{/each}}\
+        </div>\
+        <h3>低价诱惑</h3>\
+        <div class="row">\
+        {{each lowPriceCarlist as lowcarlist}}\
+        <div class="col-md-3 col-sm-6 col-xs-6">\
+            <div class="indexCarList">\
+            <a href="carOne.html?carId={{lowcarlist.car_id}}"> <img src="{{picDefault}}{{lowcarlist.model_id}}" alt="" class="img-responsive"/>\
+            <div><p>{{lowcarlist.title}}</p>\
+        <button class="btn btn-default">{{lowcarlist.statesTypeName}}</button>\
+            <button class="btn btn-success">{{carlist.statesTypeName}}</button>\
+            <p>价格:<strong>￥{{lowcarlist.price}}</strong></p>\
+        </div>\
+        </a>\
+        </div>\
+        </div>\
+        {{/each}}\
+        </div>';
+        //to modify 改为promise 模式最好，防止层层回调。
+        $.ajax({
+            url: window._globalV.reqUrl,
+            data: {
+                cmd: 10031
+            },
+            timeout: window._globalV.ajaxTimeOut,
+            dataType: 'jsonp',
+            type: 'GET'
+        }).done(function (data) {
+            var result = data.result.data;
+            datas.updateCarlist = result.data;
+            datas.picDefault = result.picDefault;
+            $.ajax({
+                url: window._globalV.reqUrl,
+                data: {
+                    cmd: 10032
+                },
+                timeout: window._globalV.ajaxTimeOut,
+                dataType: 'jsonp',
+                type: 'GET'
+            }).done(function (data) {
+                var result = data.result.data;
+                datas.lowPriceCarlist = result.data;
+                var render = template.compile(js_html);
+                var html = render(datas);
+                document.getElementById('carlist').innerHTML = html;
+            }).fail(function () {
+            });
+        }).fail(function (data) {
+
+        });
+    }
+    renderContIsPC();
+    ShowHomeCarlist();
 }());
