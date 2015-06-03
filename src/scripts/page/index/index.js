@@ -44,7 +44,7 @@
             {{each updateCarlist as carlist}}\
             <div class="col-md-3  col-sm-6 col-xs-6">\
             <div class="indexCarList">\
-            <a href="carOne.html?carId={{carlist.car_id}}"> <img src="{{picDefault}}{{carlist.model_id}}" alt="" class="img-responsive"/>\
+            <a href="carOne.html?carId={{carlist.car_id}}"> <img src="{{picDefault}}{{carlist.model_id}}.jpg" alt="" class="img-responsive"/>\
             <div><p>{{carlist.title}}</p>\
             <button class="btn btn-default">{{carlist.statesTypeName}}</button>\
             <button class="btn btn-success">{{carlist.confirmLocationName}}</button>\
@@ -60,10 +60,10 @@
         {{each lowPriceCarlist as lowcarlist}}\
         <div class="col-md-3 col-sm-6 col-xs-6">\
             <div class="indexCarList">\
-            <a href="carOne.html?carId={{lowcarlist.car_id}}"> <img src="{{picDefault}}{{lowcarlist.model_id}}" alt="" class="img-responsive"/>\
+            <a href="carOne.html?carId={{lowcarlist.car_id}}"> <img src="{{picDefault}}{{lowcarlist.model_id}}.jpg" alt="" class="img-responsive"/>\
             <div><p>{{lowcarlist.title}}</p>\
         <button class="btn btn-default">{{lowcarlist.statesTypeName}}</button>\
-            <button class="btn btn-success">{{carlist.statesTypeName}}</button>\
+            <button class="btn btn-success">{{lowcarlist.statesTypeName}}</button>\
             <p>价格:<strong>￥{{lowcarlist.price}}</strong></p>\
         </div>\
         </a>\
