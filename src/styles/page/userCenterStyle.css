@@ -1,5 +1,5 @@
 /***
-  *************************************ÓÃ»§ÖÐÐÄ**********
+  *************************************ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½**********
   */
 .userCenter {
     margin-top: 50px;
@@ -79,20 +79,20 @@
     font-size: 20px;
     background:#fff;
 }
-/*ÉóºËµÄÑÕÉ«*/
-small.verifying{
+/*ï¿½ï¿½Ëµï¿½ï¿½ï¿½É«*/
+span.verifying{
     color:black;
     font-weight: 900;
 }
-small.verifyPassed{
+span.verifyPassed{
     color:green;
 }
-small.verifyNoPassed{
+span.verifyNoPassed{
     font-weight: bold;
     color:red;
 }
 
-/* Ö»ÔÚÆ½°å¼´ÒÔÉÏµÄÆÁÄ»ÉÏÏÔÊ¾*/
+/* Ö»ï¿½ï¿½Æ½ï¿½å¼´ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½Ê¾*/
 @media screen and (min-width: 769px) {
     .userCenter .list-group a:hover, a.ycm-user-LinkFocus {
         color: #cc0101;
