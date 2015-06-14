@@ -48,7 +48,11 @@
                 <p><span>车辆颜色：</span>{{data.color}}</p>\
                 <p><span>车架尾号：</span>{{data.vin}}</p>\
                 <p><span>车辆配置：</span>{{data.note}}</p>\
+                {{if data.sts=="0"}}\
                 <button type="button" class="btn btn-success ycm_buy_btn" id="js_buy">购买</button>\
+                {{else}}\
+                <button type="button" class="btn  ycm_buy_btn" disabled="disabled">已售</button>\
+                {{/if}}\
             </div>\
             <div class="col-xs-4"><p class="lead">{{data.price}}</p></div>\
         </div>\
@@ -75,6 +79,7 @@
                 statestype:data.brandName+data.modelName+data.statesTypeName,
                 note:data.remark,
                 vin:data.vin,
+                sts:data.sts,
                 price:'￥'+parseInt(data.price),
                 imgurl:data.image_url
             }

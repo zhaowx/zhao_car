@@ -49,7 +49,7 @@
             <div><p>{{carlist.title}}</p>\
             <button class="btn btn-default">{{carlist.statesTypeName}}</button>\
             <button class="btn btn-success">{{carlist.confirmLocationName}}</button>\
-            <p>价格:<strong>￥{{carlist.price}}</strong></p>\
+            <p>价格:<strong>￥{{carlist.price.split(".")[0]}}</strong></p>\
         </div>\
         </div>\
         </div>\
