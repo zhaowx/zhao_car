@@ -49,13 +49,11 @@
         var js_html = '<div class="panel panel-default">\
             <div class="panel-heading">用户信息</div>\
             <div class="panel-body">\
-            <h4>用户姓名：<small>{{nickname}}</small></h4>\
-        <h4>性别：<small>{{gender}}</small></h4>\
-        <h4>身份证号码：<small>{{cert_no}}</small></h4>\
-        <h4>注册邮箱：<small>{{login_email}}</small></h4>\
-        <h4>联系方式:\
-    <small>{{mobile}}</small>\
-        </h4>\
+            <h4>用户姓名：{{nickname}}</h4>\
+        <h4>性别：{{gender}}</h4>\
+        <h4>身份证号码：{{cert_no}}</h4>\
+        <h4>注册邮箱：{{login_email}}</h4>\
+        <h4>联系方式: {{mobile}}</h4>\
         </div>\
         </div>\
         <div class="panel panel-default" name="checkStatus">\
@@ -65,11 +63,11 @@
             <div class="alert alert-success" role="alert">审核通过之后才可以进行车源信息和求购信息的发布</div>\
             {{/if}}\
             {{if verify_sts == "0"}}\
-            <h4>审核状态：<small class="verifying">审核中</small></h4>\
+            <h4>审核状态：<span class="verifying">审核中</span></h4>\
             {{else if verify_sts == "1"}}\
-            <h4>审核状态：<small class="verifyPassed">审核通过</small></h4>\
+            <h4>审核状态：<span class="verifyPassed">审核通过</sp></h4>\
             {{else if verify_sts == "2"}}\
-            <h4>审核状态：<small class="verifyNoPassed">审核未通过,请联系客服！</small></h4>\
+            <h4>审核状态：<span class="verifyNoPassed">审核未通过,请联系客服！</sp></h4>\
             {{/if}}\
         </div>\
         </div>';

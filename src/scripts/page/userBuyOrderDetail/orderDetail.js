@@ -13,12 +13,12 @@
                     <div class="col-xs-12">\
                         <p><span>订单号：</span>{{data.orderNo}}</p>\
                         <p><span>订单金额：</span>{{data.price}}</p>\
-                        <p><span>订单状态更新时间：</span>{{data.updateDate}}</p>\
-                        <p><span>订单生产时间：</span>{{data.createDate}}</p>\
+                        <p><span>更新时间：</span>{{data.updateDate}}</p>\
+                        <p><span>订单生成时间：</span>{{data.createDate}}</p>\
                     </div>\
                 </div>\
                 <div class=" row ">\
-                    <a href="carOne.html?carId="+"{{data.carUrl}}">\
+                    <a href="carOne.html?carId={{data.carUrl}}">\
                     <div class="col-xs-12">\
                         <p><span>车型：</span>{{data.carInfo}}</p>\
                         <p><span>车辆名称：</span>{{data.carName}}</p>\
