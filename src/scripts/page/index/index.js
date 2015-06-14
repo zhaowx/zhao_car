@@ -47,10 +47,10 @@
             <a href="carOne.html?carId={{carlist.car_id}}"> <img src="{{picDefault}}{{carlist.model_id}}.jpg" alt="" class="img-responsive"/>\
         </a>\
             <div><p>{{carlist.title}}</p>\
-            <button class="btn btn-default">{{carlist.statesTypeName}}</button>\
-            <button class="btn btn-success">{{carlist.confirmLocationName}}</button>\
+            <span class="btn btn-default">{{carlist.statesTypeName}}</span>\
+            <span class="btn btn-success">{{carlist.confirmLocationName}}</span>\
             <p>价格:<strong>￥{{carlist.price.split(".")[0]}}</strong></p>\
-            <p>发布日期:<strong>￥{{carlist.price.split(".")[0]}}</strong></p>\
+            <p>发布日期:<strong>{{carlist.create_time.split(" ")[0]}}</strong></p>\
         </div>\
         </div>\
         </div>\
@@ -64,9 +64,10 @@
             <a href="carOne.html?carId={{lowcarlist.car_id}}"> <img src="{{picDefault}}{{lowcarlist.model_id}}.jpg" alt="" class="img-responsive"/>\
              </a>\
             <div><p>{{lowcarlist.title}}</p>\
-        <button class="btn btn-default">{{lowcarlist.statesTypeName}}</button>\
-            <button class="btn btn-success">{{lowcarlist.statesTypeName}}</button>\
+            <span class="btn btn-default">{{lowcarlist.statesTypeName}}</span>\
+            <span class="btn btn-success">{{lowcarlist.statesTypeName}}</span>\
             <p>价格:<strong>￥{{lowcarlist.price}}</strong></p>\
+            <p>发布日期:<strong>{{lowcarlist.create_time.split(" ")[0]}}</strong></p>\
         </div>\
         </div>\
         </div>\
