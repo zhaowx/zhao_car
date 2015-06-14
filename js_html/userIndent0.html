@@ -37,18 +37,18 @@
             <div class="page-header">
                 <h2 class="h2">我的订单</h2>
             </div>
-
-            <div class="page-header visible-xs">
-                <h2 class="h2">
-                    <ol class="breadcrumb">
-                        <li><a href="userIndent.html">用户中心</a></li>
-                        <li class="active">我的订单</li>
-                    </ol>
-
-                </h2>
-            </div>
+            <ul class="nav nav-tabs formService" id="myTab">
+                <li role="presentation" class="active orderTab"><a href="#buyOrderC" class="text-center">购车订单</a></li>
+                <li role="presentation" class="orderTab"><a href="#sellOrderC" class="text-center">卖车订单</a></li>
+            </ul>
             <div class="tab-content">
-                <div class="table-responsive"  id="buyOrder">
+                <div class="tab-pane active" id="buyOrderC">
+                    <div class="table-responsive" id="buyOrder">
+                    </div>
+                </div>
+                <div class="tab-pane" id="sellOrderC">
+                    <div class="table-responsive"  id="sellOrder">
+                    </div>
                 </div>
             </div>
         </div>
@@ -91,6 +91,7 @@
 <script src="../src/scripts/js_module/bottomFooter.js"></script>
 <script src="../src/scripts/js_module/userCenterMenu.js"></script>
 <script src="../src/scripts/page/userIndent/buyOrder.js"></script>
+<script src="../src/scripts/page/userIndent/sellOrder.js"></script>
 <script type="text/javascript">
     (function () {
         'use strict';

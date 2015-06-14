@@ -12,17 +12,22 @@
                 <th>车辆信息</th>\
                 <th>订单号</th>\
                 <th>成交金额</th>\
-                <th class="hidden-xs">下单时间</th>\
+                <th>订单状态</th>\
+                <th>车辆状态</th>\
+                <th>下单时间</th>\
             </tr>\
             </thead>\
         <tbody>\
             {{each data as value i}}\
-            <tr   data-href="userBuyOrderDetail.html?order_no={{value.order_no}}">\
-                <td>{{value.car[0].brandName}} {{value.car[0].modelName}} {{value.car[0].statesTypeName}}</p>\
+            <tr>\
+                <td>\
+                        <p>{{value.car[0].brandName}} {{value.car[0].modelName}} {{value.car[0].statesTypeName}}</p>\
                 </td>\
                 <td>{{value.order_no}}</td>\
                 <td>￥{{value.pro_total_price.split(".")[0]}}</td>\
-                <td class="hidden-xs">{{value.create_time}}</td>\
+                <td>{{value.confirmName}}</td>\
+                <td>{{value.car[0].confirmLocationName}}</td>\
+                <td>{{value.create_time}}</td>\
             </tr>\
             {{/each}}\
         </tbody>\
@@ -54,11 +59,7 @@
     }
 
     function bindEvents(){
-        $('#buyOrder').delegate('tbody tr','click',function(e){
-            //todo 跳转到detail页
-            var url = $(e.target).parent().data('href');
-            location.href = url;
-        })
+
     }
     function jumpPage(){
         $('.js_prevPageBuy').bind('click',function(){

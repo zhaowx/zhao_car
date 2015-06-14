@@ -14,7 +14,7 @@
     <!--<link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">-->
     <link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../src/styles/page/userCenterStyle.css"/>
-    <link rel="stylesheet" href="../src/styles/selffont/iconfont.css">
+    <link href="../src/styles/page/carList.css" rel="stylesheet">
     <link rel="stylesheet" href="../src/styles/module/weixin.css"/>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -29,58 +29,36 @@
 <nav class="navbar navbar-default navbar-fixed-top" id="js_topnav">
 </nav>
 
-<div class="container userCenter hidden-xs">
+<div class="container userCenter">
     <div class="row">
         <div class="col-sm-2 col-md-2 hidden-xs listMenu" id="jsUserMenu">
+
         </div>
         <div class="col-sm-10 col-md-10">
-            <div class="page-header">
-                <h2 class="h2">我的订单</h2>
+            <div class="page-header hidden-xs">
+                <h2 class="h2">我的直购<a class="btn btn-primary pull-right js_publish" href="userPublishWantCar.html" role="button">新建订单</a></h2>
             </div>
-
             <div class="page-header visible-xs">
                 <h2 class="h2">
                     <ol class="breadcrumb">
                         <li><a href="userIndent.html">用户中心</a></li>
-                        <li class="active">我的订单</li>
+                        <li class="active">我的直购</li>
+                        <a class="btn btn-primary pull-right btn-sm  js_publish" href="userPublishWantCar.html" role="button">发布求购</a>
                     </ol>
 
                 </h2>
             </div>
             <div class="tab-content">
-                <div class="table-responsive"  id="buyOrder">
+                <div class="table-responsive"  id="js_listTable">
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<!--这个是针对手机屏幕的 todo-->
-<div class="container visible-xs userCenter userCenterMobile">
-    <div class="list-group mobile">
-        <a href="userIndentM.html" class="list-group-item"> <i class="icon iconfont iconLogo">&#xe6ec;</i>我的订单 <i
-                class="icon iconfont arrowRight">&#xe647;</i></a>
-        <a href="userWant.html" class="list-group-item"> <i class="icon iconfont iconLogo">&#xe61d;</i>我的求购 <i
-                class="icon iconfont arrowRight">&#xe647;</i></a>
-        <a href="userCar.html" class="list-group-item"> <i class="icon iconfont iconLogo">&#xe61a;</i>我的车源 <i
-                class="icon iconfont arrowRight">&#xe647;</i></a>
-
-    </div>
-    <div class="list-group mobile">
-        <a href="userInfomation.html" class="list-group-item"> <i class="icon iconfont iconLogo">&#xe654;</i>用户信息 <i
-                class="icon iconfont arrowRight">&#xe647;</i></a>
-        <a href="userModifyPassword.html" class="list-group-item"> <i class="icon iconfont iconLogo">&#xe615;</i>修改密码 <i
-                class="icon iconfont arrowRight">&#xe647;</i></a>
-    </div>
-    <div class="list-group mobile">
-        <a href="userService.html" class="list-group-item"> <i class="icon iconfont iconLogo">&#xe677;</i>投诉与建议 <i
-                class="icon iconfont arrowRight">&#xe647;</i></a>
-    </div>
-</div>
-
 <footer class="footer " id="js_bottomFooter">
 
 </footer>
+
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
@@ -90,17 +68,6 @@
 <script src="../src/scripts/js_module/topNav.js"></script>
 <script src="../src/scripts/js_module/bottomFooter.js"></script>
 <script src="../src/scripts/js_module/userCenterMenu.js"></script>
-<script src="../src/scripts/page/userIndent/buyOrder.js"></script>
-<script type="text/javascript">
-    (function () {
-        'use strict';
-        $('#myTab a:first').tab('show');//初始化显示哪个tab
-
-        $('#myTab a').click(function (e) {
-            e.preventDefault();//阻止a链接的跳转行为
-            $(this).tab('show');//显示当前选中的链接及关联的content
-        })
-    }());
-</script>
+<script src="../src/scripts/page/userDirectBuy/listBody.js"></script>
 </body>
 </html>
