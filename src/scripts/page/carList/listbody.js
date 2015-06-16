@@ -27,6 +27,7 @@
             <ul class="pager">\
             <li><a href="#" class="js_prevPage">上一页</a></li>\
             <li><a href="#" class="js_nextPage">下一页</a></li>\
+            <li><span style="float: right">{{list.currentPageNum}}/{{list.totalPageNum}}页</span></li>\
             </ul>\
         </nav>';
 
@@ -38,6 +39,8 @@
         }
 
         //var html = render({data:[1,2]});
+        data.currentPageNum = that.dataParams.pageIndex+1;
+        data.totalPageNum = parseInt(that.countNum/that.dataParams.num)+1;
         var html = render({
             list:data
         });

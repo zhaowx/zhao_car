@@ -31,10 +31,13 @@
             <ul class="pager">\
             <li><a href="#" class="js_prevPageBuy">上一页</a></li>\
             <li><a href="#" class="js_nextPageBuy">下一页</a></li>\
+            <li><span style="float: right">{{data.currentPageNum}}/{{data.totalPageNum}}页</span></li>\
             </ul>\
         </nav>';
         var render = template.compile(js_html);
         //var html = render({data:[1,2]});
+        data.currentPageNum = that.dataParams.pageIndex+1;
+        data.totalPageNum = parseInt(that.countNum/that.dataParams.num)+1;
         var html = render({
             data:data,
             num:data.length
