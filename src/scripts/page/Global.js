@@ -114,9 +114,9 @@ function GoToHome() {
     if (!result && isInUserCenter()) {
         location.href = "login.html";
     }
-    if(!router()){
-        location.href = 'index.html';
-    }
+    //if(!router()){
+    //    location.href = 'index.html';
+    //}
 }
 /**
  * 如果不为pc返回ture;

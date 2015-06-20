@@ -20,7 +20,7 @@
                     </div>\
                 </div>\
                 <div class="panel panel-default">\
-                    <div class="panel-body">订单改变纪录</div>\
+                    <div class="panel-body">订单改变记录</div>\
                     <div class="panel-footer">\
                         <div class="procedure">\
                             <div class="fl process-bar">\
