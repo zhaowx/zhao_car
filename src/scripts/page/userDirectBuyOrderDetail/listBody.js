@@ -5,7 +5,7 @@
 (function(){
     var  globalVar  =  window._globalV;
 
-    function renderCont(data) {
+    function renderCont(data,logisticsconfig) {
         var js_html = ' <div class="row">\
             <div class="col-md-12">\
                 <div class=" info"><h3>订单状态 {{data.status}}</h3></div>\
@@ -21,39 +21,70 @@
                 </div>\
                 <div class="panel panel-default">\
                     <div class="panel-body">订单改变纪录</div>\
-                <div class="panel-footer">\
-                {{each data.statusLogs as value i}}\
-                {{i}} {{value}}<br\>\
-                {{/each}}\
+                    <div class="panel-footer">\
+                        <div class="procedure">\
+                            <div class="fl process-bar">\
+                                {{each logisticsconfig as value i}}\
+                                    {{if i != logisticsconfig.length-1}}\
+                                        {{if value.sts == 1}}\
+                                            <i class="icon i-orderok"></i>\
+                                            <i class="i-orderarrow"></i>\
+                                        {{else}}\
+                                            <i class="icon i-orderetyok"></i>\
+                                            <i class="i-orderetyarrow"></i>\
+                                        {{/if}}\
+                                    {{else}}\
+                                        {{if value.sts == 1}}\
+                                            <i class="icon i-orderok"></i>\
+                                        {{else}}\
+                                            <i class="icon i-orderetyok"></i>\
+                                        {{/if}}\
+                                    {{/if}}\
+                                {{/each}}\
+                            </div>\
+                            <div class="fl tips">\
+                            {{each logisticsconfig as value i}}\
+                                <div class="step">\
+                                    <span class="fr t-3">{{value.time}}</span>\
+                                    <p class="bold">{{value.text}}</p>\
+                                    <p class="sub">{{value.cont}}</p>\
+                                </div>\
+                            {{/each}}\
+                            </div>\
+                        </div>\
+                    </div>\
                 </div>\
                 </div>\
             </div>\
         </div>';
 
         var render = template.compile(js_html);
+
+        var _logisticsconfig = makeStatusData(logisticsconfig,data.logistics)
         //var html = render({data:[1,2]});
         var html = render({
+            //data:{
+            //    status:'手续办理中',
+            //    orderNo:'20150601130021',
+            //    updateDate:'2015-06-15',
+            //    createDate:'2015-06-11',
+            //    friendName:'李斯',
+            //    friendTel:'18612345678',
+            //    friendEmail:'zwx@163.com',
+            //    statusLogs:['aa','bbb']
+            //}
+
             data:{
-                status:'手续办理中',
-                orderNo:'20150601130021',
-                updateDate:'2015-06-15',
-                createDate:'2015-06-11',
-                friendName:'李斯',
-                friendTel:'18612345678',
-                friendEmail:'zwx@163.com',
-                statusLogs:['aa','bbb']
-            }
-//            data:{
-//                orderNo:data.order_no,
-//                price:data.pro_total_price.split('.')[0],
-//                status:data.confirmName,
-//                updateDate:data.modify_time,
-//                createDate:data.create_time,
-//                carInfo:carData.brandName+' '+carData.modelName+' '+carData.statesTypeName,
-//                carStatus:carData.confirmLocationName,
-//                carName:data.pro_name,
-//                carUrl:data.car_id
-//            }
+                status:data.stsName,
+                orderNo:data.order_no,
+                updateDate:data.modify_time,
+                createDate:data.create_time,
+                friendName:data.friend_name,
+                friendTel:data.friend_mobile,
+                friendEmail:data.friend_email,
+                statusLogs:data.logistics
+            },
+            logisticsconfig:_logisticsconfig
         });
 
         document.getElementById('js_orderDetail').innerHTML = html;
@@ -62,11 +93,31 @@
 
     var that = {
         dataParams: {
-            num: 10,
-            pageIndex: 0
+            order_no:''
         },
         uid:'',
         countNum:0
+    }
+
+    function makeStatusData(logisticsconfig,logistics){
+
+        var data = [];
+        $(logisticsconfig).each(function(i,item){
+            var _item = {
+                text:'',
+                sts:0,
+                time:'',
+                cont:''
+            }
+            _item.text = item.name;
+            if(logistics[i]){
+                _item.sts = 1;
+                _item.time = logistics[i].create_time;
+                _item.cont = logistics[i].content;
+            }
+            data.push(_item);
+        })
+        return data;
     }
 
     function bindEvents(){
@@ -79,26 +130,7 @@
 //
 //        })
     }
-    function jumpPage(){
-        $('.js_prevPage').bind('click',function(){
-            var idx = that.dataParams.pageIndex;
-            if(idx==0){
-                return  false;
-            }
-            idx--;
-            that.dataParams.pageIndex = idx;
-            getData(that.dataParams)
-        })
-        $('.js_nextPage').bind('click',function(){
-            var idx = that.dataParams.pageIndex;
-            idx++;
-            if(that.countNum <= idx*that.dataParams.num){
-                return  false;
-            }
-            that.dataParams.pageIndex = idx;
-            getData(that.dataParams)
-        })
-    }
+
 
     function getData(){
         $.ajax({
@@ -114,9 +146,10 @@
             dataType: "jsonp"
         }).done(function(req){
             if(req.result && req.result.req) {
-                that.countNum = req.result.data.ct;
-                var data = req.result.data.data;
-                renderCont(data);
+
+                var data = req.result.data.data[0];
+
+                renderCont(data,req.result.data.logisticsconfig);
             }
         })
     }
@@ -133,18 +166,13 @@
             renderCont({},true);
             return;
         }
-        //getData();{{value.brandName}} {{value.modelName}} {{value.statesTypeName}}
-        var data=[
-                    {
-                        brandName:'宝马',
-                        modelNmae:'x1',
-                        statesTypeName:'12',
-                        orderNo:'20150614001122',
-                        createTime:'20150614 12:00:11',
-                        friendName:'李斯'
-                    }
-            ]
-        renderCont(data);
+        var match = location.search.match(/order_no=([^&]*)/)
+        var order_no = match?match[1]:null;
+        if(!order_no){
+            location.href =  'userDirectBuyOrder.html'
+        }
+        that.dataParams.order_no = order_no;
+        getData();
     }
 
     init();

@@ -17,11 +17,11 @@
             </thead>\
         <tbody>\
             {{each data as value i}}\
-            <tr data-href="userDirectBuyOrderDetail.html?orderNo={{value.orderNo}}">\
+            <tr data-href="userDirectBuyOrderDetail.html?order_no={{value.order_no}}">\
                 <td>{{value.brandName}} {{value.modelName}} {{value.statesTypeName}}</p></td>\
-                <td>{{value.orderNo}}</td>\
-                <td>{{value.friendName}}</td>\
-                <td class="hidden-xs">{{value.createTime.split(" ")[0]}}</td>\
+                <td>{{value.order_no}}</td>\
+                <td>{{value.friend_name}}</td>\
+                <td class="hidden-xs">{{value.create_time.split(" ")[0]}}</td>\
             </tr>\
             {{/each}}\
         </tbody>\
