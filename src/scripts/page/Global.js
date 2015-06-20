@@ -89,11 +89,33 @@ function isInUserCenter() {
     }
     return result;
 }
+
+function router(){
+    var gotoR = location.href.split('?')[0].split('/').pop();
+    var routers=[
+        'carlist','carOne','exit','index','login','register',
+        'userBuyOrderDetail','userDirectBuyOrder','userDirectBuyOrderDetail',
+        'userEditInformation','userIndent','userIndentM','userInfomation',
+        'userModifyPassword','userPublishCar','userPublishDirectBuy','userPublishWantCar',
+        'userService','userWant','wantList'
+    ]
+    gotoR = gotoR.split('.')[0];
+    if(routers.indexOf(gotoR)>-1){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+
 /**@iscription 针对用户中心转主页*/
 function GoToHome() {
     var result = isLogin();
     if (!result && isInUserCenter()) {
         location.href = "login.html";
+    }
+    if(!router()){
+        location.href = 'index.html';
     }
 }
 /**

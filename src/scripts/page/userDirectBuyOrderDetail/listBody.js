@@ -105,7 +105,7 @@
             type: "GET",
             url: globalVar.reqUrl,
             data: {
-                cmd:10007,
+                cmd:10036,
                 token:that.uid,
                 dataPacket:{
                     data: that.dataParams
