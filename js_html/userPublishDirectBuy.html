@@ -44,12 +44,24 @@
                     </ol>
                 </h2>
             </div>
-            <form class="form-group formService" id="js_form">
+            <div class="form-group formService" id="js_form">
 
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon">VIN码</div>
-                        <input type="text" class="form-control" id="carVin" name="carVin" maxlength="20" placeholder="选中车型对应的VIN码"/>
+                <form class="form-inline">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">VIN码</div>
+                            <input type="text" class="form-control" id="js_vin" placeholder="WP1AA2A2">
+                            <div class="input-group-addon" id="js_checkVin">
+                                <span >check</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+                <div class="panel panel-default">
+                    <div class="panel-body">选择该VIN码下车型</div>
+                    <div class="panel-footer" id="js_vinCars">
+
                     </div>
                 </div>
                 <div class="form-group">
@@ -73,7 +85,7 @@
                 <div class="form-group">
                     <button type="button" class="btn btn-primary btn-lg btn-block" id="js_publish">确认订单</button>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>
