@@ -36,6 +36,18 @@
                 data.myOrder = classStyle;
                 data.spanLiveTrade = id;
                 break;
+            case "userDirectBuyOrder":
+                data.myDirect = classStyle;
+                data.spanLiveTrade = id;
+                break;
+            case "userDirectBuyOrderDetail":
+                data.myDirect = classStyle;
+                data.spanLiveTrade = id;
+                break;
+            case "userPublishDirectBuy":
+                data.myDirect = classStyle;
+                data.spanLiveTrade = id;
+                break;
             case "userModifyPassword":
                 data.modifyPwd = classStyle;
                 data.spanUserAd = id;
@@ -76,6 +88,7 @@
             我的交易\
             </span>\
             <a href="userIndent.html" class="list-group-item {{myOrder}}">我的订单</a>\
+            <a href="userDirectBuyOrder.html" class="list-group-item {{myDirect}}">我的海外直购</a>\
             <a href="userWant.html" class="list-group-item  {{myBuy}}">我的求购</a>\
             <a href="userCar.html" class="list-group-item {{myCar}}">我的车源</a>\
             <span  class="list-group-item active" id="{{spanUserAd}}">\

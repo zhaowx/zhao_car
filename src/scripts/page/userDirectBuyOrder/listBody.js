@@ -17,11 +17,11 @@
             </thead>\
         <tbody>\
             {{each data as value i}}\
-            <tr data-href="userDirectBuyOrderDetail.html?orderNo={{value.orderNo}}">\
+            <tr data-href="userDirectBuyOrderDetail.html?order_no={{value.order_no}}">\
                 <td>{{value.brandName}} {{value.modelName}} {{value.statesTypeName}}</p></td>\
-                <td>{{value.orderNo}}</td>\
-                <td>{{value.friendName}}</td>\
-                <td class="hidden-xs">{{value.createTime.split(" ")[0]}}</td>\
+                <td>{{value.order_no}}</td>\
+                <td>{{value.friend_name}}</td>\
+                <td class="hidden-xs">{{value.create_time.split(" ")[0]}}</td>\
             </tr>\
             {{/each}}\
         </tbody>\
@@ -30,6 +30,7 @@
             <ul class="pager">\
             <li><a href="#" class="js_prevPage">上一页</a></li>\
             <li><a href="#" class="js_nextPage">下一页</a></li>\
+            <li><span style="float: right">{{data.currentPageNum}}/{{data.totalPageNum}}页</span></li>\
             </ul>\
         </nav>';
         var  fabu_html = '<div class="alert alert-info" role="alert">您暂时没有直购信息，您可以进行发布！</div>';
@@ -43,6 +44,8 @@
             var render = template.compile(js_html);
         }
         //var html = render({data:[1,2]});
+        data.currentPageNum = that.dataParams.pageIndex+1;
+        data.totalPageNum = parseInt(that.countNum/that.dataParams.num)+1;
         var html = render({
             data:data
         });
@@ -94,7 +97,7 @@
             type: "GET",
             url: globalVar.reqUrl,
             data: {
-                cmd:10007,
+                cmd:10036,
                 token:that.uid,
                 dataPacket:{
                     data: that.dataParams
@@ -122,18 +125,18 @@
             renderCont({},true);
             return;
         }
-        //getData();{{value.brandName}} {{value.modelName}} {{value.statesTypeName}}
-        var data=[
-                    {
-                        brandName:'宝马',
-                        modelNmae:'x1',
-                        statesTypeName:'12',
-                        orderNo:'20150614001122',
-                        createTime:'20150614 12:00:11',
-                        friendName:'李斯'
-                    }
-            ]
-        renderCont(data);
+        getData();
+        //var data=[
+        //            {
+        //                brandName:'宝马',
+        //                modelNmae:'x1',
+        //                statesTypeName:'12',
+        //                orderNo:'20150614001122',
+        //                createTime:'20150614 12:00:11',
+        //                friendName:'李斯'
+        //            }
+        //    ]
+        //renderCont(data);
     }
 
     init();

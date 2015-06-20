@@ -1,0 +1,95 @@
+/**
+    物流进度状态
+*/
+html, body, h1, h2, h3, h4, h5, h6, p, ul, ol, form, button, dl, dt, dd, select, input, textarea {
+    margin: 0;
+}
+.procedure {
+    padding: 35px 0 35px 20px;
+    overflow: hidden;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+
+i {
+    font-style: normal;
+}
+.icon {
+    background-image: url(http://xs01.meituan.net/waimai_web/img/sprite/icons_24420678.png);
+    _background-image: url(http://xs01.meituan.net/waimai_web/img/sprite/_icons_24420678.png);
+    background-repeat: no-repeat;
+    image-rendering: -webkit-optimize-contrast;
+    display: inline-block;
+}
+
+.i-orderok {
+    width: 26px;
+    height: 26px;
+    background-position: -290px -284px;
+}
+.i-orderetyok {
+    width: 26px;
+    height: 26px;
+    background-position: -325px -284px;
+}
+.procedure .process-bar i {
+    display: block;
+    margin-bottom: 6px;
+}
+.i-orderarrow {
+    width: 4px;
+    height: 60px;
+    background-color: #c3e47a;
+    display: block;
+    margin-left: 10px;
+}
+.i-orderetyarrow {
+    width: 4px;
+    height: 60px;
+    background-color: #E5E5E5;
+    display: block;
+    margin-left: 10px;
+}
+
+.i-orderetyarrow-h {
+    height: 6px;
+    width: 143px;
+    background-color: #E5E5E5;
+    display: block;
+    margin-left: 10px;
+}
+
+.procedure .process-bar i.higher {
+    height: 115px;
+}
+
+.procedure .tips {
+    margin-left: 20px;
+    width: 80%;
+}
+
+.procedure .tips .step{
+    height: 98px;
+}
+.procedure .t {
+    margin-top: 3px;
+    margin-right: 45px;
+    font-size: 12px;;
+}
+.procedure .tips .larger {
+    height: 153px;
+}
+
+.procedure .tips .sub {
+    color: #888888;
+    margin-top: 15px;
+}
+.bold {
+    font-weight: bold;
+}
+
+#js_orderDetail p{line-height: 2;}

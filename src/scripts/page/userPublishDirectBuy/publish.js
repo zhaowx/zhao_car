@@ -5,19 +5,39 @@
 (function(){
     var  globalVar  =  window._globalV;
     var that = {
-        dataParams: {
-            brand_id:0,
-            model_id:0,
-            standard_id:0,
-            color_id:0
-        },
+
         carid:''
     }
 
-    function communicationSet(){
-        $(document).bind('changeDPData',function(event,data){
-            var d = $.extend({},that.dataParams,data);
-            that.dataParams = d;
+    Object.size = function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
+
+    function checkVin(vin_id){
+        $.ajax({
+            type: "POST",
+            url: globalVar.reqUrl,
+            data: {
+                cmd:10034,
+                token:that.uid,
+                dataPacket: {
+                    vin: vin_id
+                }
+            },
+            timeout:'3000',
+            dataType: "jsonp"
+        }).done(function(req){
+            if(req.result && req.result.req) {
+
+            }else{
+                alert('网络错误,请重试')
+            }
+        }).fail(function(){
+            alert('网络错误')
         })
     }
 
@@ -35,17 +55,16 @@
 
     function dealData(){
         //console.log(that.dataParams);
-        var  dp =  that.dataParams;
-        for(var  i in  dp){
-            if(!dp[i] || dp[i]==0){
-                alert('请选择车型')
-                return false;
-            }
+        var  dp =  {};
+
+        dp.vin_id = $('#carVin').val();
+        dp.friend_name = $('#friendName').val();
+        dp.friend_mobile = $('#friendTel').val();
+        dp.friend_email = $('#friendEmail').val();
+        if(Object.size(dp)!=4){
+            alert('请输入完整信息');
+            return false;
         }
-        dp.carVin = $('#carVin').val();
-        dp.friendName = $('#friendName').val();
-        dp.friendTel = $('#friendTel').val();
-        dp.friendEmail = $('#friendEmail').val();
         return dp;
     }
 
@@ -54,7 +73,7 @@
             type: "POST",
             url: globalVar.reqUrl,
             data: {
-                cmd:10008,
+                cmd:10035,
                 token:that.uid,
                 dataPacket: {
                     data: data
@@ -64,9 +83,10 @@
             dataType: "jsonp"
         }).done(function(req){
             if(req.result && req.result.req) {
-                //璺宠浆鍒? 璁㈠崟鍒楄〃椤?
-                alert('发布求购成功')
-                location.href = 'userWant.html'
+                alert('下单成功')
+                location.href = 'userDirectBuyOrder.html'
+            }else{
+                alert('网络错误,请重试')
             }
         }).fail(function(){
             alert('网络错误')
@@ -83,7 +103,6 @@
             return;
         }
         bindEvents();
-        communicationSet();
     }
 
     init();
