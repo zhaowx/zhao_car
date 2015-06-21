@@ -22,7 +22,7 @@
             type: "POST",
             url: globalVar.reqUrl,
             data: {
-                cmd:10034,
+                cmd:10037,
                 token:that.uid,
                 dataPacket: {
                     vin: vin_id
@@ -32,13 +32,42 @@
             dataType: "jsonp"
         }).done(function(req){
             if(req.result && req.result.req) {
-
+                console.log(req);
+                makeCars(req.result.data);
             }else{
                 alert('网络错误,请重试')
             }
         }).fail(function(){
             alert('网络错误')
         })
+    }
+
+    function makeCars(data){
+        var el = $('#js_vinCars');
+        var html = '';
+        if(data.length==0){
+            html = '未找到与该VIN码对应的车型，请先核对或联系客服'
+        }else{
+            html= '<div class="btn-group" data-toggle="buttons">';
+            $(data).each(function(i,item){
+                html += '<label class="btn btn-default js_carVin">\
+                    <input type="radio" name="options" id="option3" value="" autocomplete="off"> \
+                </label>';
+            })
+            html += '</div>';
+        }
+        html='<div class="btn-group" data-toggle="buttons">\
+            <label class="btn btn-default js_carVin">\
+            <input type="radio" name="options" id="option1" value="1" autocomplete="off"> Radio 1\
+        </label>\
+        <label class="btn btn-default js_carVin">\
+            <input type="radio" name="options" id="option2" value="2" autocomplete="off"> Radio 2\
+        </label>\
+        <label class="btn btn-default js_carVin">\
+            <input type="radio" name="options" id="option3" value="3" autocomplete="off"> Radio 3\
+        </label>\
+        </div>'
+        el.append(html);
     }
 
     function bindEvents(){
@@ -51,13 +80,17 @@
            var d = dealData();
             d?sendData(d):null;
         })
+        $('#js_checkVin').bind('click',function(){
+            var vin_id = $('#js_vin').val();
+            checkVin(vin_id)
+        })
     }
 
     function dealData(){
         //console.log(that.dataParams);
         var  dp =  {};
 
-        dp.vin_id = $('#carVin').val();
+        dp.vin_id = $('.js_carVin.active').children().val();
         dp.friend_name = $('#friendName').val();
         dp.friend_mobile = $('#friendTel').val();
         dp.friend_email = $('#friendEmail').val();

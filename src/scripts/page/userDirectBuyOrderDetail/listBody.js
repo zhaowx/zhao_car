@@ -10,7 +10,7 @@
             <div class="col-md-12">\
                 <div class=" info"><h3>订单状态 {{data.status}}</h3></div>\
                 <div class=" row ">\
-                    <div class="col-xs-12">\
+                    <div class="col-xs-12 lh2">\
                         <p><span>订单号：</span>{{data.orderNo}}</p>\
                         <p><span>更新时间：</span>{{data.updateDate}}</p>\
                         <p><span>订单生成时间：</span>{{data.createDate}}</p>\
