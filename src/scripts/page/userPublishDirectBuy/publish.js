@@ -58,7 +58,7 @@
             })
             html += '</div>';
         }
-
+        el[0].innerHTML = '';
         el.append(html);
     }
 
