@@ -25,7 +25,9 @@
                 cmd:10037,
                 token:that.uid,
                 dataPacket: {
-                    vin: vin_id
+                    data: {
+                        vin: vin_id
+                    }
                 }
             },
             timeout:'3000',
@@ -51,22 +53,12 @@
             html= '<div class="btn-group" data-toggle="buttons">';
             $(data).each(function(i,item){
                 html += '<label class="btn btn-default js_carVin">\
-                    <input type="radio" name="options" id="option3" value="" autocomplete="off"> \
+                    <input type="radio" name="options" value="'+item.id+'" autocomplete="off"> '+item.brandName+' '+ item.modelName+'\
                 </label>';
             })
             html += '</div>';
         }
-        html='<div class="btn-group" data-toggle="buttons">\
-            <label class="btn btn-default js_carVin">\
-            <input type="radio" name="options" id="option1" value="1" autocomplete="off"> Radio 1\
-        </label>\
-        <label class="btn btn-default js_carVin">\
-            <input type="radio" name="options" id="option2" value="2" autocomplete="off"> Radio 2\
-        </label>\
-        <label class="btn btn-default js_carVin">\
-            <input type="radio" name="options" id="option3" value="3" autocomplete="off"> Radio 3\
-        </label>\
-        </div>'
+
         el.append(html);
     }
 
