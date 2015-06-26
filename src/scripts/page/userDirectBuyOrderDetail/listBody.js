@@ -113,7 +113,7 @@
             if(logistics[i]){
                 _item.sts = 1;
                 _item.time = logistics[i].create_time;
-                _item.cont = logistics[i].content;
+                _item.cont = logistics[i].remark ;
             }
             data.push(_item);
         })
