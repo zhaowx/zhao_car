@@ -37,6 +37,8 @@
                 data.spanLiveTrade = id;
                 break;
             case "userDirectBuyOrder":
+            case "userVinList":
+            case "userVinDetail":
                 data.myDirect = classStyle;
                 data.spanLiveTrade = id;
                 break;

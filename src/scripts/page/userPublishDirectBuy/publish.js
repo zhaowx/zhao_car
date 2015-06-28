@@ -53,7 +53,7 @@
             html= '<div class="btn-group" data-toggle="buttons">';
             $(data).each(function(i,item){
                 html += '<label class="btn btn-default js_carVin">\
-                    <input type="radio" name="options" value="'+item.id+'" autocomplete="off"> '+item.brandName+' '+ item.modelName+'\
+                    <input type="radio" name="options" value="'+item.id+'" autocomplete="off"> '+item.title+' '+ item.model_version+'\
                 </label>';
             })
             html += '</div>';
@@ -83,14 +83,17 @@
         var  dp =  {};
 
         dp.vin_id = $('.js_carVin.active').children().val();
+        dp.user_mobile = $('#userTel').val();
         dp.friend_name = $('#friendName').val();
         dp.friend_mobile = $('#friendTel').val();
         dp.friend_email = $('#friendEmail').val();
-        if(Object.size(dp)!=4){
+        if(dp.vin_id && dp.friend_email && dp.friend_mobile && dp.friend_name && dp.user_mobile){
+            return dp;
+        }else{
             alert('请输入完整信息');
             return false;
         }
-        return dp;
+
     }
 
     function sendData(data){

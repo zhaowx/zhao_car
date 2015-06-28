@@ -9,15 +9,15 @@
             <thead><tr>\
                 <th>车型</th>\
                 <th>VIN码</th>\
-                <th>价格</th>\
+                <th>轮毂尺寸</th>\
             </tr>\
             </thead>\
             <tbody>\
             {{each list as value i}}\
             <tr   data-href="userVinDetail.html?vin={{value.id}}">\
-                <td>{{value.brandName}} {{value.modelName}} {{value.statesTypeName}}</td>\
+                <td>{{value.title}} {{value.model_version}}</td>\
                 <td>{{value.vin}}</td>\
-                <td>￥{{value.price.split(".")[0]}}</td>\
+                <td>{{value.hub_size}}</td>\
             </tr>\
             {{/each}}\
             </tbody></table>\
