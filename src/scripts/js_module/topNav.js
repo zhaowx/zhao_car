@@ -12,7 +12,8 @@
         service:"",
         userCenter:"",
         login:"",
-        register:""
+        register:"",
+        aboutDirectBuy:''
     };
 
     /**
@@ -41,6 +42,9 @@
                 break;
             case "xx":
                 data.service = style;
+            case "aboutDirectBuy":
+                data.aboutDirectBuy = style;
+                break;
             case "userCenter":
                 data.userCenter = style;
                 break;
@@ -72,16 +76,7 @@
                  <ul class="nav navbar-nav">\
                      <li class="{{carlist}}"><a href="carlist.html">在卖车源</a></li>\
                      <li class="{{wantList}}"><a href="wantlist.html">求购列表</a></li>\
-                     <li class="dropdown {{service}}">\
-                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">服务承诺<span class="caret"></span></a>\
-                         <ul class="dropdown-menu" role="menu">\
-                             <li><a href="#" class="active">购车流程</a></li>\
-                             <li><a href="#">保险服务</a></li>\
-                             <li><a href="#">质量保证</a></li>\
-                             <li class="divider"></li>\
-                             <li><a href="aboutUs.html">关于我们</a></li>\
-                         </ul>\
-                     </li>\
+                     <li class="{{aboutDirectBuy}}"><a href="aboutDirectBuy.html">海外直购</a></li>\
                      {{if isLogin}}\
                      <li  class="{{login}}"><a href="login.html">登录</a></li>\
                      <li  class="{{register}}"><a href="register.html">注册</a></li>\

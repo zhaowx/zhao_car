@@ -42,20 +42,28 @@
             <div class="col-md-6">\
             <div class="ycm_head"><h3>{{data.title}}</h3></div>\
             <div class=" row ycm_cont">\
-            <div class="col-xs-8">\
-                <p><span>车辆状态：</span>{{data.location}}</p>\
-                <p><span>车辆规制：</span>{{data.statestype}}</p>\
-                <p><span>车辆颜色：</span>{{data.color}}</p>\
-                <p><span>车架尾号：</span>{{data.vin}}</p>\
-                <p><span>车辆配置：</span>{{data.note}}</p>\
-                {{if data.sts=="0"}}\
-                <button type="button" class="btn btn-success ycm_buy_btn" id="js_buy">购买</button>\
-                {{else}}\
-                <button type="button" class="btn  ycm_buy_btn" disabled="disabled">已售</button>\
-                {{/if}}\
+                <div class="col-xs-8">\
+                    <p><span>车辆状态：</span>{{data.location}}</p>\
+                    <p><span>车辆规制：</span>{{data.statestype}}</p>\
+                    <p><span>车辆颜色：</span>{{data.color}}</p>\
+                    <p><span>车架尾号：</span>{{data.vin}}</p>\
+                    <p><span>车辆配置：</span>{{data.note}}</p>\
+                    {{if data.sts=="0"}}\
+                    <button type="button" class="btn btn-success ycm_buy_btn" id="js_buy">购买</button>\
+                    {{else}}\
+                    <button type="button" class="btn  ycm_buy_btn" disabled="disabled">已售</button>\
+                    {{/if}}\
+                </div>\
+                <div class="col-xs-4"><p class="lead">{{data.price}}</p></div>\
             </div>\
-            <div class="col-xs-4"><p class="lead">{{data.price}}</p></div>\
-        </div>\
+            <div class="row ycm_cont">\
+                <div class="col-xs-12">\
+                    <a type="button" class="btn btn-warning" href="aboutDirectBuy.html">海外直购，再低10%以上＊</a>\
+                </div>\
+                <div class="col-xs-12">\
+                <p style="font-size: 12px;">＊具体价格以合同为准</p>\
+                </div>\
+            </div>\
         </div>\
         </div>';
         var render = template.compile(js_html);
