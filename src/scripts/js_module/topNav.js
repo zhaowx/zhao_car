@@ -79,7 +79,7 @@
                              <li><a href="#">保险服务</a></li>\
                              <li><a href="#">质量保证</a></li>\
                              <li class="divider"></li>\
-                             <li><a href="#">关于我们</a></li>\
+                             <li><a href="aboutUs.html">关于我们</a></li>\
                          </ul>\
                      </li>\
                      {{if isLogin}}\
