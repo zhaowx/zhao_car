@@ -11,7 +11,7 @@
                         <div class="col-xs-4">\
                             <h4>关于</h4>\
                             <ul class="list-unstyled">\
-                                <li><a href="#">关于我们</a></li>\
+                                <li><a href="aboutUs.html">关于我们</a></li>\
                                 <li><a href="#">广告合作</a></li>\
                                 <li><a href="#">友情链接</a></li>\
                                 <li><a href="#">招聘</a></li>\

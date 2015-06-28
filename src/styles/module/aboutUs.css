@@ -1,0 +1,20 @@
+.Parallel{
+    border: 1px solid silver;
+    padding: 0px;
+}
+.content ul{
+    padding-left: 20px;
+    padding-right: 2px;
+}
+.ParallelFont{
+    font-size: 20px;
+}
+.Parallel .title{
+    padding: 6px 0px;
+    background: #b70c05;
+    font-size: 15px;
+    color:#dff0d8;
+}
+.ParallelFont .or{
+    font-weight: bolder;
+}
