@@ -66,7 +66,7 @@
             <div><p>{{lowcarlist.title}}</p>\
             <span class="btn btn-default">{{lowcarlist.statesTypeName}}</span>\
             <span class="btn btn-success">{{lowcarlist.statesTypeName}}</span>\
-            <p>价格:<strong>￥{{lowcarlist.price}}</strong></p>\
+            <p>价格:<strong>￥{{lowcarlist.price.split(".")[0]}}</strong></p>\
             <p>发布日期:<strong>{{lowcarlist.create_time.split(" ")[0]}}</strong></p>\
         </div>\
         </div>\

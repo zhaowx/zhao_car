@@ -49,7 +49,6 @@
                     <div class="row footer-bottom">\
                         <ul class="list-inline text-center">\
                             <li><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备 14054991号</a></li>\
-                            <li>京公网安备 </li>\
                         </ul>\
                     </div>\
                 </div>\
