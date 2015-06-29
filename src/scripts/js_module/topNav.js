@@ -74,9 +74,8 @@
         </div>\
          <div class="collapse navbar-collapse  navbar-right" id="bs-example-navbar-collapse-1">\
                  <ul class="nav navbar-nav">\
+                     <li class="{{aboutDirectBuy}}"><a href="aboutDirectBuy.html" id="directBuy">海外直购</a></li>\
                      <li class="{{carlist}}"><a href="carlist.html">在卖车源</a></li>\
-                     <li class="{{wantList}}"><a href="wantlist.html">求购列表</a></li>\
-                     <li class="{{aboutDirectBuy}}"><a href="aboutDirectBuy.html">海外直购</a></li>\
                      {{if isLogin}}\
                      <li  class="{{login}}"><a href="login.html">登录</a></li>\
                      <li  class="{{register}}"><a href="register.html">注册</a></li>\
